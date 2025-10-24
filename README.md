@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b775996 (Creacion del README.)
 # Modelo Entidad–Relación (MER) – Ferretería 
 
 ## Descripción del negocio
@@ -121,4 +125,9 @@ El sistema tiene como objetivo **gestionar los productos, clientes, usuarios y l
 ## Integrantes del equipo
 **Integrantes:**
 - Castro Torricos Johnny Saul
+<<<<<<< HEAD
 - Hussain Cazas Zelaya 
+=======
+- Hussain Cazas Zelaya  
+>>>>>>> e232522 (Creacion del README.)
+>>>>>>> b775996 (Creacion del README.)
