@@ -1,0 +1,5 @@
+C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Release\CpFerreteria.csproj.AssemblyReference.cache
+C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Release\CpFerreteria.FrmFerreteria.resources
+C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Release\CpFerreteria.Properties.Resources.resources
+C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Release\CpFerreteria.csproj.GenerateResource.cache
+C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Release\CpFerreteria.csproj.CoreCompileInputs.cache

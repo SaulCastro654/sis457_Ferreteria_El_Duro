@@ -1,0 +1,2 @@
+C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\ClnFerreteria\obj\Debug\ClnFerreteria.csproj.AssemblyReference.cache
+C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\ClnFerreteria\obj\Debug\ClnFerreteria.csproj.CoreCompileInputs.cache
