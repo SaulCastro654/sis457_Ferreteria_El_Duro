@@ -14,31 +14,52 @@ namespace CpFerreteria
 {
     public partial class FrmFerreteria : Form
     {
+        private bool esNuevo = false;
         public FrmFerreteria()
         {
             InitializeComponent();
         }
-
-        public object FerreteriaCln { get; private set; }
-
         private void listar()
         {
-            var lista = FerreteriaCln.listarPa(txtBuscar.Text.Trim());
+            var lista = ProductoCln.listarPa(txtParametro.Text.Trim());
             dgvLista.DataSource = lista;
             dgvLista.Columns["IdProducto"].Visible = false;
-            dgvLista.Columns["Nombre"].Visible = false;
-            dgvLista.Columns["Precio"].Visible = false;
-            dgvLista.Columns["Stock"].Visible = false;
-            dgvLista.Columns["estado"].Visible = false;
+            dgvLista.Columns["Nombre"].HeaderText = "Producto";
+            dgvLista.Columns["Precio"].HeaderText = "Precio";
+            dgvLista.Columns["Stock"].HeaderText = "Stock";
 
-            if (lista.Count > 0) dgvLista.CurrentCell = dgvLista.Rows[0].Cells["Nombre"];
+            if (lista.Count > 0) dgvLista.CurrentCell = dgvLista.Rows[0].Cells[1];
             btnEditar.Enabled = lista.Count > 0;
             btnEliminar.Enabled = lista.Count > 0;
         }
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            Size = new Size(800, 600);
+            Size = new Size(820, 385);
             listar();
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            esNuevo = true;
+            pnlAccion.Enabled = false;
+            Size = new Size(800, 555);
+            txtNombre.Focus();
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nudPrecioVenta_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmFerreteria_Load(object sender, EventArgs e)
+        {
+
+        }
     }
+}

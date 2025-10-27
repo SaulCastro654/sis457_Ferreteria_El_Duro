@@ -12,11 +12,13 @@ namespace CadFerreteria
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
-    public partial class FerreteriaEntities1 : DbContext
+    public partial class LabFerreteriaEntities1 : DbContext
     {
-        public FerreteriaEntities1()
-            : base("name=FerreteriaEntities1")
+        public LabFerreteriaEntities1()
+            : base("name=LabFerreteriaEntities1")
         {
         }
     
@@ -26,8 +28,18 @@ namespace CadFerreteria
         }
     
         public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Venta> Venta { get; set; }
+    
+        public virtual ObjectResult<paProductoListar_Result> paProductoListar(string parametro)
+        {
+            var parametroParameter = parametro != null ?
+                new ObjectParameter("parametro", parametro) :
+                new ObjectParameter("parametro", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paProductoListar_Result>("paProductoListar", parametroParameter);
+        }
     }
 }

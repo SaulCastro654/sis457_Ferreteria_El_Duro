@@ -1,5 +1,0 @@
-C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.csproj.AssemblyReference.cache
-C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.FrmFerreteria.resources
-C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.Properties.Resources.resources
-C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.csproj.GenerateResource.cache
-C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.csproj.CoreCompileInputs.cache

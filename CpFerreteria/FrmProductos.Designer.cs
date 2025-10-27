@@ -38,12 +38,19 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblBuscar = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtParametro = new System.Windows.Forms.TextBox();
             this.erpNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpStock = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpeEditar = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCancelar = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.gpbDatos = new System.Windows.Forms.GroupBox();
+            this.nudPrecioVenta = new System.Windows.Forms.NumericUpDown();
+            this.nudStock = new System.Windows.Forms.NumericUpDown();
+            this.lblPrecioVenta = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAccion.SuspendLayout();
@@ -51,6 +58,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpeEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCancelar)).BeginInit();
+            this.gpbDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -143,12 +153,12 @@
             this.lblBuscar.TabIndex = 3;
             this.lblBuscar.Text = "Buscar por Nombre o stock :";
             // 
-            // txtBuscar
+            // txtParametro
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(310, 44);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(362, 22);
-            this.txtBuscar.TabIndex = 4;
+            this.txtParametro.Location = new System.Drawing.Point(310, 44);
+            this.txtParametro.Name = "txtParametro";
+            this.txtParametro.Size = new System.Drawing.Size(362, 22);
+            this.txtParametro.TabIndex = 4;
             // 
             // erpNombre
             // 
@@ -175,20 +185,100 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
+            // gpbDatos
+            // 
+            this.gpbDatos.Controls.Add(this.nudPrecioVenta);
+            this.gpbDatos.Controls.Add(this.nudStock);
+            this.gpbDatos.Controls.Add(this.lblPrecioVenta);
+            this.gpbDatos.Controls.Add(this.lblStock);
+            this.gpbDatos.Controls.Add(this.txtNombre);
+            this.gpbDatos.Controls.Add(this.lblNombre);
+            this.gpbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbDatos.Location = new System.Drawing.Point(18, 337);
+            this.gpbDatos.Name = "gpbDatos";
+            this.gpbDatos.Size = new System.Drawing.Size(764, 159);
+            this.gpbDatos.TabIndex = 5;
+            this.gpbDatos.TabStop = false;
+            this.gpbDatos.Text = "Datos";
+            // 
+            // nudPrecioVenta
+            // 
+            this.nudPrecioVenta.Location = new System.Drawing.Point(440, 106);
+            this.nudPrecioVenta.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudPrecioVenta.Name = "nudPrecioVenta";
+            this.nudPrecioVenta.Size = new System.Drawing.Size(102, 30);
+            this.nudPrecioVenta.TabIndex = 15;
+            this.nudPrecioVenta.ValueChanged += new System.EventHandler(this.nudPrecioVenta_ValueChanged);
+            // 
+            // nudStock
+            // 
+            this.nudStock.Location = new System.Drawing.Point(613, 27);
+            this.nudStock.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudStock.Name = "nudStock";
+            this.nudStock.Size = new System.Drawing.Size(102, 30);
+            this.nudStock.TabIndex = 14;
+            // 
+            // lblPrecioVenta
+            // 
+            this.lblPrecioVenta.AutoSize = true;
+            this.lblPrecioVenta.Location = new System.Drawing.Point(193, 111);
+            this.lblPrecioVenta.Name = "lblPrecioVenta";
+            this.lblPrecioVenta.Size = new System.Drawing.Size(226, 25);
+            this.lblPrecioVenta.TabIndex = 13;
+            this.lblPrecioVenta.Text = "Precio de Venta (Bs.):";
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.Location = new System.Drawing.Point(467, 32);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(74, 25);
+            this.lblStock.TabIndex = 12;
+            this.lblStock.Text = "Stock:";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(156, 29);
+            this.txtNombre.MaxLength = 200;
+            this.txtNombre.Multiline = true;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(164, 41);
+            this.txtNombre.TabIndex = 11;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(56, 36);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(94, 25);
+            this.lblNombre.TabIndex = 10;
+            this.lblNombre.Text = "Nombre:";
+            // 
             // FrmFerreteria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 343);
+            this.ClientSize = new System.Drawing.Size(802, 508);
+            this.Controls.Add(this.gpbDatos);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.txtParametro);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.pnlAccion);
             this.Controls.Add(this.gbxListado);
             this.Controls.Add(this.lblUsuario);
             this.Name = "FrmFerreteria";
             this.Text = "::: Ferreteria - LabFerreteria :::";
+            this.Load += new System.EventHandler(this.FrmFerreteria_Load);
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.pnlAccion.ResumeLayout(false);
@@ -196,6 +286,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpeEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCancelar)).EndInit();
+            this.gpbDatos.ResumeLayout(false);
+            this.gpbDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,11 +306,18 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label lblBuscar;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtParametro;
         private System.Windows.Forms.ErrorProvider erpNombre;
         private System.Windows.Forms.ErrorProvider erpStock;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ErrorProvider erpeEditar;
         private System.Windows.Forms.ErrorProvider erpCancelar;
+        private System.Windows.Forms.GroupBox gpbDatos;
+        private System.Windows.Forms.NumericUpDown nudPrecioVenta;
+        private System.Windows.Forms.NumericUpDown nudStock;
+        private System.Windows.Forms.Label lblPrecioVenta;
+        private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lblNombre;
     }
 }

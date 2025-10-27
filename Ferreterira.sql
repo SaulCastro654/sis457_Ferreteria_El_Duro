@@ -2,7 +2,7 @@
 GO
 USE LabFerreteria;
 GO
-CREATE LOGIN usrferreteria WITH PASSWORD = '123456',
+CREATE LOGIN usrFerreteria WITH PASSWORD = '123456',
 	CHECK_POLICY = ON,
 	CHECK_EXPIRATION = OFF,
 	DEFAULT_DATABASE = LabFerreteria
@@ -45,7 +45,7 @@ CREATE TABLE Venta (
     IdCliente INT,
     Total DECIMAL(10,2),
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario),
-    FOREIGN KEY (IdCliente) REFERENCES Cliente(IdCliente)
+    FOREIGN KEY (IdCliente) REFERENCES Cliente(IdCliente),
 );
 
 CREATE TABLE DetalleVenta (
@@ -58,10 +58,49 @@ CREATE TABLE DetalleVenta (
     FOREIGN KEY (IdProducto) REFERENCES Producto(IdProducto)
 );
 
-INSERT INTO Usuario (NombreUsuario, Clave)
-VALUES ('admin', '1234');
-INSERT INTO Usuario (NombreUsuario, Clave)
-VALUES ('admin', '1234');
+ALTER TABLE Usuario ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Usuario ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Usuario ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE Cliente ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Cliente ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Cliente ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE Producto ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Producto ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Producto ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE Venta ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Venta ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Venta ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE DetalleVenta ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE DetalleVenta ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE DetalleVenta ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+GO
+
+DROP PROCEDURE IF EXISTS paProductoListar;
+GO
+
+CREATE PROCEDURE paProductoListar
+    @parametro VARCHAR(100)
+AS
+BEGIN
+    SELECT IdProducto, Nombre, Precio, Stock
+    FROM Producto
+    WHERE Nombre LIKE '%' + @parametro + '%'
+END
+GO
+
+EXECUTE paProductoListar 'Martillo';
+
+
+
+INSERT INTO Usuario (Nombre, Clave)
+VALUES ('admin', '4321');
+INSERT INTO Usuario (Nombre, Clave)
+VALUES ('Mario', '1234');
 
 INSERT INTO Producto (Nombre, Precio, Stock)
 VALUES 
@@ -76,4 +115,4 @@ VALUES
 ('Silicona industrial', 25.00, 30),
 ('Pintura blanca 1L', 55.00, 15);
 
-SELECT * FROM Producto;
+SELECT * FROM Usuario;

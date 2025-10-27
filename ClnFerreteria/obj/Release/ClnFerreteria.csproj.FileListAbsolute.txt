@@ -1,2 +1,17 @@
 C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\ClnFerreteria\obj\Release\ClnFerreteria.csproj.AssemblyReference.cache
 C:\Users\HP CELERON\Desktop\sis457\Ferreteria\Ferreteria\ClnFerreteria\obj\Release\ClnFerreteria.csproj.CoreCompileInputs.cache
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\ClnFerreteria.dll.config
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\ClnFerreteria.dll
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\ClnFerreteria.pdb
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\CadFerreteria.dll
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\EntityFramework.dll
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\CadFerreteria.pdb
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\CadFerreteria.dll.config
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\EntityFramework.xml
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\obj\Release\ClnFerreteria.csproj.AssemblyReference.cache
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\obj\Release\ClnFerreteria.csproj.CoreCompileInputs.cache
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\obj\Release\ClnFerre.36DAAECF.Up2Date
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\obj\Release\ClnFerreteria.dll
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\ClnFerreteria\obj\Release\ClnFerreteria.pdb

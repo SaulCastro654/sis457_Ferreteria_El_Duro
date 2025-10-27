@@ -24,7 +24,9 @@ namespace CadFerreteria
         public string Nombre { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
-        public Nullable<bool> Estado { get; set; }
+        public string usuarioRegistro { get; set; }
+        public System.DateTime fechaRegistro { get; set; }
+        public short estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Venta> Venta { get; set; }

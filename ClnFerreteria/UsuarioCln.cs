@@ -11,10 +11,10 @@ namespace ClnFerreteria
     {
         public static Usuario validar(string usuario, string clave)
         {
-            using (var context = new FerreteriaEntities())
+            using (var context = new LabFerreteriaEntities1())
             { 
                 return context.Usuario
-                    .Where(u => u.usaurio1 = usuario && u.clave == clave)
+                    .Where(x => x.Nombre == usuario && x.Clave == clave && x.estado == 1)
                     .FirstOrDefault();
             }
         }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="FerreteriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="LabFerreteriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Cliente">
     <Key>
       <PropertyRef Name="IdCliente" />
@@ -8,8 +8,25 @@
     <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Direccion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Name="Estado" Type="Boolean" />
-    <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__IdCliente__30F848ED" FromRole="Cliente" ToRole="Venta" />
+    <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__IdCliente__3E52440B" FromRole="Cliente" ToRole="Venta" />
+    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estado" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalleVenta">
+    <Key>
+      <PropertyRef Name="IdDetalle" />
+    </Key>
+    <Property Name="IdDetalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdVenta" Type="Int32" />
+    <Property Name="IdProducto" Type="Int32" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Subtotal" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__DetalleVe__IdPro__4222D4EF" FromRole="DetalleVenta" ToRole="Producto" />
+    <NavigationProperty Name="Venta" Relationship="Self.FK__DetalleVe__IdVen__412EB0B6" FromRole="DetalleVenta" ToRole="Venta" />
+    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estado" Type="Int16" Nullable="false" />
   </EntityType>
   <EntityType Name="Producto">
     <Key>
@@ -19,18 +36,22 @@
     <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Stock" Type="Int32" Nullable="false" />
-    <Property Name="Estado" Type="Boolean" />
+    <NavigationProperty Name="DetalleVenta" Relationship="Self.FK__DetalleVe__IdPro__4222D4EF" FromRole="Producto" ToRole="DetalleVenta" />
+    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estado" Type="Int16" Nullable="false" />
   </EntityType>
   <EntityType Name="Usuario">
     <Key>
       <PropertyRef Name="IdUsuario" />
     </Key>
     <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Contrasenia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Estado" Type="Boolean" />
-    <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__IdUsuario__300424B4" FromRole="Usuario" ToRole="Venta" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__IdUsuario__3D5E1FD2" FromRole="Usuario" ToRole="Venta" />
+    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estado" Type="Int16" Nullable="false" />
   </EntityType>
   <EntityType Name="Venta">
     <Key>
@@ -41,11 +62,14 @@
     <Property Name="IdUsuario" Type="Int32" />
     <Property Name="IdCliente" Type="Int32" />
     <Property Name="Total" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Estado" Type="Boolean" />
-    <NavigationProperty Name="Cliente" Relationship="Self.FK__Venta__IdCliente__30F848ED" FromRole="Venta" ToRole="Cliente" />
-    <NavigationProperty Name="Usuario" Relationship="Self.FK__Venta__IdUsuario__300424B4" FromRole="Venta" ToRole="Usuario" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Venta__IdCliente__3E52440B" FromRole="Venta" ToRole="Cliente" />
+    <NavigationProperty Name="DetalleVenta" Relationship="Self.FK__DetalleVe__IdVen__412EB0B6" FromRole="Venta" ToRole="DetalleVenta" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Venta__IdUsuario__3D5E1FD2" FromRole="Venta" ToRole="Usuario" />
+    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estado" Type="Int16" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Venta__IdCliente__30F848ED">
+  <Association Name="FK__Venta__IdCliente__3E52440B">
     <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
     <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
     <ReferentialConstraint>
@@ -57,7 +81,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Venta__IdUsuario__300424B4">
+  <Association Name="FK__DetalleVe__IdPro__4222D4EF">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="DetalleVenta">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetalleVe__IdVen__412EB0B6">
+    <End Role="Venta" Type="Self.Venta" Multiplicity="0..1" />
+    <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="IdVenta" />
+      </Principal>
+      <Dependent Role="DetalleVenta">
+        <PropertyRef Name="IdVenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__IdUsuario__3D5E1FD2">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
     <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
     <ReferentialConstraint>
@@ -69,18 +117,36 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="FerreteriaEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="LabFerreteriaEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" />
     <EntitySet Name="Producto" EntityType="Self.Producto" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" />
     <EntitySet Name="Venta" EntityType="Self.Venta" />
-    <AssociationSet Name="FK__Venta__IdCliente__30F848ED" Association="Self.FK__Venta__IdCliente__30F848ED">
+    <AssociationSet Name="FK__Venta__IdCliente__3E52440B" Association="Self.FK__Venta__IdCliente__3E52440B">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="Venta" EntitySet="Venta" />
     </AssociationSet>
-    <AssociationSet Name="FK__Venta__IdUsuario__300424B4" Association="Self.FK__Venta__IdUsuario__300424B4">
+    <AssociationSet Name="FK__DetalleVe__IdPro__4222D4EF" Association="Self.FK__DetalleVe__IdPro__4222D4EF">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetalleVe__IdVen__412EB0B6" Association="Self.FK__DetalleVe__IdVen__412EB0B6">
+      <End Role="Venta" EntitySet="Venta" />
+      <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__IdUsuario__3D5E1FD2" Association="Self.FK__Venta__IdUsuario__3D5E1FD2">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Venta" EntitySet="Venta" />
     </AssociationSet>
+    <FunctionImport Name="paProductoListar" ReturnType="Collection(LabFerreteriaModel.paProductoListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="paProductoListar_Result">
+    <Property Type="Int32" Name="IdProducto" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Precio" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Int32" Name="Stock" Nullable="false" />
+  </ComplexType>
 </Schema>
