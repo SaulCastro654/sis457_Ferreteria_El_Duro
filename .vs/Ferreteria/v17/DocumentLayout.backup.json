@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{934867F6-2CB5-4399-9C87-7FDB524D6F84}|CpFerreteria\\CpFerreteria\\CpFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\cpferreteria\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{934867F6-2CB5-4399-9C87-7FDB524D6F84}|CpFerreteria\\CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{934867F6-2CB5-4399-9C87-7FDB524D6F84}|CpFerreteria\\CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\cpferreteria\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{934867F6-2CB5-4399-9C87-7FDB524D6F84}|CpFerreteria\\CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{934867F6-2CB5-4399-9C87-7FDB524D6F84}|CpFerreteria\\CpFerreteria\\CpFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\cpferreteria\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934867F6-2CB5-4399-9C87-7FDB524D6F84}|CpFerreteria\\CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CEA7D682-8B22-406D-BD68-C5D0B81B81EE}|CadFerreteria\\CadFerreteria.csproj|C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\cadferreteria\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -45,7 +45,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -116,11 +116,12 @@
               "RelativeToolTip": "CpFerreteria\\CpFerreteria\\App.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-10-27T00:00:27.061Z"
+              "WhenOpened": "2025-10-27T00:00:27.061Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FrmProductos.cs",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\CpFerreteria\\CpFerreteria\\FrmProductos.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\CpFerreteria\\FrmProductos.cs",
@@ -133,14 +134,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FrmProductos.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\CpFerreteria\\CpFerreteria\\FrmProductos.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\CpFerreteria\\FrmProductos.cs",
               "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\CpFerreteria\\CpFerreteria\\FrmProductos.cs [Dise\u00F1o]",
               "RelativeToolTip": "CpFerreteria\\CpFerreteria\\FrmProductos.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T22:25:50.028Z"
+              "WhenOpened": "2025-10-26T22:25:50.028Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
