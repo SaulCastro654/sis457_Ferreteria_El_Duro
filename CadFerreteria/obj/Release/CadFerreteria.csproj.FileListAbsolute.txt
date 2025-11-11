@@ -1,0 +1,12 @@
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\bin\Release\CadFerreteria.dll.config
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\bin\Release\CadFerreteria.dll
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\bin\Release\CadFerreteria.pdb
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\bin\Release\EntityFramework.dll
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\bin\Release\EntityFramework.xml
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\obj\Release\CadFerreteria.csproj.AssemblyReference.cache
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\obj\Release\CadFerreteria.csproj.CoreCompileInputs.cache
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\obj\Release\CadFerre.55DC7512.Up2Date
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\obj\Release\CadFerreteria.dll
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\obj\Release\CadFerreteria.pdb

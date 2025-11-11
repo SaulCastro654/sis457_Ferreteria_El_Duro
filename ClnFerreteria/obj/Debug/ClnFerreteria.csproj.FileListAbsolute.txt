@@ -1,0 +1,15 @@
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\ClnFerreteria.dll.config
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\ClnFerreteria.dll
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\ClnFerreteria.pdb
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\CadFerreteria.dll
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\EntityFramework.dll
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\CadFerreteria.pdb
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\CadFerreteria.dll.config
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\EntityFramework.xml
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\obj\Debug\ClnFerreteria.csproj.AssemblyReference.cache
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\obj\Debug\ClnFerreteria.csproj.CoreCompileInputs.cache
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\obj\Debug\ClnFerre.36DAAECF.Up2Date
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\obj\Debug\ClnFerreteria.dll
+C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\ClnFerreteria\obj\Debug\ClnFerreteria.pdb
