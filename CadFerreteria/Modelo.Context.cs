@@ -31,7 +31,24 @@ namespace CadFerreteria
         public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
-        public virtual DbSet<Venta> Venta { get; set; }
+    
+        public virtual ObjectResult<paClienteListar_Result> paClienteListar(string parametro)
+        {
+            var parametroParameter = parametro != null ?
+                new ObjectParameter("parametro", parametro) :
+                new ObjectParameter("parametro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paClienteListar_Result>("paClienteListar", parametroParameter);
+        }
+    
+        public virtual ObjectResult<paDetalleVentaListar_Result> paDetalleVentaListar(string parametro)
+        {
+            var parametroParameter = parametro != null ?
+                new ObjectParameter("parametro", parametro) :
+                new ObjectParameter("parametro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paDetalleVentaListar_Result>("paDetalleVentaListar", parametroParameter);
+        }
     
         public virtual ObjectResult<paProductoListar_Result> paProductoListar(string parametro)
         {

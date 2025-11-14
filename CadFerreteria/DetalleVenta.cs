@@ -15,7 +15,7 @@ namespace CadFerreteria
     public partial class DetalleVenta
     {
         public int IdDetalle { get; set; }
-        public Nullable<int> IdVenta { get; set; }
+        public Nullable<int> IdCliente { get; set; }
         public Nullable<int> IdProducto { get; set; }
         public Nullable<int> Cantidad { get; set; }
         public Nullable<decimal> Subtotal { get; set; }
@@ -23,7 +23,7 @@ namespace CadFerreteria
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
     
+        public virtual Cliente Cliente { get; set; }
         public virtual Producto Producto { get; set; }
-        public virtual Venta Venta { get; set; }
     }
 }

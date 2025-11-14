@@ -52,6 +52,9 @@
             this.erpNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpStock = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpPrecio = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.cbmMarca = new System.Windows.Forms.ComboBox();
+            this.erpMarca = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAcciones.SuspendLayout();
@@ -61,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpMarca)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +84,7 @@
             // 
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(668, 37);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(123, 49);
             this.btnBuscar.TabIndex = 6;
@@ -92,7 +96,7 @@
             // txtParametro
             // 
             this.txtParametro.Location = new System.Drawing.Point(257, 62);
-            this.txtParametro.Margin = new System.Windows.Forms.Padding(4);
+            this.txtParametro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(336, 22);
             this.txtParametro.TabIndex = 5;
@@ -114,9 +118,9 @@
             this.gbxListado.Controls.Add(this.dgvLista);
             this.gbxListado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxListado.Location = new System.Drawing.Point(20, 114);
-            this.gbxListado.Margin = new System.Windows.Forms.Padding(4);
+            this.gbxListado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbxListado.Name = "gbxListado";
-            this.gbxListado.Padding = new System.Windows.Forms.Padding(4);
+            this.gbxListado.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbxListado.Size = new System.Drawing.Size(771, 165);
             this.gbxListado.TabIndex = 7;
             this.gbxListado.TabStop = false;
@@ -126,7 +130,7 @@
             // 
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLista.Location = new System.Drawing.Point(9, 15);
-            this.dgvLista.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvLista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.RowHeadersWidth = 51;
             this.dgvLista.Size = new System.Drawing.Size(753, 138);
@@ -139,7 +143,7 @@
             this.pnlAcciones.Controls.Add(this.btnEliminar);
             this.pnlAcciones.Controls.Add(this.btnCerrar);
             this.pnlAcciones.Location = new System.Drawing.Point(20, 287);
-            this.pnlAcciones.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlAcciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlAcciones.Name = "pnlAcciones";
             this.pnlAcciones.Size = new System.Drawing.Size(771, 57);
             this.pnlAcciones.TabIndex = 8;
@@ -148,7 +152,7 @@
             // 
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(141, 4);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(123, 49);
             this.btnNuevo.TabIndex = 9;
@@ -161,7 +165,7 @@
             // 
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(272, 4);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(123, 49);
             this.btnEditar.TabIndex = 9;
@@ -174,7 +178,7 @@
             // 
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Location = new System.Drawing.Point(403, 4);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(131, 49);
             this.btnEliminar.TabIndex = 9;
@@ -187,7 +191,7 @@
             // 
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrar.Location = new System.Drawing.Point(541, 4);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(124, 49);
             this.btnCerrar.TabIndex = 10;
@@ -198,6 +202,8 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.cbmMarca);
+            this.gbxDatos.Controls.Add(this.lblMarca);
             this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.btnGuardar);
             this.gbxDatos.Controls.Add(this.nudPrecioVenta);
@@ -208,9 +214,9 @@
             this.gbxDatos.Controls.Add(this.lblStock);
             this.gbxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxDatos.Location = new System.Drawing.Point(20, 351);
-            this.gbxDatos.Margin = new System.Windows.Forms.Padding(4);
+            this.gbxDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Padding = new System.Windows.Forms.Padding(4);
+            this.gbxDatos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbxDatos.Size = new System.Drawing.Size(771, 175);
             this.gbxDatos.TabIndex = 9;
             this.gbxDatos.TabStop = false;
@@ -220,7 +226,7 @@
             // 
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(416, 111);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(141, 49);
             this.btnCancelar.TabIndex = 15;
@@ -233,7 +239,7 @@
             // 
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(272, 111);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(136, 49);
             this.btnGuardar.TabIndex = 14;
@@ -245,7 +251,7 @@
             // nudPrecioVenta
             // 
             this.nudPrecioVenta.Location = new System.Drawing.Point(605, 66);
-            this.nudPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.nudPrecioVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudPrecioVenta.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -257,18 +263,18 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(184, 33);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.Location = new System.Drawing.Point(184, 24);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombre.MaxLength = 200;
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(164, 69);
+            this.txtNombre.Size = new System.Drawing.Size(164, 35);
             this.txtNombre.TabIndex = 6;
             // 
             // nudStock
             // 
-            this.nudStock.Location = new System.Drawing.Point(605, 33);
-            this.nudStock.Margin = new System.Windows.Forms.Padding(4);
+            this.nudStock.Location = new System.Drawing.Point(605, 21);
+            this.nudStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudStock.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -281,7 +287,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(95, 42);
+            this.lblNombre.Location = new System.Drawing.Point(95, 27);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(69, 17);
@@ -301,7 +307,7 @@
             // lblStock
             // 
             this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(399, 42);
+            this.lblStock.Location = new System.Drawing.Point(399, 27);
             this.lblStock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(53, 17);
@@ -320,6 +326,28 @@
             // 
             this.erpPrecio.ContainerControl = this;
             // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Location = new System.Drawing.Point(95, 72);
+            this.lblMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(57, 17);
+            this.lblMarca.TabIndex = 16;
+            this.lblMarca.Text = "Marca:";
+            // 
+            // cbmMarca
+            // 
+            this.cbmMarca.FormattingEnabled = true;
+            this.cbmMarca.Location = new System.Drawing.Point(184, 64);
+            this.cbmMarca.Name = "cbmMarca";
+            this.cbmMarca.Size = new System.Drawing.Size(164, 25);
+            this.cbmMarca.TabIndex = 17;
+            // 
+            // erpMarca
+            // 
+            this.erpMarca.ContainerControl = this;
+            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -333,7 +361,7 @@
             this.Controls.Add(this.txtParametro);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmProductos";
             this.Text = "::: FERRETERIA :::";
             this.Load += new System.EventHandler(this.FrmProductos_Load);
@@ -347,6 +375,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpMarca)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,6 +406,9 @@
         private System.Windows.Forms.ErrorProvider erpNombre;
         private System.Windows.Forms.ErrorProvider erpStock;
         private System.Windows.Forms.ErrorProvider erpPrecio;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.ComboBox cbmMarca;
+        private System.Windows.Forms.ErrorProvider erpMarca;
     }
 }
 

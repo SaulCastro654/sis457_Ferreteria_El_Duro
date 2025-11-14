@@ -29,6 +29,7 @@ namespace CpFerreteria
             dgvLista.Columns["Nombre"].HeaderText = "Nombre";
             dgvLista.Columns["Stock"].HeaderText = "Stock";
             dgvLista.Columns["Precio"].HeaderText = "Precio";
+            dgvLista.Columns["Marca"].HeaderText = "Marca";
             dgvLista.Columns["usuarioRegistro"].HeaderText = "Usuario Registro";
             dgvLista.Columns["fechaRegistro"].HeaderText = "Fecha Registro";
 
@@ -36,12 +37,18 @@ namespace CpFerreteria
             btnEditar.Enabled = lista.Count > 0;
             btnEliminar.Enabled = lista.Count > 0;
         }
+        private void cargarMarcas()
+        {
+            var marcas = new List<string> { "Tramontina", "Pretul", "Stanley", "Bosch", "Otra" };
+
+            cbmMarca.DataSource = marcas;
+        }
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             Size = new Size(621, 322);
+            cargarMarcas();
             listar();
         }
-
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esNuevo = true;
@@ -60,6 +67,7 @@ namespace CpFerreteria
             txtNombre.Text = producto.Nombre;
             nudStock.Value = producto.Stock;
             nudPrecioVenta.Value = producto.Precio;
+            cbmMarca.SelectedItem = producto.Marca;
 
             txtNombre.Focus();
         }
@@ -79,7 +87,6 @@ namespace CpFerreteria
         {
             listar();
         }
-        
         private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter) listar();
@@ -90,6 +97,7 @@ namespace CpFerreteria
             erpNombre.Clear();
             erpStock.Clear();
             erpPrecio.Clear();
+            erpMarca.Clear();
 
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
@@ -106,6 +114,11 @@ namespace CpFerreteria
                 erpPrecio.SetError(nudPrecioVenta, "El Precio es obligatorio");
                 esValido = false;
             }
+            if (string.IsNullOrEmpty(cbmMarca.Text))
+            {
+                erpMarca.SetError(cbmMarca, "La Marca es obligatoria");
+                esValido = false;
+            }
             return esValido;
         }
         private void btnGuardar_Click_1(object sender, EventArgs e)
@@ -116,6 +129,7 @@ namespace CpFerreteria
                 producto.Nombre = txtNombre.Text.Trim();
                 producto.Stock = (int)nudStock.Value;
                 producto.Precio = nudPrecioVenta.Value;
+                producto.Marca = (string)cbmMarca.SelectedItem;
                 producto.usuarioRegistro = Util.usuario.Nombre;
 
                 if (esNuevo)
