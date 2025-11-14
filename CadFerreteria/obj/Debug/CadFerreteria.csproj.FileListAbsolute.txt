@@ -10,3 +10,15 @@ C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\obj\Debug\CadFer
 C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\obj\Debug\CadFerre.55DC7512.Up2Date
 C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\obj\Debug\CadFerreteria.dll
 C:\Users\HP CELERON\Desktop\Lab 457\LabFerreteria\CadFerreteria\obj\Debug\CadFerreteria.pdb
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\CadFerreteria.dll.config
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\CadFerreteria.dll
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\CadFerreteria.pdb
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\EntityFramework.dll
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\EntityFramework.xml
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.csproj.AssemblyReference.cache
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.csproj.CoreCompileInputs.cache
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerre.55DC7512.Up2Date
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.dll
+C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.pdb
