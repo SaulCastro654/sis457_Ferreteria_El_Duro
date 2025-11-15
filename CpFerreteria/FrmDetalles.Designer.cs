@@ -36,7 +36,6 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.gbxListado = new System.Windows.Forms.GroupBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtParametro = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.erpVenta = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCantidad = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpSubtotal = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlAcciones.SuspendLayout();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
@@ -80,6 +80,7 @@
             // 
             // btnNuevo
             // 
+            this.btnNuevo.Image = global::CpFerreteria.Properties.Resources._new;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(106, 3);
             this.btnNuevo.Name = "btnNuevo";
@@ -92,6 +93,7 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.Image = global::CpFerreteria.Properties.Resources.edit;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(204, 3);
             this.btnEditar.Name = "btnEditar";
@@ -104,6 +106,7 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Image = global::CpFerreteria.Properties.Resources.delete;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Location = new System.Drawing.Point(302, 3);
             this.btnEliminar.Name = "btnEliminar";
@@ -116,6 +119,7 @@
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Image = global::CpFerreteria.Properties.Resources.close;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrar.Location = new System.Drawing.Point(406, 3);
             this.btnCerrar.Name = "btnCerrar";
@@ -145,18 +149,6 @@
             this.dgvLista.RowHeadersWidth = 51;
             this.dgvLista.Size = new System.Drawing.Size(565, 112);
             this.dgvLista.TabIndex = 0;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(492, 26);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(92, 40);
-            this.btnBuscar.TabIndex = 14;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtParametro
             // 
@@ -255,7 +247,7 @@
             // 
             this.cbmClientes.FormattingEnabled = true;
             this.cbmClientes.Location = new System.Drawing.Point(276, 25);
-            this.cbmClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbmClientes.Margin = new System.Windows.Forms.Padding(2);
             this.cbmClientes.Name = "cbmClientes";
             this.cbmClientes.Size = new System.Drawing.Size(92, 21);
             this.cbmClientes.TabIndex = 18;
@@ -272,14 +264,15 @@
             // cbmProducto
             // 
             this.cbmProducto.FormattingEnabled = true;
-            this.cbmProducto.Location = new System.Drawing.Point(94, 28);
-            this.cbmProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbmProducto.Location = new System.Drawing.Point(65, 27);
+            this.cbmProducto.Margin = new System.Windows.Forms.Padding(2);
             this.cbmProducto.Name = "cbmProducto";
-            this.cbmProducto.Size = new System.Drawing.Size(92, 21);
+            this.cbmProducto.Size = new System.Drawing.Size(142, 21);
             this.cbmProducto.TabIndex = 16;
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Image = global::CpFerreteria.Properties.Resources.cancel;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(312, 90);
             this.btnCancelar.Name = "btnCancelar";
@@ -292,6 +285,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Image = global::CpFerreteria.Properties.Resources.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(204, 90);
             this.btnGuardar.Name = "btnGuardar";
@@ -305,7 +299,7 @@
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(30, 32);
+            this.lblProducto.Location = new System.Drawing.Point(6, 32);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(62, 13);
             this.lblProducto.TabIndex = 5;
@@ -327,11 +321,26 @@
             // 
             this.erpSubtotal.ContainerControl = this;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::CpFerreteria.Properties.Resources.search;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(492, 26);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(92, 40);
+            this.btnBuscar.TabIndex = 14;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // FrmDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImage = global::CpFerreteria.Properties.Resources.detalless;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(605, 430);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.btnBuscar);
