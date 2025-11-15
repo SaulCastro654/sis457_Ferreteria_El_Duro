@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6713a551529c48d3b6522d83e5c2b114" Name="Diagram1">
-        <EntityTypeShape EntityType="LabFerreteriaModel.Cliente" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabFerreteriaModel.DetalleVenta" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabFerreteriaModel.Producto" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabFerreteriaModel.Usuario" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabFerreteriaModel.Cliente" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabFerreteriaModel.DetalleVenta" Width="1.5" PointX="3.125" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabFerreteriaModel.Producto" Width="1.5" PointX="5.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabFerreteriaModel.Usuario" Width="1.5" PointX="3.25" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="LabFerreteriaModel.FK__DetalleVe__IdCli__58F12BAE" ManuallyRouted="false" />
         <AssociationConnector Association="LabFerreteriaModel.FK__DetalleVe__IdPro__59E54FE7" ManuallyRouted="false" />
       </Diagram>

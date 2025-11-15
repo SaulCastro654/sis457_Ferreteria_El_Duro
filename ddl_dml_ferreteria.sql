@@ -160,3 +160,24 @@ SELECT * FROM Usuario;
 SELECT * FROM Producto;
 SELECT * FROM Cliente;
 SELECT * FROM DetalleVenta;
+
+USE master;
+GO
+
+DROP DATABASE IF EXISTS LabFerreteria;
+GO
+
+DROP LOGIN IF EXISTS usrFerreteria;
+GO
+
+USE master;
+GO
+
+ALTER DATABASE LabFerreteria SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+
+DROP DATABASE LabFerreteria;
+GO
+IF EXISTS (SELECT 1 FROM sys.server_principals WHERE name = 'usrFerreteria')
+    DROP LOGIN usrFerreteria;
+GO
