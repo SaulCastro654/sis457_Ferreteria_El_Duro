@@ -18,7 +18,7 @@ namespace CadFerreteria
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public short estado { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
+        public string Entrega { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
     }

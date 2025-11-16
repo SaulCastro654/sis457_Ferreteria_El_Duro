@@ -17,9 +17,13 @@ namespace CadFerreteria
         public string Cliente { get; set; }
         public string Producto { get; set; }
         public Nullable<int> Cantidad { get; set; }
+        public string Entrega { get; set; }
         public Nullable<decimal> Subtotal { get; set; }
+        public Nullable<decimal> Total { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
+        public decimal Precio { get; set; }
+        public object[] IdProducto { get; set; }
     }
 }

@@ -39,9 +39,10 @@ namespace CpFerreteria
         }
         private void cargarMarcas()
         {
-            var marcas = new List<string> { "Tramontina", "Pretul", "Stanley", "Bosch", "Otra" };
-
+            var marcas = MarcaCln.listar(); // Devuelve List<Marca> o List<string>
             cbmMarca.DataSource = marcas;
+            cbmMarca.DisplayMember = "Nombre"; // Si es lista de objetos Marca
+            cbmMarca.ValueMember = "IdMarca";  // Opcional
         }
         private void FrmProductos_Load(object sender, EventArgs e)
         {
@@ -67,7 +68,7 @@ namespace CpFerreteria
             txtNombre.Text = producto.Nombre;
             nudStock.Value = producto.Stock;
             nudPrecioVenta.Value = producto.Precio;
-            cbmMarca.SelectedItem = producto.Marca;
+            cbmMarca.SelectedValue = producto.IdMarca;
 
             txtNombre.Focus();
         }
@@ -129,7 +130,7 @@ namespace CpFerreteria
                 producto.Nombre = txtNombre.Text.Trim();
                 producto.Stock = (int)nudStock.Value;
                 producto.Precio = nudPrecioVenta.Value;
-                producto.Marca = (string)cbmMarca.SelectedItem;
+                producto.IdMarca = (int)cbmMarca.SelectedValue;
                 producto.usuarioRegistro = Util.usuario.Nombre;
 
                 if (esNuevo)

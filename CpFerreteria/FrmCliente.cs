@@ -28,7 +28,7 @@ namespace CpFerreteria
             dgvLista.Columns["Nombre"].HeaderText = "Nombre";
             dgvLista.Columns["Telefono"].HeaderText = "Telefono";
             dgvLista.Columns["Direccion"].HeaderText = "Direccion";
-            dgvLista.Columns["Fecha"].HeaderText = "Fecha";
+            dgvLista.Columns["Entrega"].HeaderText = "Entrega";
             dgvLista.Columns["usuarioRegistro"].HeaderText = "Usuario Registro";
             dgvLista.Columns["fechaRegistro"].HeaderText = "Fecha Registro";
 
@@ -36,9 +36,30 @@ namespace CpFerreteria
             btnEditar.Enabled = lista.Count > 0;
             btnEliminar.Enabled = lista.Count > 0;
         }
+        private void cargarOpcionesEntrega()
+        {
+            var opciones = new List<string> { "Adomicilio", "En Tienda" };
+            cbmEntrega.DataSource = opciones;
+        }
+        private void actualizarEstadoDireccion()
+        {
+            if (cbmEntrega.SelectedItem != null && cbmEntrega.SelectedItem.ToString() == "En Tienda")
+            {
+                txtDireccion.Enabled = false;
+                txtDireccion.Text = ""; // opcional
+            }
+            else
+            {
+                txtDireccion.Enabled = true;
+            }
+        }
+
         private void FrmCliente_Load(object sender, EventArgs e)
         {
             Size = new Size(621, 314);
+            actualizarEstadoDireccion();
+            cbmEntrega.SelectedIndexChanged += cbmEntrega_SelectedIndexChanged;
+            cargarOpcionesEntrega();
             listar();
         }
 
@@ -61,10 +82,8 @@ namespace CpFerreteria
             txtNombre.Text = cliente.Nombre;
             txtTelefono.Text = cliente.Telefono;
             txtDireccion.Text = cliente.Direccion;
-            if (cliente.Fecha.HasValue)
-                dtpFecha.Value = cliente.Fecha.Value;
-            else
-                dtpFecha.Value = DateTime.Now;
+            cbmEntrega.Text = cliente.Entrega;
+            actualizarEstadoDireccion();
 
             txtNombre.Focus();
         }
@@ -106,11 +125,14 @@ namespace CpFerreteria
                 erpTelefono.SetError(txtTelefono, "El Telefono es obligatorio");
                 esValido = false;
             }
-            if (string.IsNullOrEmpty(txtDireccion.Text))
-            {
-                erpDireccion.SetError(txtDireccion, "La Direccion es obligatoria");
-                esValido = false;
-            }
+            if (cbmEntrega.SelectedItem != null && cbmEntrega.SelectedItem.ToString() == "Adomicilio")
+    {
+        if (string.IsNullOrEmpty(txtDireccion.Text))
+        {
+            erpDireccion.SetError(txtDireccion, "La Direccion es obligatoria");
+            esValido = false;
+        }
+    }
             return esValido;
         }
 
@@ -122,7 +144,7 @@ namespace CpFerreteria
                 cliente.Nombre = txtNombre.Text.Trim();
                 cliente.Telefono = txtTelefono.Text.Trim();
                 cliente.Direccion = txtDireccion.Text.Trim();
-                cliente.Fecha = dtpFecha.Value;
+                cliente.Entrega = (string)cbmEntrega.SelectedValue;
                 cliente.usuarioRegistro = Util.usuario.Nombre;
 
                 if (esNuevo)
@@ -164,6 +186,10 @@ namespace CpFerreteria
         private void txtParametro_TextChanged(object sender, EventArgs e)
         {
 
-        }        
+        }
+        private void cbmEntrega_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            actualizarEstadoDireccion();
+        }
     }
 }

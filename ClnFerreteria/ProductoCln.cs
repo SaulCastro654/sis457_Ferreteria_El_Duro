@@ -27,7 +27,7 @@ namespace ClnFerreteria
                 existe.Nombre = producto.Nombre;
                 existe.Stock = producto.Stock;
                 existe.Precio = producto.Precio;
-                existe.Marca = producto.Marca;
+                existe.IdMarca = producto.IdMarca;
                 existe.usuarioRegistro = producto.usuarioRegistro;
                 return context.SaveChanges();
             }

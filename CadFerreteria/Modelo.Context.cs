@@ -29,8 +29,10 @@ namespace CadFerreteria
     
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
+        public virtual DbSet<Marca> Marca { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Venta> Venta { get; set; }
     
         public virtual ObjectResult<paClienteListar_Result> paClienteListar(string parametro)
         {
