@@ -12,20 +12,23 @@ namespace CadFerreteria
     using System;
     using System.Collections.Generic;
     
-    public partial class DetalleVenta
+    public partial class Venta
     {
-        public int IdDetalle { get; set; }
-        public Nullable<int> IdVenta { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Venta()
+        {
+            this.DetalleVenta = new HashSet<DetalleVenta>();
+        }
+    
+        public int IdVenta { get; set; }
         public Nullable<int> IdCliente { get; set; }
-        public Nullable<int> IdProducto { get; set; }
-        public Nullable<int> Cantidad { get; set; }
-        public Nullable<decimal> Subtotal { get; set; }
+        public Nullable<decimal> Total { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
     
         public virtual Cliente Cliente { get; set; }
-        public virtual Producto Producto { get; set; }
-        public virtual Venta Venta { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
     }
 }

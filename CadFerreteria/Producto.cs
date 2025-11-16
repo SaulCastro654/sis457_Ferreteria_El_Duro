@@ -24,12 +24,13 @@ namespace CadFerreteria
         public string Nombre { get; set; }
         public decimal Precio { get; set; }
         public int Stock { get; set; }
-        public string Marca { get; set; }
+        public Nullable<int> IdMarca { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
+        public virtual Marca Marca { get; set; }
     }
 }

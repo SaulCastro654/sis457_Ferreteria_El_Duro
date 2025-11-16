@@ -34,7 +34,7 @@
             this.lblBuscar = new System.Windows.Forms.Label();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.cbmEntrega = new System.Windows.Forms.ComboBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -105,7 +105,7 @@
             // 
             // gbxDatos
             // 
-            this.gbxDatos.Controls.Add(this.dtpFecha);
+            this.gbxDatos.Controls.Add(this.cbmEntrega);
             this.gbxDatos.Controls.Add(this.lblFecha);
             this.gbxDatos.Controls.Add(this.txtDireccion);
             this.gbxDatos.Controls.Add(this.txtTelefono);
@@ -123,22 +123,23 @@
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Datos";
             // 
-            // dtpFecha
+            // cbmEntrega
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(138, 58);
-            this.dtpFecha.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(139, 20);
-            this.dtpFecha.TabIndex = 19;
+            this.cbmEntrega.FormattingEnabled = true;
+            this.cbmEntrega.Location = new System.Drawing.Point(138, 55);
+            this.cbmEntrega.Name = "cbmEntrega";
+            this.cbmEntrega.Size = new System.Drawing.Size(139, 21);
+            this.cbmEntrega.TabIndex = 19;
+            this.cbmEntrega.SelectedIndexChanged += new System.EventHandler(this.cbmEntrega_SelectedIndexChanged);
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Location = new System.Drawing.Point(9, 63);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(131, 13);
+            this.lblFecha.Size = new System.Drawing.Size(102, 13);
             this.lblFecha.TabIndex = 18;
-            this.lblFecha.Text = "Fecha de Nacimineto:";
+            this.lblFecha.Text = "Tipo de Entrega:";
             // 
             // txtDireccion
             // 
@@ -372,7 +373,7 @@
         private System.Windows.Forms.ErrorProvider erpNombre;
         private System.Windows.Forms.ErrorProvider erpTelefono;
         private System.Windows.Forms.ErrorProvider erpDireccion;
-        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.ComboBox cbmEntrega;
     }
 }

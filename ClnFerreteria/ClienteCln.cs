@@ -26,7 +26,7 @@ namespace ClnFerreteria
                 existe.Nombre = cliente.Nombre;
                 existe.Telefono = cliente.Telefono;
                 existe.Direccion = cliente.Direccion;
-                existe.Fecha = cliente.Fecha;
+                existe.Entrega = cliente.Entrega;
                 existe.usuarioRegistro = cliente.usuarioRegistro;
                 return context.SaveChanges();
             }
