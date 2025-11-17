@@ -8,15 +8,24 @@ Este sistema permitirá gestionar los productos, empleados, clientes y las venta
 
 ## Entidades principales
 
+### MARCA
+**Atributos:**
+- IdMarca (PK)  
+- Nombre
+- usuarioRegistro
+- fechaRegistro
+- estado
+
 ### PRODUCTO
 **Atributos:**
 - IdProducto (PK)  
 - Nombre  
 - Precio  
-- Stock  
+- Stock
+- IdMarca (FK)
 - usuarioRegistro  
 - fechaRegistro  
-- estado  
+- estado
 
 ### USUARIO
 **Atributos:**
@@ -32,7 +41,8 @@ Este sistema permitirá gestionar los productos, empleados, clientes y las venta
 - IdCliente (PK)  
 - Nombre  
 - Telefono  
-- Direccion  
+- Direccion
+- Entrega ("Adomicilio, "En Tienda")
 - usuarioRegistro  
 - fechaRegistro  
 - estado  
@@ -40,10 +50,8 @@ Este sistema permitirá gestionar los productos, empleados, clientes y las venta
 ### VENTA
 **Atributos:**
 - IdVenta (PK)  
-- Fecha  
-- Total  
 - IdCliente (FK → CLIENTE)  
-- IdUsuario (FK → USUARIO)  
+- Total 
 - usuarioRegistro  
 - fechaRegistro  
 - estado  
@@ -53,7 +61,8 @@ Este sistema permitirá gestionar los productos, empleados, clientes y las venta
 - IdDetalle (PK)  
 - Cantidad  
 - Subtotal  
-- IdVenta (FK → VENTA)  
+- IdVenta (FK → VENTA)
+- IdCliente (FK → CLIENTE)  
 - IdProducto (FK → PRODUCTO)  
 - usuarioRegistro  
 - fechaRegistro  
@@ -70,60 +79,7 @@ Este sistema permitirá gestionar los productos, empleados, clientes y las venta
 
 ## Integración del equipo
 -Johnny Saul Castro Torricos
--Hussain Cazas Zelaya
-- Integrante 1: (nombre)  
-- Integrante 2: (nombre)  
-=======
-# Modelo Entidad–Relación (MER) – Ferretería
+-Hussain Cazas Zelaya 
 
-## Descripción del negocio
-La **Ferretería “El Duro”** es un negocio dedicado a la venta de herramientas, materiales de construcción y artículos de mantenimiento.  
-El sistema tiene como objetivo **gestionar los productos, clientes, usuarios y las ventas diarias**, permitiendo un control más eficiente del inventario y de las transacciones realizadas.
-
-## Entidades principales
-
-### USUARIO
-**Atributos:**
-- IdUsuario (PK)
-- NombreUsuario
-- Clave
-
-### CLIENTE
-**Atributos:**
-- IdCliente (PK)
-- Nombre
-- Telefono
-- Direccion
-
-### PRODUCTO
-**Atributos:**
-- IdProducto (PK)
-- Nombre
-- Precio
-- Stock
-
-### VENTA
-**Atributos:**
-- IdVenta (PK)
-- Fecha
-- IdUsuario (FK)
-- IdCliente (FK)
-- Total
-
-### DETALLEVENTA
-**Atributos:**
-- IdDetalle (PK)
-- IdVenta (FK)
-- IdProducto (FK)
-- Cantidad
-- Subtotal
-
-## Integrantes del equipo
-**Integrantes:**
-- Castro Torricos Johnny Saul
-<<<<<<< HEAD
-- Hussain Cazas Zelaya 
-=======
-- Hussain Cazas Zelaya  
 >>>>>>> e232522 (Creacion del README.)
 >>>>>>> b775996 (Creacion del README.)
