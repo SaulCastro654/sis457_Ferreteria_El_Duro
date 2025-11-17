@@ -21,13 +21,6 @@ DROP TABLE IF EXISTS Marca;
 DROP TABLE IF EXISTS Usuario;
 GO
 
-SELECT name FROM sys.tables;
-
-ALTER TABLE DetalleVenta DROP CONSTRAINT FK_DetalleVenta_Cliente; -- nombre de la FK real
-ALTER TABLE Venta DROP CONSTRAINT FK_Venta_Cliente;
-DROP TABLE Cliente;
-
-
 CREATE TABLE Usuario (
     IdUsuario INT IDENTITY PRIMARY KEY,
     Nombre VARCHAR(50) NOT NULL,
@@ -210,39 +203,3 @@ SELECT * FROM Producto;
 SELECT * FROM Cliente;
 SELECT * FROM Venta;
 SELECT * FROM DetalleVenta;
-
-
-DROP DATABASE Ferreteria;
-GO
-
-SELECT name FROM sys.databases;
-USE master;
-GO
-
-DROP DATABASE Ferreteria;
-GO
-
-USE master;
-GO
-
-ALTER DATABASE Ferreteria SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-GO
-
-DROP DATABASE Ferreteria;
-GO
-
-SELECT name FROM sys.databases;
-
-DROP DATABASE LabFerreteria
-
-ALTER DATABASE LabFerreteria SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-DROP DATABASE LabFerreteria;
-
-USE master;
-GO
-
-ALTER DATABASE LabFerreteria SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-GO
-
-DROP DATABASE LabFerreteria;
-GO

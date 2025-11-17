@@ -97,6 +97,8 @@ namespace CpFerreteria
         }
         private void FrmDetalles_Load(object sender, EventArgs e)
         {
+            
+            
             Size = new Size(1224, 772);
             cargarProductos();
             cargarClientes();
@@ -260,6 +262,11 @@ namespace CpFerreteria
             cbmClientes.DroppedDown = true;
             cbmClientes.SelectionStart = cbmClientes.Text.Length;
             cbmClientes.Cursor = Cursors.Default;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
