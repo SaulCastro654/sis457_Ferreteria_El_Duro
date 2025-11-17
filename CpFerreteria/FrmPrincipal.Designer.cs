@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.btnDetalles = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCaProductos = new System.Windows.Forms.Button();
@@ -93,6 +94,7 @@
             this.Controls.Add(this.btnDetalles);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCaProductos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmPrincipal";
             this.Text = "FrmPrincipal";

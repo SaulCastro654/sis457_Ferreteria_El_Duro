@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalles));
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -400,6 +401,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbxListado);
             this.Controls.Add(this.pnlAcciones);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDetalles";
             this.Text = "FrmDetalles";
             this.Load += new System.EventHandler(this.FrmDetalles_Load);
