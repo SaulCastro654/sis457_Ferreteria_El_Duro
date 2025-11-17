@@ -47,11 +47,13 @@ namespace CpFerreteria
             if (cbmEntrega.SelectedItem != null && cbmEntrega.SelectedItem.ToString() == "En Tienda")
             {
                 txtDireccion.Enabled = false;
-                txtDireccion.Text = ""; // opcional
+                txtDireccion.Text = "";
+                txtTelefono.Enabled = false;
             }
             else
             {
                 txtDireccion.Enabled = true;
+                txtTelefono.Enabled = true;
             }
         }
 
@@ -121,19 +123,19 @@ namespace CpFerreteria
                 erpNombre.SetError(txtNombre, "El Nombre es obligatorio");
                 esValido = false;
             }
-            if (string.IsNullOrEmpty(txtTelefono.Text))
-            {
-                erpTelefono.SetError(txtTelefono, "El Telefono es obligatorio");
-                esValido = false;
-            }
             if (cbmEntrega.SelectedItem != null && cbmEntrega.SelectedItem.ToString() == "Adomicilio")
-    {
-        if (string.IsNullOrEmpty(txtDireccion.Text))
-        {
-            erpDireccion.SetError(txtDireccion, "La Direccion es obligatoria");
-            esValido = false;
-        }
-    }
+            {
+                if (string.IsNullOrEmpty(txtDireccion.Text))
+                {
+                    erpDireccion.SetError(txtDireccion, "La Direccion es obligatoria");
+                    esValido = false;
+                }
+                if (string.IsNullOrEmpty(txtTelefono.Text))
+                {
+                    erpTelefono.SetError(txtTelefono, "El Telefono es obligatorio");
+                    esValido = false;
+                }
+            }
             return esValido;
         }
 

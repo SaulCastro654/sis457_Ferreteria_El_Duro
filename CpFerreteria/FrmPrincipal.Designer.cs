@@ -40,10 +40,10 @@
             this.btnDetalles.Font = new System.Drawing.Font("Montserrat Subrayada", 9.749999F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btnDetalles.Image = global::CpFerreteria.Properties.Resources.detalles2;
             this.btnDetalles.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDetalles.Location = new System.Drawing.Point(400, 196);
-            this.btnDetalles.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDetalles.Location = new System.Drawing.Point(533, 241);
+            this.btnDetalles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.Size = new System.Drawing.Size(124, 117);
+            this.btnDetalles.Size = new System.Drawing.Size(165, 144);
             this.btnDetalles.TabIndex = 2;
             this.btnDetalles.Text = "Ventas";
             this.btnDetalles.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -57,10 +57,10 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Image = global::CpFerreteria.Properties.Resources.clientes2;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(236, 196);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(315, 241);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 117);
+            this.button1.Size = new System.Drawing.Size(153, 144);
             this.button1.TabIndex = 1;
             this.button1.Text = "Clientes";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -73,10 +73,10 @@
             this.btnCaProductos.Font = new System.Drawing.Font("Montserrat Subrayada", 9.749999F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCaProductos.Image = global::CpFerreteria.Properties.Resources.herramientas3;
             this.btnCaProductos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCaProductos.Location = new System.Drawing.Point(82, 196);
-            this.btnCaProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCaProductos.Location = new System.Drawing.Point(109, 241);
+            this.btnCaProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCaProductos.Name = "btnCaProductos";
-            this.btnCaProductos.Size = new System.Drawing.Size(114, 117);
+            this.btnCaProductos.Size = new System.Drawing.Size(152, 144);
             this.btnCaProductos.TabIndex = 0;
             this.btnCaProductos.Text = "Productos";
             this.btnCaProductos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -85,19 +85,19 @@
             // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::CpFerreteria.Properties.Resources.Whisk_54aa299c0415347960b4d8523b3c6917dr1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(584, 338);
+            this.ClientSize = new System.Drawing.Size(779, 416);
             this.Controls.Add(this.btnDetalles);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCaProductos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmPrincipal";
-            this.Text = "FrmPrincipal";
+            this.Text = "PRINCIPAL";
             this.ResumeLayout(false);
 
         }
