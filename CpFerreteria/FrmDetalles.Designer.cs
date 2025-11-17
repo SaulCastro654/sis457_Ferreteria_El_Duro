@@ -194,7 +194,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(252, 41);
             this.label1.TabIndex = 11;
-            this.label1.Text = "DETALLES";
+            this.label1.Text = "VENTAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbxDatos

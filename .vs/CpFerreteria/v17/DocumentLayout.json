@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmdetalles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmdetalles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|c:\\users\\hp\\desktop\\admi\\informatica 4\\sis 457\\el duro terminado\\sis457_ferreteria_el_duro\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -15,12 +23,16 @@
       "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmdetalles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmdetalles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|CpFerreteria||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
@@ -34,27 +46,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ddl_dml_ferreteria.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ddl_dml_ferreteria.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{348D569D-6FEB-4895-BF4F-35965BC59044}|CpFerreteria\\CpFerreteria.csproj|c:\\users\\hp\\desktop\\admi\\informatica 4\\sis 457\\el duro terminado\\sis457_ferreteria_el_duro\\cpferreteria\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -64,23 +57,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 294,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "CpFerreteria",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\CpFerreteria.csproj",
               "RelativeDocumentMoniker": "CpFerreteria\\CpFerreteria.csproj",
               "ToolTip": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\CpFerreteria.csproj",
               "RelativeToolTip": "CpFerreteria\\CpFerreteria.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-11-17T20:19:34.245Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T20:19:34.245Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "FrmCliente.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmCliente.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmCliente.cs",
@@ -93,7 +85,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 7,
               "Title": "FrmProductos.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmProductos.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmProductos.cs",
@@ -106,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
               "Title": "FrmPrincipal.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmPrincipal.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmPrincipal.cs",
@@ -119,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "FrmLogin.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmLogin.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmLogin.cs",
@@ -132,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "FrmLogin.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmLogin.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmLogin.cs",
@@ -144,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "FrmPrincipal.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmPrincipal.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmPrincipal.cs",
@@ -156,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "FrmProductos.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmProductos.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmProductos.cs",
@@ -168,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "FrmCliente.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmCliente.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmCliente.cs",
@@ -180,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "FrmDetalles.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmDetalles.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmDetalles.cs",
@@ -192,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "FrmDetalles.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\CpFerreteria\\FrmDetalles.cs",
               "RelativeDocumentMoniker": "CpFerreteria\\FrmDetalles.cs",
@@ -205,11 +197,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ddl_dml_ferreteria.sql ",
+              "DocumentIndex": 10,
+              "Title": "ddl_dml_ferreteria.sql",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\El duro terminado\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql",
               "RelativeDocumentMoniker": "ddl_dml_ferreteria.sql",
-              "ToolTip": "ddl_dml_ferreteria.sql ",
+              "ToolTip": "ddl_dml_ferreteria.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2025-11-17T13:54:48.279Z",
               "EditorCaption": ""

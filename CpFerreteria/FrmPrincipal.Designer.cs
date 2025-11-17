@@ -45,7 +45,7 @@
             this.btnDetalles.Name = "btnDetalles";
             this.btnDetalles.Size = new System.Drawing.Size(124, 117);
             this.btnDetalles.TabIndex = 2;
-            this.btnDetalles.Text = "Detalles";
+            this.btnDetalles.Text = "Ventas";
             this.btnDetalles.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDetalles.UseVisualStyleBackColor = false;
             this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
