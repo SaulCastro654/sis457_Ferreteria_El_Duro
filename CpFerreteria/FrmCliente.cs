@@ -18,6 +18,7 @@ namespace CpFerreteria
         public FrmCliente()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         public void listar()
         {
@@ -56,7 +57,7 @@ namespace CpFerreteria
 
         private void FrmCliente_Load(object sender, EventArgs e)
         {
-            Size = new Size(621, 314);
+            Size = new Size(1224, 772);
             actualizarEstadoDireccion();
             cbmEntrega.SelectedIndexChanged += cbmEntrega_SelectedIndexChanged;
             cargarOpcionesEntrega();
@@ -67,7 +68,7 @@ namespace CpFerreteria
         {
             esNuevo = true;
             pnlAcciones.Enabled = false;
-            Size = new Size(621, 473);
+            Size = new Size(1224, 772);
             txtNombre.Focus();
         }
 
@@ -75,7 +76,7 @@ namespace CpFerreteria
         {
             esNuevo = false;
             pnlAcciones.Enabled = false;
-            Size = new Size(621, 473);
+            Size = new Size(1224, 772);
 
             int id = (int)dgvLista.CurrentRow.Cells["IdCliente"].Value;
             var cliente = ClienteCln.obtenerUno(id);
@@ -96,7 +97,7 @@ namespace CpFerreteria
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Size = new Size(621, 314);
+            Size = new Size(1224, 772);
             pnlAcciones.Enabled = true;
             limpiar();
         }

@@ -55,6 +55,7 @@
             this.erpCantidad = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpSubtotal = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAcciones.SuspendLayout();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
@@ -64,78 +65,91 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpSubtotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlAcciones
             // 
+            this.pnlAcciones.BackColor = System.Drawing.Color.Transparent;
             this.pnlAcciones.Controls.Add(this.btnNuevo);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnEliminar);
-            this.pnlAcciones.Controls.Add(this.btnCerrar);
-            this.pnlAcciones.Location = new System.Drawing.Point(12, 431);
+            this.pnlAcciones.Location = new System.Drawing.Point(480, 112);
             this.pnlAcciones.Name = "pnlAcciones";
-            this.pnlAcciones.Size = new System.Drawing.Size(673, 58);
+            this.pnlAcciones.Size = new System.Drawing.Size(538, 69);
             this.pnlAcciones.TabIndex = 9;
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Image = global::CpFerreteria.Properties.Resources._new;
+            this.btnNuevo.BackColor = System.Drawing.Color.Gold;
+            this.btnNuevo.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnNuevo.Image = global::CpFerreteria.Properties.Resources.nuevo31;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(105, 3);
+            this.btnNuevo.Location = new System.Drawing.Point(1, 3);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(92, 52);
+            this.btnNuevo.Size = new System.Drawing.Size(168, 63);
             this.btnNuevo.TabIndex = 25;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Image = global::CpFerreteria.Properties.Resources.edit;
+            this.btnEditar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEditar.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEditar.Image = global::CpFerreteria.Properties.Resources.editar4;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(203, 3);
+            this.btnEditar.Location = new System.Drawing.Point(182, 3);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(92, 52);
+            this.btnEditar.Size = new System.Drawing.Size(168, 63);
             this.btnEditar.TabIndex = 9;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Image = global::CpFerreteria.Properties.Resources.delete;
+            this.btnEliminar.BackColor = System.Drawing.Color.Gold;
+            this.btnEliminar.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEliminar.Image = global::CpFerreteria.Properties.Resources.eliminar4;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(301, 3);
+            this.btnEliminar.Location = new System.Drawing.Point(356, 3);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(98, 52);
+            this.btnEliminar.Size = new System.Drawing.Size(174, 63);
             this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Image = global::CpFerreteria.Properties.Resources.close;
+            this.btnCerrar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCerrar.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCerrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCerrar.Image = global::CpFerreteria.Properties.Resources.cerrar3;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(405, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(36, 660);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(93, 52);
+            this.btnCerrar.Size = new System.Drawing.Size(139, 63);
             this.btnCerrar.TabIndex = 10;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // gbxListado
             // 
+            this.gbxListado.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gbxListado.Controls.Add(this.dgvLista);
             this.gbxListado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxListado.Location = new System.Drawing.Point(12, 231);
+            this.gbxListado.Location = new System.Drawing.Point(480, 187);
             this.gbxListado.Name = "gbxListado";
-            this.gbxListado.Size = new System.Drawing.Size(673, 197);
+            this.gbxListado.Size = new System.Drawing.Size(704, 493);
             this.gbxListado.TabIndex = 10;
             this.gbxListado.TabStop = false;
             this.gbxListado.Text = "Lista";
@@ -146,23 +160,25 @@
             this.dgvLista.Location = new System.Drawing.Point(7, 12);
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.RowHeadersWidth = 51;
-            this.dgvLista.Size = new System.Drawing.Size(660, 179);
+            this.dgvLista.Size = new System.Drawing.Size(686, 460);
             this.dgvLista.TabIndex = 0;
             // 
             // txtParametro
             // 
-            this.txtParametro.Location = new System.Drawing.Point(216, 41);
+            this.txtParametro.Font = new System.Drawing.Font("NSimSun", 14.25F);
+            this.txtParametro.Location = new System.Drawing.Point(577, 70);
             this.txtParametro.Name = "txtParametro";
-            this.txtParametro.Size = new System.Drawing.Size(345, 20);
+            this.txtParametro.Size = new System.Drawing.Size(345, 29);
             this.txtParametro.TabIndex = 13;
             // 
             // lblBuscar
             // 
             this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(9, 42);
+            this.lblBuscar.BackColor = System.Drawing.Color.Gold;
+            this.lblBuscar.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblBuscar.Location = new System.Drawing.Point(366, 70);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(145, 16);
+            this.lblBuscar.Size = new System.Drawing.Size(202, 26);
             this.lblBuscar.TabIndex = 12;
             this.lblBuscar.Text = "Buscar por Nombre:";
             // 
@@ -170,18 +186,19 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(59, 9);
+            this.label1.BackColor = System.Drawing.Color.Gold;
+            this.label1.Font = new System.Drawing.Font("Montserrat Subrayada", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(365, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(566, 29);
+            this.label1.Size = new System.Drawing.Size(252, 41);
             this.label1.TabIndex = 11;
             this.label1.Text = "DETALLES";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbxDatos
             // 
+            this.gbxDatos.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gbxDatos.Controls.Add(this.btnGuardar);
             this.gbxDatos.Controls.Add(this.lblSubtotalR);
             this.gbxDatos.Controls.Add(this.lblSubtotal);
@@ -193,118 +210,134 @@
             this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.lblProducto);
             this.gbxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxDatos.Location = new System.Drawing.Point(12, 67);
+            this.gbxDatos.Location = new System.Drawing.Point(36, 361);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Size = new System.Drawing.Size(673, 155);
+            this.gbxDatos.Size = new System.Drawing.Size(419, 220);
             this.gbxDatos.TabIndex = 15;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Datos";
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Image = global::CpFerreteria.Properties.Resources.save;
+            this.btnGuardar.BackColor = System.Drawing.Color.Gold;
+            this.btnGuardar.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnGuardar.Image = global::CpFerreteria.Properties.Resources.guardar3;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(266, 98);
+            this.btnGuardar.Location = new System.Drawing.Point(51, 159);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(102, 40);
+            this.btnGuardar.Size = new System.Drawing.Size(150, 55);
             this.btnGuardar.TabIndex = 14;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblSubtotalR
             // 
             this.lblSubtotalR.AutoSize = true;
-            this.lblSubtotalR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotalR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSubtotalR.Location = new System.Drawing.Point(398, 64);
+            this.lblSubtotalR.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblSubtotalR.Font = new System.Drawing.Font("Noto Sans", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtotalR.ForeColor = System.Drawing.Color.Gold;
+            this.lblSubtotalR.Location = new System.Drawing.Point(331, 97);
             this.lblSubtotalR.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtotalR.Name = "lblSubtotalR";
-            this.lblSubtotalR.Size = new System.Drawing.Size(43, 16);
+            this.lblSubtotalR.Size = new System.Drawing.Size(78, 33);
             this.lblSubtotalR.TabIndex = 23;
             this.lblSubtotalR.Text = "00,00";
             // 
             // lblSubtotal
             // 
             this.lblSubtotal.AutoSize = true;
-            this.lblSubtotal.Location = new System.Drawing.Point(298, 67);
+            this.lblSubtotal.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblSubtotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblSubtotal.Location = new System.Drawing.Point(230, 103);
             this.lblSubtotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(58, 13);
+            this.lblSubtotal.Size = new System.Drawing.Size(97, 26);
             this.lblSubtotal.TabIndex = 21;
             this.lblSubtotal.Text = "Subtotal:";
             // 
             // nudCantidad
             // 
-            this.nudCantidad.Location = new System.Drawing.Point(477, 27);
+            this.nudCantidad.Font = new System.Drawing.Font("NSimSun", 14.25F);
+            this.nudCantidad.Location = new System.Drawing.Point(109, 105);
             this.nudCantidad.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudCantidad.Name = "nudCantidad";
-            this.nudCantidad.Size = new System.Drawing.Size(102, 20);
+            this.nudCantidad.Size = new System.Drawing.Size(102, 29);
             this.nudCantidad.TabIndex = 20;
             this.nudCantidad.ValueChanged += new System.EventHandler(this.nudCantidad_ValueChanged);
             // 
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(411, 32);
+            this.lblCantidad.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblCantidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblCantidad.Location = new System.Drawing.Point(11, 104);
             this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(61, 13);
+            this.lblCantidad.Size = new System.Drawing.Size(103, 26);
             this.lblCantidad.TabIndex = 19;
             this.lblCantidad.Text = "Cantidad:";
             // 
             // cbmClientes
             // 
+            this.cbmClientes.Font = new System.Drawing.Font("NSimSun", 14.25F);
             this.cbmClientes.FormattingEnabled = true;
-            this.cbmClientes.Location = new System.Drawing.Point(315, 26);
+            this.cbmClientes.Location = new System.Drawing.Point(105, 60);
             this.cbmClientes.Margin = new System.Windows.Forms.Padding(2);
             this.cbmClientes.Name = "cbmClientes";
-            this.cbmClientes.Size = new System.Drawing.Size(92, 21);
+            this.cbmClientes.Size = new System.Drawing.Size(304, 27);
             this.cbmClientes.TabIndex = 18;
             // 
             // lblVenta
             // 
             this.lblVenta.AutoSize = true;
-            this.lblVenta.Location = new System.Drawing.Point(263, 32);
+            this.lblVenta.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblVenta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblVenta.Location = new System.Drawing.Point(20, 60);
             this.lblVenta.Name = "lblVenta";
-            this.lblVenta.Size = new System.Drawing.Size(50, 13);
+            this.lblVenta.Size = new System.Drawing.Size(81, 26);
             this.lblVenta.TabIndex = 17;
             this.lblVenta.Text = "Cliente:";
             // 
             // cbmProducto
             // 
+            this.cbmProducto.Font = new System.Drawing.Font("NSimSun", 14.25F);
             this.cbmProducto.FormattingEnabled = true;
-            this.cbmProducto.Location = new System.Drawing.Point(105, 26);
+            this.cbmProducto.Location = new System.Drawing.Point(105, 20);
             this.cbmProducto.Margin = new System.Windows.Forms.Padding(2);
             this.cbmProducto.Name = "cbmProducto";
-            this.cbmProducto.Size = new System.Drawing.Size(153, 21);
+            this.cbmProducto.Size = new System.Drawing.Size(304, 27);
             this.cbmProducto.TabIndex = 16;
             this.cbmProducto.SelectedIndexChanged += new System.EventHandler(this.cbmProducto_SelectedIndexChanged);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Image = global::CpFerreteria.Properties.Resources.cancel;
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCancelar.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnCancelar.Image = global::CpFerreteria.Properties.Resources.cancelar31;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(414, 98);
+            this.btnCancelar.Location = new System.Drawing.Point(219, 159);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(106, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(150, 55);
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(6, 32);
+            this.lblProducto.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblProducto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblProducto.Location = new System.Drawing.Point(6, 20);
             this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(62, 13);
+            this.lblProducto.Size = new System.Drawing.Size(104, 26);
             this.lblProducto.TabIndex = 5;
             this.lblProducto.Text = "Producto:";
             // 
@@ -326,28 +359,43 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Image = global::CpFerreteria.Properties.Resources.search;
+            this.btnBuscar.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscar.Font = new System.Drawing.Font("Noto Sans", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnBuscar.Image = global::CpFerreteria.Properties.Resources.buscar3;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(593, 18);
+            this.btnBuscar.Location = new System.Drawing.Point(928, 42);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(92, 40);
+            this.btnBuscar.Size = new System.Drawing.Size(131, 57);
             this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::CpFerreteria.Properties.Resources.detalles3;
+            this.pictureBox1.Location = new System.Drawing.Point(163, 175);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 180);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BackgroundImage = global::CpFerreteria.Properties.Resources.detalless;
+            this.BackgroundImage = global::CpFerreteria.Properties.Resources.Whisk_9f8c7f3e68e6336aa42482a9b12e13acdr;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(699, 498);
+            this.ClientSize = new System.Drawing.Size(1208, 733);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtParametro);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbxListado);
@@ -365,6 +413,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpSubtotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,7 +423,6 @@
 
         private System.Windows.Forms.Panel pnlAcciones;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.GroupBox gbxListado;
         private System.Windows.Forms.DataGridView dgvLista;
@@ -398,5 +446,7 @@
         private System.Windows.Forms.Label lblSubtotal;
         private System.Windows.Forms.Label lblSubtotalR;
         private System.Windows.Forms.Button btnNuevo;
+        protected internal System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -210,3 +210,39 @@ SELECT * FROM Producto;
 SELECT * FROM Cliente;
 SELECT * FROM Venta;
 SELECT * FROM DetalleVenta;
+
+
+DROP DATABASE Ferreteria;
+GO
+
+SELECT name FROM sys.databases;
+USE master;
+GO
+
+DROP DATABASE Ferreteria;
+GO
+
+USE master;
+GO
+
+ALTER DATABASE Ferreteria SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+
+DROP DATABASE Ferreteria;
+GO
+
+SELECT name FROM sys.databases;
+
+DROP DATABASE LabFerreteria
+
+ALTER DATABASE LabFerreteria SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+DROP DATABASE LabFerreteria;
+
+USE master;
+GO
+
+ALTER DATABASE LabFerreteria SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+
+DROP DATABASE LabFerreteria;
+GO

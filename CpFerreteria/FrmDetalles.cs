@@ -20,6 +20,7 @@ namespace CpFerreteria
         public FrmDetalles()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void listar()
         {
@@ -96,7 +97,7 @@ namespace CpFerreteria
         }
         private void FrmDetalles_Load(object sender, EventArgs e)
         {
-            Size = new Size(715, 537);
+            Size = new Size(1224, 772);
             cargarProductos();
             cargarClientes();
             gbxDatos.Enabled = false;

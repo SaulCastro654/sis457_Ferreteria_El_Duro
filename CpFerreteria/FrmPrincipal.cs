@@ -18,6 +18,7 @@ namespace CpFerreteria
         {
             InitializeComponent();
             this.frmLogin = frmLogin;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {

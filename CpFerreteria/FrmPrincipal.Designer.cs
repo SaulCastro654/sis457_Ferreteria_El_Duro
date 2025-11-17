@@ -35,11 +35,11 @@
             // 
             // btnDetalles
             // 
-            this.btnDetalles.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalles.Image = global::CpFerreteria.Properties.Resources.detalles1;
+            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
+            this.btnDetalles.Font = new System.Drawing.Font("Montserrat Subrayada", 9.749999F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnDetalles.Image = global::CpFerreteria.Properties.Resources.detalles2;
             this.btnDetalles.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDetalles.Location = new System.Drawing.Point(318, 102);
+            this.btnDetalles.Location = new System.Drawing.Point(400, 196);
             this.btnDetalles.Margin = new System.Windows.Forms.Padding(2);
             this.btnDetalles.Name = "btnDetalles";
             this.btnDetalles.Size = new System.Drawing.Size(124, 117);
@@ -51,10 +51,12 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::CpFerreteria.Properties.Resources.clientes1;
-            this.button1.Location = new System.Drawing.Point(175, 102);
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Font = new System.Drawing.Font("Montserrat Subrayada", 9.749999F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Image = global::CpFerreteria.Properties.Resources.clientes2;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(236, 196);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 117);
@@ -66,11 +68,11 @@
             // 
             // btnCaProductos
             // 
-            this.btnCaProductos.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnCaProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCaProductos.Image = global::CpFerreteria.Properties.Resources.Productos1;
+            this.btnCaProductos.BackColor = System.Drawing.Color.Transparent;
+            this.btnCaProductos.Font = new System.Drawing.Font("Montserrat Subrayada", 9.749999F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaProductos.Image = global::CpFerreteria.Properties.Resources.herramientas3;
             this.btnCaProductos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCaProductos.Location = new System.Drawing.Point(22, 102);
+            this.btnCaProductos.Location = new System.Drawing.Point(82, 196);
             this.btnCaProductos.Margin = new System.Windows.Forms.Padding(2);
             this.btnCaProductos.Name = "btnCaProductos";
             this.btnCaProductos.Size = new System.Drawing.Size(114, 117);
@@ -85,9 +87,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BackgroundImage = global::CpFerreteria.Properties.Resources.principal;
+            this.BackgroundImage = global::CpFerreteria.Properties.Resources.Whisk_54aa299c0415347960b4d8523b3c6917dr1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(471, 271);
+            this.ClientSize = new System.Drawing.Size(584, 338);
             this.Controls.Add(this.btnDetalles);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCaProductos);

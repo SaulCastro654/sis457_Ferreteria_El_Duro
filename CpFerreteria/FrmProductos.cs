@@ -19,6 +19,7 @@ namespace CpFerreteria
         public FrmProductos()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         public void listar()
         {
@@ -46,7 +47,7 @@ namespace CpFerreteria
         }
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            Size = new Size(621, 322);
+            Size = new Size(1224, 772);
             cargarMarcas();
             listar();
         }
@@ -54,14 +55,14 @@ namespace CpFerreteria
         {
             esNuevo = true;
             pnlAcciones.Enabled = false;
-            Size = new Size(621, 473);
+            Size = new Size(1224, 772);
             txtNombre.Focus();
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
             esNuevo = false;
             pnlAcciones.Enabled = false;
-            Size = new Size(621, 473);
+            Size = new Size(1224, 772);
 
             int id = (int)dgvLista.CurrentRow.Cells["IdProducto"].Value;
             var producto = ProductoCln.obtenerUno(id);
@@ -80,7 +81,7 @@ namespace CpFerreteria
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Size = new Size(621, 322);
+            Size = new Size(1224, 772);
             pnlAcciones.Enabled = true;
             limpiar();
         }
@@ -171,6 +172,11 @@ namespace CpFerreteria
         }
 
         private void txtParametro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbxListado_Enter(object sender, EventArgs e)
         {
 
         }

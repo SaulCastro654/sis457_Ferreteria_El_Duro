@@ -226,6 +226,105 @@
   <ItemGroup>
     <None Include="Resources\Produtoss.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whisk_54aa299c0415347960b4d8523b3c6917dr.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whisk_9f8c7f3e68e6336aa42482a9b12e13acdr.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whisk_54aa299c0415347960b4d8523b3c6917dr1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whisk_9f8c7f3e68e6336aa42482a9b12e13acdr1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevo31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\herramientas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\herramientas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\herramientas3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\detalles2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\herramientas21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\detalles3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingresar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -34,3 +34,15 @@ C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro\sis457_Ferreteria_El_Duro
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerre.55DC7512.Up2Date
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.dll
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.pdb
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\CadFerreteria.dll.config
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\CadFerreteria.dll
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\CadFerreteria.pdb
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\EntityFramework.dll
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\EntityFramework.xml
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerre.55DC7512.Up2Date
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.dll
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\El duro terminado\sis457_Ferreteria_El_Duro\CadFerreteria\obj\Debug\CadFerreteria.pdb

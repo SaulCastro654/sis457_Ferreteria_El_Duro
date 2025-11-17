@@ -17,6 +17,7 @@ namespace CpFerreteria
         public FrmLogin()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             // txtUsuario.Text = Util.Encrypt("4321"); // ← QUITA ESTA LÍNEA
             //txtUsuario.Text = "admin"; // ← Valor sin encriptar
         }
@@ -58,6 +59,7 @@ namespace CpFerreteria
                     Hide();
                     new FrmPrincipal(this).ShowDialog();
                 }
+
                 else
                 {
                     MessageBox.Show("Usuario y/o contraseña incorrecto", "::: Mensaje - Ferreteria :::",
