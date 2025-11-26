@@ -1,205 +1,142 @@
-ÔªøCREATE DATABASE LabFerreteria;
+CREATE DATABASE LabFerreteria;
 GO
-USE LabFerreteria;
-GO
-CREATE LOGIN usrFerreteria WITH PASSWORD = '123456',
-	CHECK_POLICY = ON,
-	CHECK_EXPIRATION = OFF,
-	DEFAULT_DATABASE = LabFerreteria
-GO
-CREATE USER usrferreteria FOR LOGIN usrferreteria
-GO
-ALTER ROLE db_owner ADD MEMBER usrferreteria
+USE master;
 GO
 
 DROP TABLE IF EXISTS DetalleVenta;
 DROP TABLE IF EXISTS Venta;
 DROP TABLE IF EXISTS Producto;
-DROP TABLE IF EXISTS TipoEntrega;
 DROP TABLE IF EXISTS Cliente;
+DROP TABLE IF EXISTS Categoria;
 DROP TABLE IF EXISTS Marca;
 DROP TABLE IF EXISTS Usuario;
 GO
 
 CREATE TABLE Usuario (
-    IdUsuario INT IDENTITY PRIMARY KEY,
-    Nombre VARCHAR(50) NOT NULL,
-    Clave VARCHAR(100) NOT NULL
+    id INT IDENTITY PRIMARY KEY,
+    nombre NVARCHAR(100) NOT NULL,
+    clave NVARCHAR(200) NOT NULL,
 );
 
 CREATE TABLE Marca (
-    IdMarca INT IDENTITY PRIMARY KEY,
-    Nombre VARCHAR (50)
+    id INT IDENTITY PRIMARY KEY,
+    nombre NVARCHAR(100) NOT NULL,
+);
+
+CREATE TABLE Categoria (
+    id INT IDENTITY PRIMARY KEY,
+    nombre NVARCHAR(100) NOT NULL,
 );
 
 CREATE TABLE Cliente (
-    IdCliente INT IDENTITY PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
-    Telefono VARCHAR(20),
-    Direccion VARCHAR(150),
-    Entrega VARCHAR(10) NOT NULL 
-        CHECK (Entrega IN ('Adomicilio', 'En Tienda')) 
-        DEFAULT 'En Tienda'
+    id INT IDENTITY PRIMARY KEY,
+    nombre NVARCHAR(150) NOT NULL,
+    telefono NVARCHAR(30),
+    direccion NVARCHAR(250),
 );
 
 CREATE TABLE Producto (
-    IdProducto INT IDENTITY PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
-    Precio DECIMAL(10,2) NOT NULL,
-    Stock INT NOT NULL,
-    IdMarca INT,
-    FOREIGN KEY (IdMarca) REFERENCES Marca(IdMarca)
+    id INT IDENTITY PRIMARY KEY,
+    nombre NVARCHAR(200) NOT NULL,
+    precio DECIMAL(12,2) NOT NULL,
+    stock INT NOT NULL DEFAULT 0,
+	cantidadMedida VARCHAR(5) NULL,
+	fechaVencimiento DATE NULL,
+    idMarca INT NULL,
+    idCategoria INT NULL,
+    CONSTRAINT FK_Producto_Marca FOREIGN KEY (idMarca) REFERENCES Marca(id),
+    CONSTRAINT FK_Producto_Categoria FOREIGN KEY (idCategoria) REFERENCES Categoria(id)
 );
 
 CREATE TABLE Venta (
-    IdVenta INT IDENTITY PRIMARY KEY,
-    IdCliente INT,
-    Total DECIMAL(10,2) DEFAULT 0,
-    FOREIGN KEY (IdCliente) REFERENCES Cliente(IdCliente)
+    id INT IDENTITY PRIMARY KEY,
+    idUsuario INT NOT NULL,
+    idCliente INT NOT NULL,
+    total DECIMAL(12,2) NOT NULL DEFAULT 0,
+	tipoEntrega NVARCHAR(30) NOT NULL 
+		CHECK (TipoEntrega IN ('A domicilio','Recoger en tienda')) DEFAULT 'Recoger en tienda',
+    CONSTRAINT FK_Venta_Usuario FOREIGN KEY (idUsuario) REFERENCES Usuario(id),
+    CONSTRAINT FK_Venta_Cliente FOREIGN KEY (idCliente) REFERENCES Cliente(id)
 );
 
 CREATE TABLE DetalleVenta (
-    IdDetalle INT IDENTITY PRIMARY KEY,
-    IdVenta INT,
-    IdCliente INT,
-    IdProducto INT,
-    Cantidad INT,
-    Subtotal DECIMAL(10,2),
-    FOREIGN KEY (IdCliente) REFERENCES Cliente(IdCliente),
-    FOREIGN KEY (IdProducto) REFERENCES Producto(IdProducto),
-    FOREIGN KEY (IdVenta) REFERENCES Venta(IdVenta)
+    id INT IDENTITY PRIMARY KEY,
+    idVenta INT NOT NULL,
+    idProducto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precioUnitario DECIMAL(12,2) NOT NULL,
+    subtotal AS (cantidad * precioUnitario) PERSISTED,
+    CONSTRAINT FK_DetalleVenta_Venta FOREIGN KEY (idVenta) REFERENCES Venta(id),
+    CONSTRAINT FK_DetalleVenta_Producto FOREIGN KEY (idProducto) REFERENCES Producto(id)
 );
 
 ALTER TABLE Usuario ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE Usuario ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
-ALTER TABLE Usuario ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+ALTER TABLE Usuario ADD estado SMALLINT NOT NULL DEFAULT 1;
 
 ALTER TABLE Marca ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE Marca ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
-ALTER TABLE Marca ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+ALTER TABLE Marca ADD estado SMALLINT NOT NULL DEFAULT 1;
+
+ALTER TABLE Categoria ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Categoria ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Categoria ADD estado SMALLINT NOT NULL DEFAULT 1;
 
 ALTER TABLE Cliente ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE Cliente ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
-ALTER TABLE Cliente ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+ALTER TABLE Cliente ADD estado SMALLINT NOT NULL DEFAULT 1;
 
 ALTER TABLE Producto ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE Producto ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
-ALTER TABLE Producto ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+ALTER TABLE Producto ADD estado SMALLINT NOT NULL DEFAULT 1;
 
 ALTER TABLE Venta ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE Venta ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
-ALTER TABLE Venta ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+ALTER TABLE Venta ADD estado SMALLINT NOT NULL DEFAULT 1;
 
 ALTER TABLE DetalleVenta ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE DetalleVenta ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
-ALTER TABLE DetalleVenta ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
-
-GO
-
-DROP PROCEDURE IF EXISTS paProductoListar;
-GO
-
-CREATE PROCEDURE paProductoListar @parametro VARCHAR(100)
-AS
-BEGIN
-    SELECT p.IdProducto, p.Nombre, p.Precio, p.Stock, m.Nombre AS Marca,
-           p.usuarioRegistro, p.fechaRegistro, p.estado
-    FROM Producto p
-    LEFT JOIN Marca m ON p.IdMarca = m.IdMarca
-    WHERE p.estado > -1 AND p.Nombre LIKE '%' + REPLACE(@parametro,' ','%') + '%'
-    ORDER BY p.estado DESC, p.Nombre ASC;
-END;
+ALTER TABLE DetalleVenta ADD estado SMALLINT NOT NULL DEFAULT 1;
 GO
 
 
-EXECUTE paProductoListar 'Martillo';
+INSERT INTO Usuario (nombre, clave)
+VALUES ('Saul', 'dAFoRWBCRBpcRyECjAsQqw==');
 
-DROP PROCEDURE IF EXISTS paClienteListar;
-GO
+INSERT INTO Marca (nombre) VALUES ('Tramontina'),('Bosch'),('Makita'),('Sin Marca');
+INSERT INTO Categoria (nombre) VALUES ('Herramientas'),('ElÈctricos'),('Adhesivos y Selladores');
 
-CREATE PROCEDURE paClienteListar @parametro VARCHAR(100)
-AS
-BEGIN
-    SELECT IdCliente, Nombre, Telefono, Direccion, estado, Entrega, usuarioRegistro, fechaRegistro
-    FROM Cliente
-    WHERE estado > -1 AND Nombre LIKE '%' + REPLACE(@parametro,' ','%') + '%'
-    ORDER BY estado DESC, Nombre ASC;
-END;
-GO
-
-EXECUTE paClienteListar 'Dario';
-GO
-
-DROP PROCEDURE IF EXISTS paDetalleVentaListar;
-GO
-
-
-CREATE PROCEDURE paDetalleVentaListar @parametro VARCHAR(100)
-AS
-BEGIN
-    SELECT 
-        dv.IdDetalle,
-        c.Nombre AS Cliente,
-        p.Nombre AS Producto,
-        p.Precio,
-        dv.Cantidad,
-        c.Entrega,
-        dv.Subtotal,
-        (dv.Subtotal * dv.Cantidad) AS Total,
-        dv.usuarioRegistro,
-        dv.fechaRegistro,
-        dv.estado
-    FROM DetalleVenta dv
-    INNER JOIN Cliente c ON dv.IdCliente = c.IdCliente
-    INNER JOIN Producto p ON dv.IdProducto = p.IdProducto
-    WHERE dv.estado > -1
-      AND (c.Nombre LIKE '%' + REPLACE(@parametro,' ','%') + '%'
-           OR p.Nombre LIKE '%' + REPLACE(@parametro,' ','%') + '%')
-    ORDER BY dv.fechaRegistro DESC;
-END;
-GO
-
-
-EXEC paDetalleVentaListar 'Taladro';
-
-
-INSERT INTO Usuario (Nombre, Clave)
-VALUES ('admin', 'dAFoRWBCRBpcRyECjAsQqw=='); --Clave:4321
-
-INSERT INTO Marca (Nombre) 
+INSERT INTO Producto (nombre, precio, stock, cantidadMedida, fechaVencimiento, idMarca, idCategoria)
 VALUES 
-('Tramontina'), ('Bosch'), ('Makita'), ('Stanley'), ('Truper'), 
-('3M'), ('Sherwin-Williams'), ('Sin Marca');
+('Martillo de acero', 35.50, 20, NULL, NULL, 1, 1),
+('Destornillador plano', 15.00, 50, NULL, NULL, 2, 1),
+('Llave inglesa ajustable', 28.90, 25, NULL, NULL, 3, 1),
+('Serrucho de mano', 22.00, 18, NULL, NULL, 4, 1),
+('Cinta mÈtrica 5 m', 12.50, 40, NULL, NULL, 1, 1),
 
-INSERT INTO Producto (Nombre, Precio, Stock, IdMarca) VALUES
-('Martillo de acero', 35.50, 20, 1),
-('Destornillador plano', 15.00, 50, 2),
-('Taladro el√©ctrico 500W', 450.00, 10, 3),
-('Llave inglesa ajustable', 28.90, 25, 4),
-('Serrucho de mano', 22.00, 18, 5),
-('Cinta m√©trica 5m', 12.50, 40, 1),
-('Caja de clavos 2‚Äù', 8.00, 100, 8),
-('Broca para metal 8mm', 10.00, 60, 2),
-('Silicona industrial', 25.00, 30, 6),
-('Pintura blanca 1L', 55.00, 15, 7);
+('Taladro elÈctrico 500W', 450.00, 10, NULL, NULL, 3, 2),
+('Lijadora orbital', 220.00, 5, NULL, NULL, 2, 2),
+('Sierra circular', 380.00, 7, NULL, NULL, 1, 2),
+('Atornillador inal·mbrico', 160.00, 15, NULL, NULL, 4, 2),
+('Amoladora angular', 200.00, 8, NULL, NULL, 3, 2),
 
-INSERT INTO Cliente (Nombre,Telefono,Direccion, Entrega)
-VALUES 
-('Dario',74544429,'Av. Bolivar', 'Adomicilio'),
-('Mario',72857449,'Calle Loa', 'En Tienda'),
-('Mario Rojas', 78965412, 'Av. San Mart√≠n #45', 'Adomicilio');
+('Silicona industrial', 25.00, 30, '300 g', '2026-12-31', 1, 3),
+('Poxipol adhesivo', 18.50, 50, '50 g', '2025-06-30', 2, 3),
+('Pegamento instant·neo', 12.00, 40, '20 g', '2025-09-30', 3, 3),
+('Sellador acrÌlico', 30.00, 25, '280 g', '2026-03-31', 4, 3),
+('Silicona neutra', 28.00, 20, '250 g', '2026-05-31', 1, 3),
+('Pegamento en tubo', 10.00, 60, '50 g', '2025-12-31', 2, 3),
+('Resina poliÈster', 35.00, 15, '500 g', '2026-06-30', 3, 3);
 
-INSERT INTO Venta (IdCliente) VALUES (1), (3);
-
-INSERT INTO DetalleVenta (IdVenta, IdCliente, IdProducto, Cantidad, Subtotal) VALUES
-(1, 1, 3, 2, 450.00),
-(1, 1, 1, 1, 35.50),
-(2, 3, 5, 1, 22.00),
-(2, 3, 4, 2, 57.80);
-
+INSERT INTO Cliente (nombre, telefono, direccion)
+VALUES ('Dario Lopez','74544429','Av. Bolivar'),
+       ('Justo Cruz','72857449','Calle Loa');
+GO
 
 SELECT * FROM Usuario;
-SELECT * FROM Producto;
 SELECT * FROM Cliente;
-SELECT * FROM Venta;
+SELECT * FROM Producto;
+SELECT * FROM Marca;
+SELECT * FROM Categoria;
 SELECT * FROM DetalleVenta;
+GO
