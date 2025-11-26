@@ -2,6 +2,8 @@ CREATE DATABASE LabFerreteria;
 GO
 USE master;
 GO
+USE usrferreteria;
+GO
 
 DROP TABLE IF EXISTS DetalleVenta;
 DROP TABLE IF EXISTS Venta;
@@ -101,7 +103,7 @@ GO
 
 
 INSERT INTO Usuario (nombre, clave)
-VALUES ('Saul', 'dAFoRWBCRBpcRyECjAsQqw==');
+VALUES ('Saul', 'dAFoRWBCRBpcRyECjAsQqw==');--Clave: 4321
 
 INSERT INTO Marca (nombre) VALUES ('Tramontina'),('Bosch'),('Makita'),('Sin Marca');
 INSERT INTO Categoria (nombre) VALUES ('Herramientas'),('Eléctricos'),('Adhesivos y Selladores');

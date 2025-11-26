@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace WebFerreteria.Models;
-
-public partial class Marca
+namespace WebFerreteria.Models
 {
-    public int Id { get; set; }
+    public partial class Marca
+    {
+        public int Id { get; set; }
 
-    public string Nombre { get; set; } = null!;
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        public string Nombre { get; set; } = null!;
 
-    public string UsuarioRegistro { get; set; } = null!;
+        public string UsuarioRegistro { get; set; } = null!;
 
-    public DateTime FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
-    public short Estado { get; set; }
+        public short Estado { get; set; }
 
-    public virtual ICollection<Producto> Producto { get; set; } = new List<Producto>();
+        public virtual ICollection<Producto> Producto { get; set; } = new List<Producto>();
+    }
 }

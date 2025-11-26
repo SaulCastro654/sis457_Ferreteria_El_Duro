@@ -1,0 +1,69 @@
+﻿@model WebFerreteria.Models.Producto
+
+@{
+    ViewData["Title"] = "Detalle de Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detalle de Producto</h1>
+
+<div>
+    <dl class="row">
+
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt class="col-sm-3">Precio</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt class="col-sm-3">Stock</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+
+        <dt class="col-sm-3">Cantidad Medida</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CantidadMedida)
+        </dd>
+
+        <dt class="col-sm-3">Fecha de Vencimiento</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.FechaVencimiento)
+        </dd>
+
+        <dt class="col-sm-3">Marca</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.IdMarcaNavigation.Nombre)
+        </dd>
+
+        <dt class="col-sm-3">Categoría</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.IdCategoriaNavigation.Nombre)
+        </dd>
+
+        <dt class="col-sm-3">Usuario Registro</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.UsuarioRegistro)
+        </dd>
+
+        <dt class="col-sm-3">Fecha Registro</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">
+        <i class="fa fa-edit"></i> Editar
+    </a>
+    |
+    <a asp-action="Index">
+        <i class="fa fa-arrow-left"></i> Volver a la lista
+    </a>
+</div>
