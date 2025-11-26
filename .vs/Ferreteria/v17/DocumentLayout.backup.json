@@ -3,32 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\controllers\\marcacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\controllers\\marcacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\views\\marca\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\marca\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\models\\labferreteriacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\models\\labferreteriacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\views\\marca\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\marca\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\models\\marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\models\\marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ddl_dml_ferreteria.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Models\\LabFerreteriaContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebFerreteria\\Models\\LabFerreteriaContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\views\\marca\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\marca\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\views\\marca\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\marca\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\views\\marca\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\marca\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ddl_dml_ferreteria.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ddl_dml_ferreteria.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,63 +66,167 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Models\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "WebFerreteria\\Models\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Models\\LoginViewModel.cs",
-              "RelativeToolTip": "WebFerreteria\\Models\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T03:34:32.718Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "WebFerreteria\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\AccountController.cs",
               "RelativeToolTip": "WebFerreteria\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAkwEQAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwGoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T03:09:56.742Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "WebFerreteria\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "WebFerreteria\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAowA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T03:03:34.48Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LabFerreteriaContext.cs",
-              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Models\\LabFerreteriaContext.cs",
-              "RelativeDocumentMoniker": "WebFerreteria\\Models\\LabFerreteriaContext.cs",
-              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Models\\LabFerreteriaContext.cs",
-              "RelativeToolTip": "WebFerreteria\\Models\\LabFerreteriaContext.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T02:56:20.528Z",
+              "WhenOpened": "2025-11-26T21:48:00.556Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LabFerreteriaContext.cs",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Models\\LabFerreteriaContext.cs",
+              "RelativeDocumentMoniker": "WebFerreteria\\Models\\LabFerreteriaContext.cs",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Models\\LabFerreteriaContext.cs",
+              "RelativeToolTip": "WebFerreteria\\Models\\LabFerreteriaContext.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAmwPgAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T21:47:55.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Productos\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebFerreteria\\Views\\Productos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Productos\\Index.cshtml",
+              "RelativeToolTip": "WebFerreteria\\Views\\Productos\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T19:30:19.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "WebFerreteria\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "WebFerreteria\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwKQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T19:28:16.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "WebFerreteria\\Controllers\\ClienteController.cs",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "WebFerreteria\\Controllers\\ClienteController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwBMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T19:27:38.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Delete.cshtml",
+              "RelativeDocumentMoniker": "WebFerreteria\\Views\\Marca\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Delete.cshtml",
+              "RelativeToolTip": "WebFerreteria\\Views\\Marca\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T19:00:43.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebFerreteria\\Views\\Marca\\Details.cshtml",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Details.cshtml",
+              "RelativeToolTip": "WebFerreteria\\Views\\Marca\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T19:00:23.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebFerreteria\\Views\\Marca\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Edit.cshtml",
+              "RelativeToolTip": "WebFerreteria\\Views\\Marca\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T18:59:50.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebFerreteria\\Views\\Marca\\Create.cshtml",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Create.cshtml",
+              "RelativeToolTip": "WebFerreteria\\Views\\Marca\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T18:59:35.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebFerreteria\\Views\\Marca\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Marca\\Index.cshtml",
+              "RelativeToolTip": "WebFerreteria\\Views\\Marca\\Index.cshtml",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAowB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T18:59:25.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Marca.cs",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Models\\Marca.cs",
+              "RelativeDocumentMoniker": "WebFerreteria\\Models\\Marca.cs",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Models\\Marca.cs",
+              "RelativeToolTip": "WebFerreteria\\Models\\Marca.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T17:57:58.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MarcaController.cs",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\MarcaController.cs",
+              "RelativeDocumentMoniker": "WebFerreteria\\Controllers\\MarcaController.cs",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\MarcaController.cs",
+              "RelativeToolTip": "WebFerreteria\\Controllers\\MarcaController.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAmwJQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T17:31:55.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ddl_dml_ferreteria.sql ",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql",
               "RelativeDocumentMoniker": "ddl_dml_ferreteria.sql",
