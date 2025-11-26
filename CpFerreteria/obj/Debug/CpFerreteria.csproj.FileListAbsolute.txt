@@ -36,7 +36,6 @@ C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CpFerreteria\bin\Debug\Cln
 C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CpFerreteria\bin\Debug\EntityFramework.xml
 C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CpFerreteria\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CpFerreteria\obj\Debug\CpFerreteria.csproj.AssemblyReference.cache
-C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CpFerreteria\obj\Debug\CpFerreteria.exe.config
 C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CpFerreteria\obj\Debug\CpFerreteria.FrmLogin.resources
 C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CpFerreteria\obj\Debug\CpFerreteria.FrmPrincipal.resources
 C:\Users\HP CELERON\Desktop\sis457_Ferreteria_El_Duro\CpFerreteria\obj\Debug\CpFerreteria.FrmProductos.resources
