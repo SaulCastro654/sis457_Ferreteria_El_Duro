@@ -51,7 +51,6 @@ namespace WebFerreteria.Controllers
 
             try
             {
-                // Validaciones básicas
                 if (venta.IdCliente == 0)
                 {
                     ModelState.AddModelError("IdCliente", "Debe seleccionar un cliente");
@@ -67,7 +66,6 @@ namespace WebFerreteria.Controllers
                     ModelState.AddModelError("Total", "El total debe ser mayor a 0");
                 }
 
-                // Deserializar los detalles desde JSON
                 List<DetalleVenta> detalles = new();
                 if (!string.IsNullOrEmpty(detallesJson))
                 {
@@ -88,12 +86,10 @@ namespace WebFerreteria.Controllers
                     ModelState.AddModelError("", "Debe agregar al menos un producto a la venta");
                 }
 
-                // Asignar valores automáticos
                 venta.UsuarioRegistro = User.Identity?.Name ?? "Admin";
                 venta.FechaRegistro = DateTime.Now;
                 venta.Estado = 1;
 
-                // Remover validación de campos automáticos
                 ModelState.Remove("UsuarioRegistro");
                 ModelState.Remove("FechaRegistro");
                 ModelState.Remove("Estado");
@@ -108,12 +104,10 @@ namespace WebFerreteria.Controllers
                     try
                     {
                         Console.WriteLine("Guardando venta principal...");
-                        // Guardar la venta
                         _context.Add(venta);
                         await _context.SaveChangesAsync();
                         Console.WriteLine($"Venta guardada con ID: {venta.Id}");
 
-                        // Guardar los detalles
                         Console.WriteLine("Guardando detalles...");
                         foreach (var detalle in detalles)
                         {
@@ -124,7 +118,6 @@ namespace WebFerreteria.Controllers
 
                             Console.WriteLine($"Procesando detalle - Producto: {detalle.IdProducto}, Cantidad: {detalle.Cantidad}, Precio: {detalle.PrecioUnitario}");
 
-                            // Verificar stock
                             var producto = await _context.Producto.FindAsync(detalle.IdProducto);
                             if (producto == null)
                             {
@@ -136,11 +129,9 @@ namespace WebFerreteria.Controllers
                                 throw new Exception($"Stock insuficiente para {producto.Nombre}. Stock actual: {producto.Stock}, Solicitado: {detalle.Cantidad}");
                             }
 
-                            // Actualizar stock
                             producto.Stock -= detalle.Cantidad;
                             _context.Update(producto);
 
-                            // Guardar detalle
                             _context.Add(detalle);
                             Console.WriteLine($"Detalle guardado para producto: {producto.Nombre}");
                         }
@@ -175,7 +166,6 @@ namespace WebFerreteria.Controllers
                 ModelState.AddModelError("", "Error al procesar la venta: " + ex.Message);
             }
 
-            // Recargar ViewData si hay error
             ViewData["IdCliente"] = new SelectList(_context.Cliente.Where(c => c.Estado == 1), "Id", "Nombre", venta.IdCliente);
             ViewData["IdUsuario"] = new SelectList(_context.Usuario.Where(u => u.Estado == 1), "Id", "Nombre", venta.IdUsuario);
 
@@ -198,7 +188,6 @@ namespace WebFerreteria.Controllers
             ViewData["IdCliente"] = new SelectList(_context.Cliente.Where(c => c.Estado == 1), "Id", "Nombre", venta.IdCliente);
             ViewData["IdUsuario"] = new SelectList(_context.Usuario.Where(u => u.Estado == 1), "Id", "Nombre", venta.IdUsuario);
 
-            // Pasar los detalles existentes a la vista
             ViewBag.DetallesExistentes = venta.DetalleVenta.Where(d => d.Estado == 1).ToList();
 
             return View(venta);
@@ -223,7 +212,6 @@ namespace WebFerreteria.Controllers
 
             if (ventaBD == null) return NotFound();
 
-            // Deserializar los nuevos detalles desde JSON
             List<DetalleVenta> nuevosDetalles = new();
             if (!string.IsNullOrEmpty(detallesJson))
             {
@@ -239,7 +227,6 @@ namespace WebFerreteria.Controllers
                 }
             }
 
-            // Remover validación de campos automáticos
             ModelState.Remove("UsuarioRegistro");
             ModelState.Remove("FechaRegistro");
             ModelState.Remove("Estado");
@@ -253,13 +240,11 @@ namespace WebFerreteria.Controllers
 
                 try
                 {
-                    // Actualizar datos básicos de la venta
                     ventaBD.IdCliente = ventaForm.IdCliente;
                     ventaBD.IdUsuario = ventaForm.IdUsuario;
                     ventaBD.Total = ventaForm.Total;
                     ventaBD.TipoEntrega = ventaForm.TipoEntrega;
 
-                    // 1. Restaurar stock de los detalles antiguos (eliminación lógica)
                     foreach (var detalleViejo in ventaBD.DetalleVenta.Where(d => d.Estado == 1))
                     {
                         var producto = await _context.Producto.FindAsync(detalleViejo.IdProducto);
@@ -268,11 +253,9 @@ namespace WebFerreteria.Controllers
                             producto.Stock += detalleViejo.Cantidad;
                             _context.Update(producto);
                         }
-                        // Eliminación lógica del detalle viejo
                         detalleViejo.Estado = 0;
                     }
 
-                    // 2. Agregar nuevos detalles
                     foreach (var nuevoDetalle in nuevosDetalles)
                     {
                         var detalle = new DetalleVenta
@@ -286,7 +269,6 @@ namespace WebFerreteria.Controllers
                             UsuarioRegistro = User.Identity?.Name ?? "Admin"
                         };
 
-                        // Verificar stock y actualizar
                         var producto = await _context.Producto.FindAsync(nuevoDetalle.IdProducto);
                         if (producto != null && producto.Stock >= nuevoDetalle.Cantidad)
                         {
@@ -322,7 +304,6 @@ namespace WebFerreteria.Controllers
             ViewData["IdCliente"] = new SelectList(_context.Cliente.Where(c => c.Estado == 1), "Id", "Nombre", ventaForm.IdCliente);
             ViewData["IdUsuario"] = new SelectList(_context.Usuario.Where(u => u.Estado == 1), "Id", "Nombre", ventaForm.IdUsuario);
 
-            // Recargar detalles existentes para la vista
             var ventaRecargada = await _context.Venta
                 .Include(v => v.DetalleVenta)
                     .ThenInclude(d => d.IdProductoNavigation)
@@ -528,8 +509,6 @@ namespace WebFerreteria.Controllers
             }
         }
     }
-
-    // Modelo para los datos de contacto - FUERA DEL CONTROLADOR
     public class ClienteContactoModel
     {
         public int Id { get; set; }
