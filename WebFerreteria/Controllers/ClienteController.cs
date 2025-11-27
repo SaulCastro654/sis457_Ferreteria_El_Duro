@@ -1,82 +1,185 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using WebFerreteria.Models;
 
 namespace WebFerreteria.Controllers
 {
     public class ClienteController : Controller
     {
-        // GET: ClienteController
-        public ActionResult Index()
+        private readonly LabFerreteriaContext _context;
+
+        public ClienteController(LabFerreteriaContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Cliente
+        public async Task<IActionResult> Index()
+        {
+            var clientes = await _context.Cliente
+                .Where(c => c.Estado == 1)
+                .OrderBy(c => c.Nombre)
+                .ToListAsync();
+
+            return View(clientes);
+        }
+
+        // GET: Cliente/Create
+        public IActionResult Create()
         {
             return View();
         }
 
-        // GET: ClienteController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: ClienteController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ClienteController/Create
+        // POST: Cliente/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(Cliente cliente)
+        {
+            // Asignar valores primero
+            cliente.UsuarioRegistro = User.Identity?.Name ?? "Admin";
+            cliente.FechaRegistro = DateTime.Now;
+            cliente.Estado = 1;
+
+            // Remover específicamente los errores de validación para estos campos
+            ModelState.Remove("UsuarioRegistro");
+            ModelState.Remove("FechaRegistro");
+            ModelState.Remove("Estado");
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(cliente);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(cliente);
+        }
+
+        // GET: Cliente/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var cliente = await _context.Cliente.FindAsync(id);
+            if (cliente == null) return NotFound();
+
+            return View(cliente);
+        }
+
+        // POST: Cliente/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Cliente clienteForm)
+        {
+            if (id != clienteForm.Id) return NotFound();
+
+            var clienteBD = await _context.Cliente.FindAsync(id);
+            if (clienteBD == null) return NotFound();
+
+            // Remover campos que no vienen del formulario
+            ModelState.Remove("UsuarioRegistro");
+            ModelState.Remove("FechaRegistro");
+            ModelState.Remove("Estado");
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    clienteBD.Nombre = clienteForm.Nombre;
+                    clienteBD.Telefono = clienteForm.Telefono;
+                    clienteBD.Direccion = clienteForm.Direccion;
+
+                    _context.Update(clienteBD);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "No se pudo actualizar el cliente.");
+                }
+            }
+
+            return View(clienteForm);
+        }
+
+        // GET: Cliente/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var cliente = await _context.Cliente.FindAsync(id);
+            if (cliente == null) return NotFound();
+
+            return View(cliente);
+        }
+
+        // GET: Cliente/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var cliente = await _context.Cliente.FindAsync(id);
+            if (cliente == null) return NotFound();
+
+            return View(cliente);
+        }
+
+        // POST: Cliente/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var cliente = await _context.Cliente.FindAsync(id);
+
+            if (cliente != null)
+            {
+                cliente.Estado = 0;
+                _context.Update(cliente);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+        // AJAX: Obtener cliente por ID
+        [HttpGet]
+        public async Task<JsonResult> GetClienteById(int id)
+        {
+            var cliente = await _context.Cliente
+                .Where(c => c.Id == id)
+                .Select(c => new
+                {
+                    id = c.Id,
+                    nombre = c.Nombre,
+                    telefono = c.Telefono,
+                    direccion = c.Direccion
+                })
+                .FirstOrDefaultAsync();
+
+            return Json(cliente);
+        }
+
+        // AJAX: Actualizar contacto del cliente
+        [HttpPost]
+        public async Task<JsonResult> UpdateContactoAjax(int id, string telefono, string direccion)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                var cliente = await _context.Cliente.FindAsync(id);
+                if (cliente == null)
+                    return Json(new { success = false, message = "Cliente no encontrado" });
 
-        // GET: ClienteController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+                cliente.Telefono = telefono;
+                cliente.Direccion = direccion;
 
-        // POST: ClienteController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                _context.Update(cliente);
+                await _context.SaveChangesAsync();
 
-        // GET: ClienteController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ClienteController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
+                return Json(new { success = true });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return Json(new { success = false, message = ex.Message });
             }
         }
     }
