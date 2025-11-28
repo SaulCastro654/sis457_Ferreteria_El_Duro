@@ -2,8 +2,12 @@ CREATE DATABASE LabFerreteria;
 GO
 USE master;
 GO
-USE usrferreteria;
-GO
+CREATE LOGIN usrferreteria WITH PASSWORD = '123456';
+
+USE LabFerreteria;
+CREATE USER usrferreteria FOR LOGIN usrferreteria;
+ALTER ROLE db_owner ADD MEMBER usrferreteria;
+
 
 DROP TABLE IF EXISTS DetalleVenta;
 DROP TABLE IF EXISTS Venta;
@@ -106,7 +110,7 @@ INSERT INTO Usuario (nombre, clave)
 VALUES ('Saul', 'dAFoRWBCRBpcRyECjAsQqw==');--Clave: 4321
 
 INSERT INTO Marca (nombre) VALUES ('Tramontina'),('Bosch'),('Makita'),('Sin Marca');
-INSERT INTO Categoria (nombre) VALUES ('Herramientas'),('ElÈctricos'),('Adhesivos y Selladores');
+INSERT INTO Categoria (nombre) VALUES ('Herramientas'),('El√©ctricos'),('Adhesivos y Selladores');
 
 INSERT INTO Producto (nombre, precio, stock, cantidadMedida, fechaVencimiento, idMarca, idCategoria)
 VALUES 
@@ -114,21 +118,21 @@ VALUES
 ('Destornillador plano', 15.00, 50, NULL, NULL, 2, 1),
 ('Llave inglesa ajustable', 28.90, 25, NULL, NULL, 3, 1),
 ('Serrucho de mano', 22.00, 18, NULL, NULL, 4, 1),
-('Cinta mÈtrica 5 m', 12.50, 40, NULL, NULL, 1, 1),
+('Cinta m√©trica 5 m', 12.50, 40, NULL, NULL, 1, 1),
 
-('Taladro elÈctrico 500W', 450.00, 10, NULL, NULL, 3, 2),
+('Taladro el√©ctrico 500W', 450.00, 10, NULL, NULL, 3, 2),
 ('Lijadora orbital', 220.00, 5, NULL, NULL, 2, 2),
 ('Sierra circular', 380.00, 7, NULL, NULL, 1, 2),
-('Atornillador inal·mbrico', 160.00, 15, NULL, NULL, 4, 2),
+('Atornillador inal√°mbrico', 160.00, 15, NULL, NULL, 4, 2),
 ('Amoladora angular', 200.00, 8, NULL, NULL, 3, 2),
 
 ('Silicona industrial', 25.00, 30, '300 g', '2026-12-31', 1, 3),
 ('Poxipol adhesivo', 18.50, 50, '50 g', '2025-06-30', 2, 3),
-('Pegamento instant·neo', 12.00, 40, '20 g', '2025-09-30', 3, 3),
-('Sellador acrÌlico', 30.00, 25, '280 g', '2026-03-31', 4, 3),
+('Pegamento instant√°neo', 12.00, 40, '20 g', '2025-09-30', 3, 3),
+('Sellador acr√≠lico', 30.00, 25, '280 g', '2026-03-31', 4, 3),
 ('Silicona neutra', 28.00, 20, '250 g', '2026-05-31', 1, 3),
 ('Pegamento en tubo', 10.00, 60, '50 g', '2025-12-31', 2, 3),
-('Resina poliÈster', 35.00, 15, '500 g', '2026-06-30', 3, 3);
+('Resina poli√©ster', 35.00, 15, '500 g', '2026-06-30', 3, 3);
 
 INSERT INTO Cliente (nombre, telefono, direccion)
 VALUES ('Dario Lopez','74544429','Av. Bolivar'),
