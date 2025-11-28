@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -26,11 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\appsettings.json",
+              "RelativeDocumentMoniker": "WebFerreteria\\appsettings.json",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\appsettings.json",
+              "RelativeToolTip": "WebFerreteria\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-28T03:44:28.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "WebFerreteria\\Views\\Shared\\_Layout.cshtml",
@@ -38,25 +55,24 @@
               "RelativeToolTip": "WebFerreteria\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAADAAAAAAAAAAAAAAAFQAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-27T20:15:26.93Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T20:15:26.93Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "WebFerreteria\\Views\\Home\\Privacy.cshtml",
               "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Home\\Privacy.cshtml",
               "RelativeToolTip": "WebFerreteria\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACAAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-27T20:06:35.907Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ddl_dml_ferreteria.sql",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql",
               "RelativeDocumentMoniker": "ddl_dml_ferreteria.sql",
@@ -67,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "VentaController.cs",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\VentaController.cs",
               "RelativeDocumentMoniker": "WebFerreteria\\Controllers\\VentaController.cs",
@@ -75,8 +91,7 @@
               "RelativeToolTip": "WebFerreteria\\Controllers\\VentaController.cs",
               "ViewState": "AgIAAO8BAAAAAAAAAAAuwP4BAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T23:42:41.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-26T23:42:41.952Z"
             }
           ]
         }

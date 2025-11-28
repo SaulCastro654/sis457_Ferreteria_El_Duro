@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp celeron\\desktop\\sis457_ferreteria_el_duro\\webferreteria\\controllers\\ventacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\controllers\\ventacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebFerreteria\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebFerreteria\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAFQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T20:15:26.93Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -32,14 +49,14 @@
               "RelativeDocumentMoniker": "WebFerreteria\\Views\\Home\\Privacy.cshtml",
               "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Home\\Privacy.cshtml",
               "RelativeToolTip": "WebFerreteria\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AgIAABoBAAAAAAAAAAAAACoBAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACAAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-27T20:06:35.907Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ddl_dml_ferreteria.sql",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql",
               "RelativeDocumentMoniker": "ddl_dml_ferreteria.sql",
@@ -50,13 +67,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "VentaController.cs",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\VentaController.cs",
               "RelativeDocumentMoniker": "WebFerreteria\\Controllers\\VentaController.cs",
               "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Controllers\\VentaController.cs",
               "RelativeToolTip": "WebFerreteria\\Controllers\\VentaController.cs",
-              "ViewState": "AgIAAN8AAAAAAAAAAAAvwOkAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAO8BAAAAAAAAAAAuwP4BAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-26T23:42:41.952Z",
               "EditorCaption": ""
