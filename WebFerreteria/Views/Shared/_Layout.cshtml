@@ -4,16 +4,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebFerreteria</title>
-    <script type="importmap"></script>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap 5 (PRINCIPAL) -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Estilos del tema (secundarios) -->
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/responsive.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/jquery.mCustomScrollbar.min.css" asp-append-version="true" />
+
+    <!-- Estilos de terceros -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
+
+    <!-- Estilos de la aplicación -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebFerreteria.styles.css" asp-append-version="true" />
+
     @RenderSection("Styles", required: false)
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <header class="full_bg">
+        <!-- Navbar Principal -->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">WebFerreteria</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -54,7 +70,14 @@
                                     Hola @User.Identity?.Name
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li>@await Html.PartialAsync("_LogoutPartial")</li>
+                                    <li>
+                                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="dropdown-item">
+                                                <i class="fa fa-sign-out-alt"></i> Cerrar Sesión
+                                            </button>
+                                        </form>
+                                    </li>
                                 </ul>
                             </li>
                         }
@@ -62,24 +85,124 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Banner Solo para Home -->
+        @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
+        {
+            <section class="banner_main">
+                <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="container">
+                                <div class="carousel-caption banner_po">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="build_box text_align_left">
+                                                <h1>BIENVENIDO A:<br> <span class="white">FERRETERIA EL DURO</span></h1>
+                                                <p>En <strong>Ferretería El Duro</strong> nos especializamos en proveer herramientas de calidad, materiales de construcción y todo lo necesario para sus proyectos. Contamos con asesoramiento técnico profesional y un amplio stock permanente para satisfacer todas sus necesidades.</p>
+                                                @if (User.Identity?.IsAuthenticated == true)
+                                                {
+                                                    <!-- Usuario autenticado - enlaces normales -->
+                                                    <a class="read_more conatct_btn" asp-controller="Venta" asp-action="Index" role="button">VER VENTAS</a>
+                                                    <a class="read_more conatct_btn" asp-controller="Productos" asp-action="Index" role="button">VER PRODUCTOS</a>
+                                                }
+                                                else
+                                                {
+                                                    <!-- Usuario NO autenticado - enlaces que redirigen al login -->
+                                                    <a class="read_more conatct_btn" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Url.Action("Index", "Venta")" role="button">VER VENTAS</a>
+                                                    <a class="read_more conatct_btn" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Url.Action("Index", "Productos")" role="button">VER PRODUCTOS</a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <strong>best</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
     </header>
 
-    <div class="container">
+    <!-- Contenido Principal -->
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - WebFerreteria - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="col-md-10 offset-md-1">
+                    <ul class="conta">
+                        <li><i class="fa fa-volume-control-phone" aria-hidden="true"></i> +591 73425830</li>
+                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> elduro@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <p>Copyright 2025 All Right Reserved By <a href="#">Ferreteria El Duro</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- SCRIPTS EN ORDEN CORRECTO -->
+    <!-- 1. jQuery (SOLO UNA VERSIÓN) -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- 2. Bootstrap 5 (PRINCIPAL) -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 3. Scripts del tema (secundarios) -->
+    <script src="~/js/jquery.mCustomScrollbar.concat.min.js" asp-append-version="true"></script>
+    <script src="~/js/custom.js" asp-append-version="true"></script>
+
+    <!-- 4. Scripts de terceros -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <!-- 5. Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 6. Scripts de la aplicación -->
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)  <!-- SOLO UNA VEZ -->
+
+    <!-- 7. Scripts específicos de cada vista -->
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Script para prevenir conflictos -->
+    <script>
+        // Prevenir conflictos entre jQuery versions
+        if (typeof jQuery === 'undefined') {
+            console.warn('jQuery no está cargado correctamente');
+        } else {
+            console.log('jQuery cargado:', jQuery.fn.jquery);
+        }
+
+        // Verificar que Bootstrap 5 esté funcionando
+        $(document).ready(function() {
+            console.log('Documento listo - Bootstrap 5 funcionando');
+
+            // Forzar la inicialización de componentes Bootstrap si es necesario
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl)
+            });
+        });
+    </script>
 </body>
 </html>
