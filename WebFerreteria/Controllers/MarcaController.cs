@@ -14,12 +14,23 @@ namespace WebFerreteria.Controllers
         }
 
         // GET: Marca
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var marcas = await _context.Marca
-                .Where(m => m.Estado == 1)
+            var marcasQuery = _context.Marca
+                .Where(m => m.Estado == 1);
+
+            // Aplicar filtro de búsqueda si se proporciona
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                marcasQuery = marcasQuery.Where(m => m.Nombre.Contains(searchString));
+            }
+
+            var marcas = await marcasQuery
                 .OrderBy(m => m.Nombre)
                 .ToListAsync();
+
+            // Pasar el término de búsqueda a la vista para mantenerlo en el input
+            ViewData["CurrentFilter"] = searchString;
 
             return View(marcas);
         }
@@ -69,7 +80,7 @@ namespace WebFerreteria.Controllers
         // POST: Marca/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Marca marcaForm) // Quita el [Bind]
+        public async Task<IActionResult> Edit(int id, Marca marcaForm)
         {
             if (id != marcaForm.Id) return NotFound();
 
@@ -159,6 +170,27 @@ namespace WebFerreteria.Controllers
             await _context.SaveChangesAsync();
 
             return Json(new { success = true, id = marca.Id, nombre = marca.Nombre });
+        }
+
+        // AJAX: Buscar marcas SOLO POR NOMBRE (para uso en otros módulos)
+        [HttpGet]
+        public async Task<JsonResult> BuscarMarcas(string termino)
+        {
+            if (string.IsNullOrWhiteSpace(termino))
+                return Json(new List<object>());
+
+            var marcas = await _context.Marca
+                .Where(m => m.Estado == 1 && m.Nombre.Contains(termino))
+                .Select(m => new
+                {
+                    id = m.Id,
+                    nombre = m.Nombre
+                })
+                .OrderBy(m => m.nombre)
+                .Take(10)
+                .ToListAsync();
+
+            return Json(marcas);
         }
     }
 }

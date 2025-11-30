@@ -17,15 +17,30 @@ namespace WebFerreteria.Controllers
         }
 
         // GET: Productos
-        public async Task<IActionResult> Index()
+        [HttpGet]
+        [Route("Productos")]
+        [Route("Productos/Index")]
+        public async Task<IActionResult> Index(string searchString)
         {
-            var productos = _context.Producto
+            var productosQuery = _context.Producto
                 .Include(p => p.IdMarcaNavigation)
                 .Include(p => p.IdCategoriaNavigation)
-                .Where(p => p.Estado == 1)
-                .OrderBy(p => p.Nombre);
+                .Where(p => p.Estado == 1);
 
-            return View(await productos.ToListAsync());
+            // Aplicar filtro de búsqueda si se proporciona
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                productosQuery = productosQuery.Where(p => p.Nombre.Contains(searchString));
+            }
+
+            var productos = await productosQuery
+                .OrderBy(p => p.Nombre)
+                .ToListAsync();
+
+            // Pasar el término de búsqueda a la vista para mantenerlo en el input
+            ViewData["CurrentFilter"] = searchString;
+
+            return View(productos);
         }
         // GET: Productos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -169,6 +184,33 @@ namespace WebFerreteria.Controllers
         private bool ProductoExists(int id)
         {
             return _context.Producto.Any(e => e.Id == id);
+        }
+
+        // AJAX: Buscar productos
+        [HttpGet]
+        public async Task<JsonResult> BuscarProductos(string termino)
+        {
+            if (string.IsNullOrWhiteSpace(termino))
+                return Json(new List<object>());
+
+            var productos = await _context.Producto
+                .Include(p => p.IdMarcaNavigation)
+                .Include(p => p.IdCategoriaNavigation)
+                .Where(p => p.Estado == 1 && p.Nombre.Contains(termino))
+                .Select(p => new
+                {
+                    id = p.Id,
+                    nombre = p.Nombre,
+                    precio = p.Precio,
+                    stock = p.Stock,
+                    marca = p.IdMarcaNavigation.Nombre,
+                    categoria = p.IdCategoriaNavigation.Nombre
+                })
+                .OrderBy(p => p.nombre)
+                .Take(10)
+                .ToListAsync();
+
+            return Json(productos);
         }
     }
 }
