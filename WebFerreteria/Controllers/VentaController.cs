@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebFerreteria.Models;
+using System.Text.Json;
 
 namespace WebFerreteria.Controllers
 {
@@ -15,14 +16,25 @@ namespace WebFerreteria.Controllers
         }
 
         // GET: Venta
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var ventas = await _context.Venta
+            var ventasQuery = _context.Venta
                 .Include(v => v.IdClienteNavigation)
                 .Include(v => v.IdUsuarioNavigation)
-                .Where(v => v.Estado == 1)
+                .Where(v => v.Estado == 1);
+
+            // Aplicar filtro de búsqueda por nombre de cliente si se proporciona
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                ventasQuery = ventasQuery.Where(v => v.IdClienteNavigation.Nombre.Contains(searchString));
+            }
+
+            var ventas = await ventasQuery
                 .OrderByDescending(v => v.FechaRegistro)
                 .ToListAsync();
+
+            // Pasar el término de búsqueda a la vista para mantenerlo en el input
+            ViewData["CurrentFilter"] = searchString;
 
             return View(ventas);
         }
@@ -71,7 +83,7 @@ namespace WebFerreteria.Controllers
                 {
                     try
                     {
-                        detalles = System.Text.Json.JsonSerializer.Deserialize<List<DetalleVenta>>(detallesJson);
+                        detalles = JsonSerializer.Deserialize<List<DetalleVenta>>(detallesJson);
                         Console.WriteLine($"Detalles deserializados: {detalles?.Count ?? 0}");
                     }
                     catch (Exception jsonEx)
@@ -181,14 +193,17 @@ namespace WebFerreteria.Controllers
             var venta = await _context.Venta
                 .Include(v => v.DetalleVenta)
                     .ThenInclude(d => d.IdProductoNavigation)
-                .FirstOrDefaultAsync(v => v.Id == id);
+                .Include(v => v.IdClienteNavigation)
+                .FirstOrDefaultAsync(v => v.Id == id && v.Estado == 1);
 
             if (venta == null) return NotFound();
 
             ViewData["IdCliente"] = new SelectList(_context.Cliente.Where(c => c.Estado == 1), "Id", "Nombre", venta.IdCliente);
             ViewData["IdUsuario"] = new SelectList(_context.Usuario.Where(u => u.Estado == 1), "Id", "Nombre", venta.IdUsuario);
 
+            // Preparar datos para la vista
             ViewBag.DetallesExistentes = venta.DetalleVenta.Where(d => d.Estado == 1).ToList();
+            ViewBag.VentaOriginal = venta;
 
             return View(venta);
         }
@@ -208,7 +223,7 @@ namespace WebFerreteria.Controllers
 
             var ventaBD = await _context.Venta
                 .Include(v => v.DetalleVenta)
-                .FirstOrDefaultAsync(v => v.Id == id);
+                .FirstOrDefaultAsync(v => v.Id == id && v.Estado == 1);
 
             if (ventaBD == null) return NotFound();
 
@@ -217,7 +232,7 @@ namespace WebFerreteria.Controllers
             {
                 try
                 {
-                    nuevosDetalles = System.Text.Json.JsonSerializer.Deserialize<List<DetalleVenta>>(detallesJson);
+                    nuevosDetalles = JsonSerializer.Deserialize<List<DetalleVenta>>(detallesJson);
                     Console.WriteLine($"Nuevos detalles deserializados: {nuevosDetalles?.Count ?? 0}");
                 }
                 catch (Exception jsonEx)
@@ -225,6 +240,22 @@ namespace WebFerreteria.Controllers
                     Console.WriteLine($"Error deserializando JSON: {jsonEx.Message}");
                     ModelState.AddModelError("", "Error en el formato de los detalles de la venta");
                 }
+            }
+
+            // Validaciones
+            if (ventaForm.IdCliente == 0)
+            {
+                ModelState.AddModelError("IdCliente", "Debe seleccionar un cliente");
+            }
+
+            if (ventaForm.Total <= 0)
+            {
+                ModelState.AddModelError("Total", "El total debe ser mayor a 0");
+            }
+
+            if (nuevosDetalles == null || !nuevosDetalles.Any())
+            {
+                ModelState.AddModelError("", "Debe agregar al menos un producto a la venta");
             }
 
             ModelState.Remove("UsuarioRegistro");
@@ -240,11 +271,16 @@ namespace WebFerreteria.Controllers
 
                 try
                 {
+                    // Actualizar datos principales de la venta
                     ventaBD.IdCliente = ventaForm.IdCliente;
                     ventaBD.IdUsuario = ventaForm.IdUsuario;
                     ventaBD.Total = ventaForm.Total;
                     ventaBD.TipoEntrega = ventaForm.TipoEntrega;
 
+                    Console.WriteLine("Actualizando datos principales de la venta...");
+
+                    // 1. Revertir stock de los detalles antiguos
+                    Console.WriteLine("Revirtiendo stock de detalles antiguos...");
                     foreach (var detalleViejo in ventaBD.DetalleVenta.Where(d => d.Estado == 1))
                     {
                         var producto = await _context.Producto.FindAsync(detalleViejo.IdProducto);
@@ -252,12 +288,28 @@ namespace WebFerreteria.Controllers
                         {
                             producto.Stock += detalleViejo.Cantidad;
                             _context.Update(producto);
+                            Console.WriteLine($"Stock revertido para {producto.Nombre}: +{detalleViejo.Cantidad}");
                         }
+                        // Marcar detalle como inactivo
                         detalleViejo.Estado = 0;
                     }
 
+                    // 2. Agregar nuevos detalles
+                    Console.WriteLine("Agregando nuevos detalles...");
                     foreach (var nuevoDetalle in nuevosDetalles)
                     {
+                        var producto = await _context.Producto.FindAsync(nuevoDetalle.IdProducto);
+                        if (producto == null)
+                        {
+                            throw new Exception($"Producto con ID {nuevoDetalle.IdProducto} no encontrado");
+                        }
+
+                        if (producto.Stock < nuevoDetalle.Cantidad)
+                        {
+                            throw new Exception($"Stock insuficiente para {producto.Nombre}. Stock actual: {producto.Stock}, Solicitado: {nuevoDetalle.Cantidad}");
+                        }
+
+                        // Crear nuevo detalle
                         var detalle = new DetalleVenta
                         {
                             IdVenta = ventaBD.Id,
@@ -269,38 +321,39 @@ namespace WebFerreteria.Controllers
                             UsuarioRegistro = User.Identity?.Name ?? "Admin"
                         };
 
-                        var producto = await _context.Producto.FindAsync(nuevoDetalle.IdProducto);
-                        if (producto != null && producto.Stock >= nuevoDetalle.Cantidad)
-                        {
-                            producto.Stock -= nuevoDetalle.Cantidad;
-                            _context.Update(producto);
-                        }
-                        else
-                        {
-                            throw new Exception($"Stock insuficiente para el producto: {producto?.Nombre}");
-                        }
+                        // Actualizar stock
+                        producto.Stock -= nuevoDetalle.Cantidad;
+                        _context.Update(producto);
 
                         _context.Add(detalle);
+                        Console.WriteLine($"Nuevo detalle agregado: {producto.Nombre} x {nuevoDetalle.Cantidad}");
                     }
 
                     await _context.SaveChangesAsync();
                     await transaction.CommitAsync();
 
                     Console.WriteLine("=== VENTA ACTUALIZADA EXITOSAMENTE ===");
+                    TempData["SuccessMessage"] = "Venta actualizada correctamente";
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
                 {
                     await transaction.RollbackAsync();
                     Console.WriteLine($"ERROR durante la actualización: {ex.Message}");
+                    Console.WriteLine($"StackTrace: {ex.StackTrace}");
                     ModelState.AddModelError("", "Error al actualizar la venta: " + ex.Message);
                 }
             }
-            else if (nuevosDetalles == null || !nuevosDetalles.Any())
+            else
             {
-                ModelState.AddModelError("", "Debe agregar al menos un producto a la venta");
+                Console.WriteLine("Errores de validación en Edit:");
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($" - {error.ErrorMessage}");
+                }
             }
 
+            // Recargar datos para la vista
             ViewData["IdCliente"] = new SelectList(_context.Cliente.Where(c => c.Estado == 1), "Id", "Nombre", ventaForm.IdCliente);
             ViewData["IdUsuario"] = new SelectList(_context.Usuario.Where(u => u.Estado == 1), "Id", "Nombre", ventaForm.IdUsuario);
 
@@ -324,7 +377,7 @@ namespace WebFerreteria.Controllers
                 .Include(v => v.IdUsuarioNavigation)
                 .Include(v => v.DetalleVenta)
                     .ThenInclude(d => d.IdProductoNavigation)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id && m.Estado == 1);
 
             if (venta == null) return NotFound();
 
@@ -339,7 +392,7 @@ namespace WebFerreteria.Controllers
             var venta = await _context.Venta
                 .Include(v => v.IdClienteNavigation)
                 .Include(v => v.IdUsuarioNavigation)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id && m.Estado == 1);
 
             if (venta == null) return NotFound();
 
@@ -358,6 +411,8 @@ namespace WebFerreteria.Controllers
                 venta.Estado = 0;
                 _context.Update(venta);
                 await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "Venta eliminada correctamente";
             }
 
             return RedirectToAction(nameof(Index));
@@ -371,10 +426,7 @@ namespace WebFerreteria.Controllers
                 return Json(new List<object>());
 
             var clientes = await _context.Cliente
-                .Where(c => c.Estado == 1 &&
-                       (c.Nombre.Contains(termino) ||
-                        c.Telefono != null && c.Telefono.Contains(termino) ||
-                        c.Direccion != null && c.Direccion.Contains(termino)))
+                .Where(c => c.Estado == 1 && c.Nombre.Contains(termino))
                 .Select(c => new
                 {
                     id = c.Id,
@@ -414,7 +466,7 @@ namespace WebFerreteria.Controllers
 
         // AJAX: Buscar productos
         [HttpGet]
-        public async Task<JsonResult> BuscarProductos(string termino, int? categoriaId)
+        public async Task<JsonResult> BuscarProductosParaVenta(string termino, int? categoriaId)
         {
             if (string.IsNullOrWhiteSpace(termino))
                 return Json(new List<object>());
@@ -508,7 +560,61 @@ namespace WebFerreteria.Controllers
                 return Json(new { success = false, message = "Error al actualizar: " + ex.Message });
             }
         }
+        // AJAX: Obtener datos de venta para edición (sin referencias circulares)
+    [HttpGet]
+    public async Task<JsonResult> GetVentaForEdit(int id)
+    {
+        try
+        {
+            var venta = await _context.Venta
+                .Include(v => v.DetalleVenta)
+                    .ThenInclude(d => d.IdProductoNavigation)
+                .Include(v => v.IdClienteNavigation)
+                .Where(v => v.Id == id && v.Estado == 1)
+                .Select(v => new
+                {
+                    id = v.Id,
+                    idCliente = v.IdCliente,
+                    idUsuario = v.IdUsuario,
+                    total = v.Total,
+                    tipoEntrega = v.TipoEntrega,
+                    cliente = new {
+                        id = v.IdClienteNavigation.Id,
+                        nombre = v.IdClienteNavigation.Nombre,
+                        telefono = v.IdClienteNavigation.Telefono,
+                        direccion = v.IdClienteNavigation.Direccion
+                    },
+                    detallesVenta = v.DetalleVenta
+                        .Where(d => d.Estado == 1)
+                        .Select(d => new
+                        {
+                            idProducto = d.IdProducto,
+                            nombreProducto = d.IdProductoNavigation.Nombre,
+                            cantidad = d.Cantidad,
+                            precioUnitario = d.PrecioUnitario
+                        }).ToList()
+                })
+                .FirstOrDefaultAsync();
+
+            if (venta == null)
+            {
+                return Json(new { success = false, message = "Venta no encontrada" });
+            }
+
+            return Json(venta); // Devuelve directamente los datos, no los envuelvas en otro objeto
+        }
+        catch (Exception ex)
+        {
+            return Json(new { success = false, message = "Error: " + ex.Message });
+        }
     }
+
+        private bool VentaExists(int id)
+        {
+            return _context.Venta.Any(e => e.Id == id && e.Estado == 1);
+        }
+    }
+
     public class ClienteContactoModel
     {
         public int Id { get; set; }

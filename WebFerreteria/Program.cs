@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using WebFerreteria.Models;
 
@@ -25,21 +25,18 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseCookiePolicy();
-app.UseSession();
-app.UseAuthentication();
-
 app.UseHttpsRedirection();
+app.UseStaticFiles(); // ← ESTA LÍNEA ES IMPORTANTE PARA ARCHIVOS ESTÁTICOS
+
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapStaticAssets();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

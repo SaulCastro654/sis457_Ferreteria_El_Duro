@@ -14,12 +14,23 @@ namespace WebFerreteria.Controllers
         }
 
         // GET: Cliente
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var clientes = await _context.Cliente
-                .Where(c => c.Estado == 1)
+            var clientesQuery = _context.Cliente
+                .Where(c => c.Estado == 1);
+
+            // Aplicar filtro de búsqueda si se proporciona
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                clientesQuery = clientesQuery.Where(c => c.Nombre.Contains(searchString));
+            }
+
+            var clientes = await clientesQuery
                 .OrderBy(c => c.Nombre)
                 .ToListAsync();
+
+            // Pasar el término de búsqueda a la vista para mantenerlo en el input
+            ViewData["CurrentFilter"] = searchString;
 
             return View(clientes);
         }
@@ -141,6 +152,7 @@ namespace WebFerreteria.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
         // AJAX: Obtener cliente por ID
         [HttpGet]
         public async Task<JsonResult> GetClienteById(int id)
@@ -181,6 +193,29 @@ namespace WebFerreteria.Controllers
             {
                 return Json(new { success = false, message = ex.Message });
             }
+        }
+
+        // AJAX: Buscar clientes SOLO POR NOMBRE
+        [HttpGet]
+        public async Task<JsonResult> BuscarClientes(string termino)
+        {
+            if (string.IsNullOrWhiteSpace(termino))
+                return Json(new List<object>());
+
+            var clientes = await _context.Cliente
+                .Where(c => c.Estado == 1 && c.Nombre.Contains(termino))
+                .Select(c => new
+                {
+                    id = c.Id,
+                    nombre = c.Nombre,
+                    telefono = c.Telefono,
+                    direccion = c.Direccion
+                })
+                .OrderBy(c => c.nombre)
+                .Take(10)
+                .ToListAsync();
+
+            return Json(clientes);
         }
     }
 }
