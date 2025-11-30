@@ -728,7 +728,6 @@ C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_E
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\compressed\oakyk8aqwz-wc8qdxqvle.gz
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\compressed\u1pkvuh4nh-9wbqvfxf5a.gz
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\compressed\2uco8io9rz-uwa57pewa3.gz
-C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\compressed\ck9paro88u-205ahky5in.gz
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\compressed\tystqt1tmj-4arvvnyhgj.gz
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\compressed\oeqkbnztsi-4arvvnyhgj.gz
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\staticwebassets.build.json
@@ -742,3 +741,4 @@ C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_E
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\WebFerreteria.pdb
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\WebFerreteria.genruntimeconfig.cache
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\ref\WebFerreteria.dll
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\compressed\ck9paro88u-qw9nttt0wk.gz

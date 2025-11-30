@@ -982,3 +982,93 @@ ul.social_icon {
         background-color: #2a2a2a;
     }
 }
+/**-- Footer Compacto --**/
+
+.footer {
+    background: #212120;
+    padding-top: 40px; /* Reducido de 90px */
+    padding-bottom: 40px; /* Agregado para espacio inferior */
+    text-align: center;
+}
+
+.news {
+    padding-bottom: 15px; /* Reducido de 25px */
+}
+
+    .news h3 {
+        font-weight: 600;
+        font-size: 18px; /* Reducido de 20px */
+        line-height: 18px; /* Reducido de 20px */
+        text-align: left;
+        color: #fff;
+        padding-bottom: 15px; /* Reducido de 25px */
+    }
+
+ul.conta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 15px; /* Agregado para separación */
+}
+
+    ul.conta li {
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        text-align: left;
+        padding-bottom: 10px; /* Reducido de 20px */
+        font-size: 16px; /* Reducido de 18px */
+        display: inline-flex;
+        line-height: 24px; /* Reducido de 30px */
+    }
+
+        ul.conta li i {
+            padding-right: 10px; /* Reducido de 15px */
+            text-align: center;
+            font-size: 24px; /* Reducido de 33px */
+            color: #fff;
+        }
+
+.copyright {
+    margin-top: 20px; /* Reducido de 35px */
+    padding-bottom: 15px; /* Reducido de 25px */
+}
+
+    .copyright p {
+        border-top: #909090 solid 1px;
+        color: #fff;
+        font-size: 14px; /* Reducido de 17px */
+        line-height: 20px; /* Reducido de 22px */
+        text-align: center;
+        padding-top: 15px; /* Reducido de 25px */
+        font-weight: normal;
+        margin: 0;
+    }
+
+/* Opcional: Hacer el footer más compacto en móviles */
+@media (max-width: 768px) {
+    .footer {
+        padding-top: 30px;
+        padding-bottom: 15px;
+    }
+
+    ul.conta {
+        flex-direction: column;
+        text-align: center;
+    }
+
+        ul.conta li {
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 8px;
+        }
+
+    .copyright {
+        margin-top: 15px;
+    }
+
+        .copyright p {
+            font-size: 13px;
+            padding-top: 12px;
+        }
+}
