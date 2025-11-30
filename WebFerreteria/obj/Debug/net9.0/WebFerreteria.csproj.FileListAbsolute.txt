@@ -741,4 +741,4 @@ C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_E
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\WebFerreteria.pdb
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\WebFerreteria.genruntimeconfig.cache
 C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\ref\WebFerreteria.dll
-C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\compressed\ck9paro88u-qw9nttt0wk.gz
+C:\Users\HP\Desktop\ADMI\Informatica 4\SIS 457\el duro 27-11\sis457_Ferreteria_El_Duro\WebFerreteria\obj\Debug\net9.0\compressed\ck9paro88u-jkm5imzjw7.gz

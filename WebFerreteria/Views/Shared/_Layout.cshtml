@@ -1,6 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/logo.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/images/logo-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/logo-16x16.png">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebFerreteria</title>
@@ -31,7 +36,9 @@
         <!-- Navbar Principal -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">WebFerreteria</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/NLogo.png" alt="Ferretería El Duro" width="100" height="100" class="d-inline-block align-text-top me-2">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

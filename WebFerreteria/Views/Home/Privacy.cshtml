@@ -4,200 +4,207 @@
 }
 
 <div class="container-fluid py-5 about-page">
-    <div class="row mb-5">
-        <div class="col-12 text-center">
-            <h1 class="display-4 text-primary fw-bold">@ViewData["Title"]</h1>
-            <p class="lead text-muted">Construyendo confianza desde 2020</p>
-        </div>
-    </div>
-
-    <div class="row mb-5 align-items-center">
-        <div class="col-lg-6">
-            <div class="hero-content">
-                <h2 class="fw-bold mb-4">Más de 25 años siendo tu aliado de confianza</h2>
-                <p class="fs-5 mb-4">
-                    En <strong class="text-primary">Ferretería El Duro</strong> hemos crecido junto a nuestros clientes,
-                    transformando sueños en realidades a través de materiales de calidad y asesoramiento experto.
-                </p>
-                <div class="d-flex gap-3 flex-wrap">
-                    <span class="badge bg-primary fs-6 p-3"> Calidad Garantizada</span>
-                    <span class="badge bg-success fs-6 p-3"> Entrega Rápida</span>
-                    <span class="badge bg-warning fs-6 p-3"> Expertos en el Rubro</span>
-                </div>
+    <div class="content-overlay">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-primary fw-bold">@ViewData["Title"]</h1>
+                <p class="lead text-muted">Construyendo confianza desde 2020</p>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="about-hero-image text-center">
-                <div class="image-placeholder bg-light rounded-3 p-5">
-                    <i class="fas fa-tools fa-6x text-primary mb-3"></i>
-                    <p class="text-muted">Imagen de nuestra ferretería</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row mb-5">
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center p-4">
-                    <div class="icon-container mb-3">
-                        <i class="fas fa-bullseye fa-3x text-primary"></i>
-                    </div>
-                    <h3 class="card-title h4 text-primary">Misión</h3>
-                    <p class="card-text">
-                        Proveer herramientas, materiales y equipos de construcción de la más alta calidad,
-                        brindando asesoramiento especializado para que cada proyecto de nuestros clientes sea un éxito.
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h2 class="fw-bold mb-4">Más de 25 años siendo tu aliado de confianza</h2>
+                    <p class="fs-5 mb-4">
+                        En <strong class="text-primary">Ferretería El Duro</strong> hemos crecido junto a nuestros clientes,
+                        transformando sueños en realidades a través de materiales de calidad y asesoramiento experto.
                     </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center p-4">
-                    <div class="icon-container mb-3">
-                        <i class="fas fa-eye fa-3x text-success"></i>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <span class="badge bg-primary fs-6 p-3"> Calidad Garantizada</span>
+                        <span class="badge bg-success fs-6 p-3"> Entrega Rápida</span>
+                        <span class="badge bg-warning fs-6 p-3"> Expertos en el Rubro</span>
                     </div>
-                    <h3 class="card-title h4 text-success">Visión</h3>
-                    <p class="card-text">
-                        Ser la ferretería de referencia en la región, reconocida por nuestra calidad,
-                        variedad de productos y el mejor servicio al cliente en el sector ferretero.
-                    </p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center p-4">
-                    <div class="icon-container mb-3">
-                        <i class="fas fa-heart fa-3x text-danger"></i>
+            <div class="col-lg-6">
+                <div class="about-hero-image text-center">
+                    <div class="image-container rounded-3 overflow-hidden shadow-lg">
+                        <img src="~/images/Ferreteria.jpeg" alt="Ferretería El Duro - Nuestra tienda" class="img-fluid store-image">
+                        <div class="image-overlay">
+                            <i class="fas fa-store fa-3x text-white mb-3"></i>
+                            <p class="text-white mb-0">Nuestra Ferretería</p>
+                        </div>
                     </div>
-                    <h3 class="card-title h4 text-danger">Valores</h3>
-                    <ul class="list-unstyled text-start">
-                        <li> Honestidad y transparencia</li>
-                        <li> Compromiso con la calidad</li>
-                        <li> Servicio al cliente excepcional</li>
-                        <li> Responsabilidad social</li>
-                        <li> Innovación constante</li>
-                    </ul>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row mb-5">
-        <div class="col-12">
-            <h2 class="text-center mb-4 fw-bold">¿Por Qué Elegir Ferretería El Duro?</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="feature-item d-flex align-items-start mb-4">
-                        <div class="feature-icon me-3">
-                            <i class="fas fa-shield-alt fa-2x text-primary"></i>
+        <!-- El resto de tu código se mantiene igual -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-container mb-3">
+                            <i class="fas fa-bullseye fa-3x text-primary"></i>
                         </div>
-                        <div>
-                            <h4 class="h5">Calidad Garantizada</h4>
-                            <p class="mb-0">Trabajamos exclusivamente con marcas reconocidas y productos certificados.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item d-flex align-items-start mb-4">
-                        <div class="feature-icon me-3">
-                            <i class="fas fa-users fa-2x text-success"></i>
-                        </div>
-                        <div>
-                            <h4 class="h5">Asesoramiento Experto</h4>
-                            <p class="mb-0">Nuestro equipo tiene años de experiencia en el rubro de la construcción.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item d-flex align-items-start mb-4">
-                        <div class="feature-icon me-3">
-                            <i class="fas fa-tags fa-2x text-warning"></i>
-                        </div>
-                        <div>
-                            <h4 class="h5">Precios Competitivos</h4>
-                            <p class="mb-0">Ofrecemos los mejores precios sin comprometer la calidad de nuestros productos.</p>
-                        </div>
+                        <h3 class="card-title h4 text-primary">Misión</h3>
+                        <p class="card-text">
+                            Proveer herramientas, materiales y equipos de construcción de la más alta calidad,
+                            brindando asesoramiento especializado para que cada proyecto de nuestros clientes sea un éxito.
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="feature-item d-flex align-items-start mb-4">
-                        <div class="feature-icon me-3">
-                            <i class="fas fa-boxes fa-2x text-info"></i>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-container mb-3">
+                            <i class="fas fa-eye fa-3x text-success"></i>
                         </div>
-                        <div>
-                            <h4 class="h5">Amplio Inventario</h4>
-                            <p class="mb-0">Contamos con una extensa variedad de productos para todas tus necesidades.</p>
-                        </div>
+                        <h3 class="card-title h4 text-success">Visión</h3>
+                        <p class="card-text">
+                            Ser la ferretería de referencia en la región, reconocida por nuestra calidad,
+                            variedad de productos y el mejor servicio al cliente en el sector ferretero.
+                        </p>
                     </div>
-                    <div class="feature-item d-flex align-items-start mb-4">
-                        <div class="feature-icon me-3">
-                            <i class="fas fa-shipping-fast fa-2x text-primary"></i>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-container mb-3">
+                            <i class="fas fa-heart fa-3x text-danger"></i>
                         </div>
-                        <div>
-                            <h4 class="h5">Entrega Puntual</h4>
-                            <p class="mb-0">Servicio de delivery rápido y confiable para tus proyectos urgentes.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item d-flex align-items-start mb-4">
-                        <div class="feature-icon me-3">
-                            <i class="fas fa-handshake fa-2x text-success"></i>
-                        </div>
-                        <div>
-                            <h4 class="h5">Atención Personalizada</h4>
-                            <p class="mb-0">Cada cliente recibe trato personalizado según sus necesidades específicas.</p>
-                        </div>
+                        <h3 class="card-title h4 text-danger">Valores</h3>
+                        <ul class="list-unstyled text-start">
+                            <li> Honestidad y transparencia</li>
+                            <li> Compromiso con la calidad</li>
+                            <li> Servicio al cliente excepcional</li>
+                            <li> Responsabilidad social</li>
+                            <li> Innovación constante</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-header bg-primary text-white">
-                    <h3 class="h5 mb-0"><i class="fas fa-clock me-2"></i>Horarios de Atención</h3>
-                </div>
-                <div class="card-body">
-                    <div class="schedule-item d-flex justify-content-between border-bottom py-2">
-                        <span>Lunes a Viernes:</span>
-                        <strong>7:00 AM - 7:00 PM</strong>
+        <!-- Resto del código se mantiene igual -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="text-center mb-4 fw-bold">¿Por Qué Elegir Ferretería El Duro?</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="feature-item d-flex align-items-start mb-4">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-shield-alt fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5">Calidad Garantizada</h4>
+                                <p class="mb-0">Trabajamos exclusivamente con marcas reconocidas y productos certificados.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item d-flex align-items-start mb-4">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-users fa-2x text-success"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5">Asesoramiento Experto</h4>
+                                <p class="mb-0">Nuestro equipo tiene años de experiencia en el rubro de la construcción.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item d-flex align-items-start mb-4">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-tags fa-2x text-warning"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5">Precios Competitivos</h4>
+                                <p class="mb-0">Ofrecemos los mejores precios sin comprometer la calidad de nuestros productos.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="schedule-item d-flex justify-content-between border-bottom py-2">
-                        <span>Sábados:</span>
-                        <strong>7:00 AM - 3:00 PM</strong>
-                    </div>
-                    <div class="schedule-item d-flex justify-content-between py-2">
-                        <span>Domingos:</span>
-                        <strong class="text-muted">Cerrado</strong>
+                    <div class="col-lg-6">
+                        <div class="feature-item d-flex align-items-start mb-4">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-boxes fa-2x text-info"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5">Amplio Inventario</h4>
+                                <p class="mb-0">Contamos con una extensa variedad de productos para todas tus necesidades.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item d-flex align-items-start mb-4">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-shipping-fast fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5">Entrega Puntual</h4>
+                                <p class="mb-0">Servicio de delivery rápido y confiable para tus proyectos urgentes.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item d-flex align-items-start mb-4">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-handshake fa-2x text-success"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5">Atención Personalizada</h4>
+                                <p class="mb-0">Cada cliente recibe trato personalizado según sus necesidades específicas.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mb-4">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-header bg-success text-white">
-                    <h3 class="h5 mb-0"><i class="fas fa-map-marker-alt me-2"></i>Información de Contacto</h3>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="h5 mb-0"><i class="fas fa-clock me-2"></i>Horarios de Atención</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="schedule-item d-flex justify-content-between border-bottom py-2">
+                            <span>Lunes a Viernes:</span>
+                            <strong>7:00 AM - 7:00 PM</strong>
+                        </div>
+                        <div class="schedule-item d-flex justify-content-between border-bottom py-2">
+                            <span>Sábados:</span>
+                            <strong>7:00 AM - 3:00 PM</strong>
+                        </div>
+                        <div class="schedule-item d-flex justify-content-between py-2">
+                            <span>Domingos:</span>
+                            <strong class="text-muted">Cerrado</strong>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="contact-item d-flex align-items-start mb-3">
-                        <i class="fas fa-map-marker-alt text-primary me-3 mt-1"></i>
-                        <div>
-                            <strong>Dirección:</strong><br>
-                            Av. Principal #123, Centro<br>
-                            Ciudad, Estado 12345
-                        </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="h5 mb-0"><i class="fas fa-map-marker-alt me-2"></i>Información de Contacto</h3>
                     </div>
-                    <div class="contact-item d-flex align-items-start mb-3">
-                        <i class="fas fa-phone text-primary me-3 mt-1"></i>
-                        <div>
-                            <strong>Teléfono:</strong><br>
-                            (123) 456-7890
+                    <div class="card-body">
+                        <div class="contact-item d-flex align-items-start mb-3">
+                            <i class="fas fa-map-marker-alt text-primary me-3 mt-1"></i>
+                            <div>
+                                <strong>Dirección:</strong><br>
+                                Av. Principal #123, Centro<br>
+                                Ciudad, Estado 12345
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item d-flex align-items-start mb-3">
-                        <i class="fas fa-envelope text-primary me-3 mt-1"></i>
-                        <div>
-                            <strong>Email:</strong><br>
-                            info@ferreteriaelduro.com
+                        <div class="contact-item d-flex align-items-start mb-3">
+                            <i class="fas fa-phone text-primary me-3 mt-1"></i>
+                            <div>
+                                <strong>Teléfono:</strong><br>
+                                (123) 456-7890
+                            </div>
+                        </div>
+                        <div class="contact-item d-flex align-items-start mb-3">
+                            <i class="fas fa-envelope text-primary me-3 mt-1"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                info@ferreteriaelduro.com
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -209,8 +216,142 @@
 @section Styles {
     <style>
         .about-page {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: url('../images/banner1.jpg') no-repeat center center fixed;
+            background-size: cover;
             min-height: 100vh;
+            position: relative;
+        }
+
+            /* Aplicar blur solo a la imagen de fondo */
+            .about-page::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: inherit;
+                backdrop-filter: blur(8px);
+                z-index: 1;
+            }
+
+        /* Contenedor para el contenido con fondo transparente */
+        .content-overlay {
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            margin: 20px;
+            padding: 30px;
+        }
+
+        /* Mejorar legibilidad del texto */
+        h1, h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-primary {
+            color: #3498db !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-success {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-warning {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-danger {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-muted {
+            color: #ecf0f1 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        p, span, li, .card-text, .lead {
+            color: #ecf0f1;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            font-weight: 500;
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-header {
+            background: rgba(52, 152, 219, 0.8) !important;
+            backdrop-filter: blur(5px);
+        }
+
+            .card-header.bg-success {
+                background: rgba(46, 204, 113, 0.8) !important;
+            }
+
+        .card-body {
+            color: #ecf0f1;
+        }
+
+        .badge {
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .bg-primary {
+            background: rgba(52, 152, 219, 0.8) !important;
+        }
+
+        .bg-success {
+            background: rgba(46, 204, 113, 0.8) !important;
+        }
+
+        .bg-warning {
+            background: rgba(241, 196, 15, 0.8) !important;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            background: #f8f9fa;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .store-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container:hover .store-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(33, 33, 32, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
         }
 
         .hero-content {
@@ -240,50 +381,42 @@
 
         .schedule-item {
             transition: background-color 0.3s ease;
+            color: #ecf0f1;
         }
 
             .schedule-item:hover {
-                background-color: #f8f9fa;
+                background-color: rgba(255, 255, 255, 0.1);
             }
 
         .contact-item {
             transition: transform 0.3s ease;
+            color: #ecf0f1;
         }
 
             .contact-item:hover {
                 transform: translateX(5px);
             }
 
-        .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
         }
 
-            .card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
-            }
-
-        .image-placeholder {
-            border: 2px dashed #dee2e6;
-            transition: all 0.3s ease;
+        .badge:hover {
+            transform: scale(1.05);
         }
 
-            .image-placeholder:hover {
-                border-color: #007bff;
-                background-color: #f8f9fa;
-            }
-
-        .badge {
-            transition: transform 0.3s ease;
+        /* Asegurar que los textos en listas sean legibles */
+        .list-unstyled li {
+            color: #ecf0f1;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+            padding: 2px 0;
         }
 
-            .badge:hover {
-                transform: scale(1.05);
-            }
-
-        .cta-section {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
-            border: 1px solid #e9ecef;
+        /* Mejorar contraste para textos importantes */
+        strong {
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
     </style>
 }

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp\\desktop\\admi\\informatica 4\\sis 457\\el duro 27-11\\sis457_ferreteria_el_duro\\webferreteria\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|c:\\users\\hp\\desktop\\admi\\informatica 4\\sis 457\\el duro 27-11\\sis457_ferreteria_el_duro\\webferreteria\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{212ABC0D-907E-4C5B-958A-F0953B5F21CF}|WebFerreteria\\WebFerreteria.csproj|solutionrelative:webferreteria\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -102,24 +106,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "WebFerreteria\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "WebFerreteria\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAADEBAAAAAAAAAAAwwJwBAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T22:11:03.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "WebFerreteria\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "WebFerreteria\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAkwJ8AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAgwNYAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-30T16:20:11.125Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Cliente\\Create.cshtml",
               "RelativeDocumentMoniker": "WebFerreteria\\Views\\Cliente\\Create.cshtml",
@@ -131,33 +148,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "WebFerreteria\\Views\\Account\\Login.cshtml",
               "ToolTip": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "WebFerreteria\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAnwCIAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAgwLIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-30T16:19:37.078Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "style.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\style.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\style.css",
               "ToolTip": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\style.css",
               "RelativeToolTip": "WebFerreteria\\wwwroot\\css\\style.css",
-              "ViewState": "AgIAAA4EAAAAAAAAAADwvzIEAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAcwLAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-11-30T06:41:20.701Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\Views\\Cliente\\Delete.cshtml",
               "RelativeDocumentMoniker": "WebFerreteria\\Views\\Cliente\\Delete.cshtml",
@@ -169,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "bootstrap.js",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\js\\bootstrap.js",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\js\\bootstrap.js",
@@ -181,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "owl.carousel.min.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\owl.carousel.min.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\owl.carousel.min.css",
@@ -193,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "responsive.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\responsive.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\responsive.css",
@@ -205,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\site.css",
@@ -217,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "slick.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\slick.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\slick.css",
@@ -229,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "normalize.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\normalize.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\normalize.css",
@@ -241,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "nice-select.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\nice-select.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\nice-select.css",
@@ -253,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "meanmenu.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\meanmenu.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\meanmenu.css",
@@ -265,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "jquery-ui.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\jquery-ui.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\jquery-ui.css",
@@ -277,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "jquery.mCustomScrollbar.min.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\jquery.mCustomScrollbar.min.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\jquery.mCustomScrollbar.min.css",
@@ -289,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "jquery.fancybox.min.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\jquery.fancybox.min.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\jquery.fancybox.min.css",
@@ -301,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "icomoon.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\icomoon.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\icomoon.css",
@@ -313,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "font-awesome.min.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\font-awesome.min.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\font-awesome.min.css",
@@ -325,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "default-skin.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\default-skin.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\default-skin.css",
@@ -337,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "bootstrap-reboot.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\bootstrap-reboot.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\bootstrap-reboot.css",
@@ -349,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "bootstrap-grid.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\bootstrap-grid.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\bootstrap-grid.css",
@@ -361,7 +378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "bootstrap.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\bootstrap.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\bootstrap.css",
@@ -373,7 +390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "animate.min.css",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\wwwroot\\css\\animate.min.css",
               "RelativeDocumentMoniker": "WebFerreteria\\wwwroot\\css\\animate.min.css",
