@@ -58,8 +58,7 @@
               "RelativeToolTip": "WebFerreteria\\Views\\Venta\\Index.cshtml",
               "ViewState": "AgIAAFEAAAAAAAAAAAAAAGoAAABqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T17:23:24.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T17:23:24.236Z"
             },
             {
               "$type": "Document",
@@ -71,8 +70,7 @@
               "RelativeToolTip": "WebFerreteria\\Controllers\\VentaController.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAYwCcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T17:14:42.902Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T17:14:42.902Z"
             },
             {
               "$type": "Document",
@@ -84,8 +82,7 @@
               "RelativeToolTip": "WebFerreteria\\Controllers\\ProductosController.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAzwBgAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T17:09:50.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T17:09:50.291Z"
             },
             {
               "$type": "Document",
@@ -97,8 +94,7 @@
               "RelativeToolTip": "WebFerreteria\\Views\\Productos\\Index.cshtml",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAHEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T17:08:18.133Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T17:08:18.133Z"
             },
             {
               "$type": "Document",
@@ -110,8 +106,7 @@
               "RelativeToolTip": "WebFerreteria\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T17:04:27.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T17:04:27.483Z"
             },
             {
               "$type": "Document",
@@ -123,8 +118,7 @@
               "RelativeToolTip": "WebFerreteria\\Views\\Marca\\Index.cshtml",
               "ViewState": "AgIAAD8AAAAAAAAAAADwv0kAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T16:58:24.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T16:58:24.893Z"
             },
             {
               "$type": "Document",
@@ -136,8 +130,7 @@
               "RelativeToolTip": "WebFerreteria\\Controllers\\MarcaController.cs",
               "ViewState": "AgIAAJ4AAAAAAAAAAAAwwLAAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T16:58:11.344Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T16:58:11.344Z"
             },
             {
               "$type": "Document",
@@ -145,8 +138,7 @@
               "Title": "ddl_dml_ferreteria.sql ",
               "DocumentMoniker": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql",
               "RelativeDocumentMoniker": "ddl_dml_ferreteria.sql",
-              "ToolTip": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\ddl_dml_ferreteria.sql",
-              "RelativeToolTip": "ddl_dml_ferreteria.sql",
+              "ToolTip": "ddl_dml_ferreteria.sql ",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2025-11-27T03:09:19.473Z",
               "EditorCaption": ""
