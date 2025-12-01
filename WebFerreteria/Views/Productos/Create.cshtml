@@ -5,87 +5,278 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Crear Producto</h1>
-<hr />
+<!-- Estilos específicos para el formulario -->
+<style>
+    .create-container {
+        background: url('/images/banner1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: calc(100vh - 140px);
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-<div class="row">
-    <div class="col-md-4">
+    .create-content {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
+        width: 100%;
+        max-width: 600px;
+        margin: 20px;
+    }
+
+    .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f3cf2d;
+    }
+
+        .form-header h1 {
+            color: #212120;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #212120;
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+
+    .form-control, .form-select {
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 12px 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #fff;
+    }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #f3cf2d;
+            box-shadow: 0 0 0 0.2rem rgba(243, 207, 45, 0.25);
+            background: #fff;
+        }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #212120 0%, #2c2c2c 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #f3cf2d 0%, #e6c229 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(243, 207, 45, 0.3);
+            color: #212120;
+        }
+
+    .btn-success {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        border: none;
+        border-radius: 8px;
+        padding: 8px 15px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+    .back-link {
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+        .back-link a {
+            color: #212120;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .back-link a:hover {
+                color: #f3cf2d;
+                transform: translateX(-5px);
+            }
+
+    .marca-group {
+        display: flex;
+        align-items: flex-end;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .marca-select {
+        flex: 1;
+    }
+
+    .marca-button {
+        flex-shrink: 0;
+        margin-bottom: 8px;
+    }
+
+    .validation-summary {
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+
+        .validation-summary ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+    .field-validation-error {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 5px;
+        display: block;
+    }
+
+    /* Modal mejorado */
+    .modal-content {
+        border-radius: 15px;
+        border: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .modal-header {
+        background: linear-gradient(135deg, #212120 0%, #2c2c2c 100%);
+        color: white;
+        border-radius: 15px 15px 0 0;
+        border: none;
+    }
+
+    .modal-title {
+        font-weight: 600;
+    }
+
+    .btn-close {
+        filter: invert(1);
+    }
+</style>
+
+<div class="create-container">
+    <div class="create-content">
+        <!-- Encabezado del formulario -->
+        <div class="form-header">
+            <h1><i class="fas fa-plus-circle me-2"></i>Crear Producto</h1>
+            <div class="subtitle">Complete los datos del nuevo producto</div>
+        </div>
+
+        <!-- Resumen de validación -->
+        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
             <!-- NOMBRE -->
             <div class="form-group">
-                <label class="control-label">Nombre</label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <label class="form-label">Nombre del Producto</label>
+                <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre del producto" />
+                <span asp-validation-for="Nombre" class="field-validation-error"></span>
             </div>
 
             <!-- PRECIO -->
             <div class="form-group">
-                <label class="control-label">Precio</label>
-                <input asp-for="Precio" type="number" step="0.01" class="form-control" />
-                <span asp-validation-for="Precio" class="text-danger"></span>
+                <label class="form-label">Precio (Bs)</label>
+                <input asp-for="Precio" type="number" step="0.01" class="form-control" placeholder="0.00" />
+                <span asp-validation-for="Precio" class="field-validation-error"></span>
             </div>
 
             <!-- STOCK -->
             <div class="form-group">
-                <label class="control-label">Stock</label>
-                <input asp-for="Stock" type="number" class="form-control" />
-                <span asp-validation-for="Stock" class="text-danger"></span>
+                <label class="form-label">Stock Disponible</label>
+                <input asp-for="Stock" type="number" class="form-control" placeholder="0" />
+                <span asp-validation-for="Stock" class="field-validation-error"></span>
             </div>
 
             <!-- CANTIDAD MEDIDA -->
             <div class="form-group">
-                <label class="control-label">Cantidad de Medida</label>
-                <input asp-for="CantidadMedida" class="form-control" placeholder="Ej: 500ml, 1kg, 2m" />
-                <span asp-validation-for="CantidadMedida" class="text-danger"></span>
+                <label class="form-label">Cantidad de Medida</label>
+                <input asp-for="CantidadMedida" class="form-control" placeholder="Ej: 500ml, 1kg, 2m, 1unidad" />
+                <span asp-validation-for="CantidadMedida" class="field-validation-error"></span>
             </div>
 
             <!-- FECHA DE VENCIMIENTO -->
             <div class="form-group">
-                <label class="control-label">Fecha de Vencimiento</label>
+                <label class="form-label">Fecha de Vencimiento</label>
                 <input asp-for="FechaVencimiento" type="date" class="form-control" />
-                <span asp-validation-for="FechaVencimiento" class="text-danger"></span>
+                <span asp-validation-for="FechaVencimiento" class="field-validation-error"></span>
             </div>
 
             <!-- MARCA -->
-            <div class="form-group d-flex align-items-center">
-                <div style="flex:1;">
-                    <label class="control-label">Marca</label>
-                    <select asp-for="IdMarca" class="form-select" asp-items="ViewBag.IdMarca">
-                        <option disabled selected value="">Seleccione una marca</option>
-                    </select>
-                    <span asp-validation-for="IdMarca" class="text-danger"></span>
-                </div>
-                <div style="margin-left:10px; margin-top:30px;">
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuevaMarcaModal">
-                        <i class="fa fa-plus"></i> Nueva Marca
-                    </button>
+            <div class="form-group">
+                <label class="form-label">Marca</label>
+                <div class="marca-group">
+                    <div class="marca-select">
+                        <select asp-for="IdMarca" class="form-select" asp-items="ViewBag.IdMarca">
+                            <option disabled selected value="">Seleccione una marca</option>
+                        </select>
+                        <span asp-validation-for="IdMarca" class="field-validation-error"></span>
+                    </div>
+                    <div class="marca-button">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuevaMarcaModal">
+                            <i class="fas fa-plus me-1"></i> Nueva
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <!-- CATEGORÍA -->
             <div class="form-group">
-                <label class="control-label">Categoría</label>
+                <label class="form-label">Categoría</label>
                 <select asp-for="IdCategoria" class="form-select" asp-items="ViewBag.IdCategoria">
                     <option disabled selected value="">Seleccione una categoría</option>
                 </select>
-                <span asp-validation-for="IdCategoria" class="text-danger"></span>
+                <span asp-validation-for="IdCategoria" class="field-validation-error"></span>
             </div>
 
             <!-- BOTÓN CREAR -->
-            <div class="form-group mt-3">
+            <div class="form-group">
                 <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-floppy-disk"></i> Crear
+                    <i class="fas fa-save me-2"></i> Crear Producto
                 </button>
             </div>
-
         </form>
-    </div>
-</div>
 
-<div style="margin-top:20px;">
-    <a asp-action="Index"><i class="fa fa-arrow-left"></i> Volver a la lista</a>
+        <!-- Enlace volver -->
+        <div class="back-link">
+            <a asp-action="Index">
+                <i class="fas fa-arrow-left"></i> Volver a la lista de productos
+            </a>
+        </div>
+    </div>
 </div>
 
 <!-- MODAL NUEVA MARCA -->
@@ -93,15 +284,24 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="nuevaMarcaModalLabel">Agregar Nueva Marca</h5>
+                <h5 class="modal-title" id="nuevaMarcaModalLabel">
+                    <i class="fas fa-tag me-2"></i>Agregar Nueva Marca
+                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <input type="text" id="nombreMarca" class="form-control" placeholder="Nombre de la marca" />
+                <div class="form-group">
+                    <label class="form-label">Nombre de la Marca</label>
+                    <input type="text" id="nombreMarca" class="form-control" placeholder="Ingrese el nombre de la marca" />
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="guardarMarcaBtn">Guardar Marca</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i> Cancelar
+                </button>
+                <button type="button" class="btn btn-primary" id="guardarMarcaBtn">
+                    <i class="fas fa-save me-1"></i> Guardar Marca
+                </button>
             </div>
         </div>
     </div>
@@ -114,7 +314,7 @@
             $('#guardarMarcaBtn').click(function () {
                 var nombreMarca = $('#nombreMarca').val().trim();
                 if(nombreMarca === "") {
-                    alert("Ingrese un nombre para la marca.");
+                    alert("Por favor, ingrese un nombre para la marca.");
                     return;
                 }
 
@@ -128,6 +328,9 @@
                             $('#IdMarca').append(nuevaOpcion);
                             $('#nuevaMarcaModal').modal('hide');
                             $('#nombreMarca').val('');
+
+                            // Mostrar mensaje de éxito
+                            alert('Marca creada exitosamente!');
                         } else {
                             alert(response.message);
                         }
@@ -136,6 +339,18 @@
                         alert("Ocurrió un error al guardar la marca.");
                     }
                 });
+            });
+
+            // Cerrar modal con ESC
+            $(document).keydown(function(e) {
+                if (e.keyCode === 27) {
+                    $('#nuevaMarcaModal').modal('hide');
+                }
+            });
+
+            // Limpiar modal cuando se cierre
+            $('#nuevaMarcaModal').on('hidden.bs.modal', function () {
+                $('#nombreMarca').val('');
             });
         });
     </script>

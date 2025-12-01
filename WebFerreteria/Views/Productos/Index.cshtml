@@ -2,113 +2,606 @@
 
 @{
     ViewData["Title"] = "Productos";
+    Layout = "_Layout";
 }
 
-<h1>Productos</h1>
+<!-- Estilos específicos para la página de productos -->
+<style>
+    .productos-container {
+        background: url('/images/banner1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: calc(100vh - 140px);
+        padding: 40px 0;
+    }
 
-<!-- Buscador -->
-<div class="row mb-3">
-    <div class="col-md-6">
-        <form asp-action="Index" method="get">
-            <div class="input-group">
-                <input type="text" class="form-control" name="searchString" value="@ViewData["CurrentFilter"]" placeholder="Buscar producto por nombre...">
-                <button class="btn btn-outline-secondary" type="submit">
-                    <i class="fa fa-search"></i> Buscar
-                </button>
-                @if (!string.IsNullOrEmpty(ViewData["CurrentFilter"] as string))
-                {
-                    <a asp-action="Index" class="btn btn-outline-danger">
-                        <i class="fa fa-times"></i> Limpiar
+    .productos-content {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
+        margin: 0 auto;
+        max-width: 1400px;
+    }
+
+    .page-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 25px;
+        border-bottom: 2px solid #f3cf2d;
+    }
+
+        .page-header h1 {
+            color: #212120;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .page-header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+    .search-section {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 30px;
+        border-left: 4px solid #f3cf2d;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #212120 0%, #2c2c2c 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 10px 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #f3cf2d 0%, #e6c229 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(243, 207, 45, 0.3);
+            color: #212120;
+        }
+
+    .btn-outline-primary {
+        border: 2px solid #007bff;
+        border-radius: 8px;
+        color: #007bff;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-primary:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    .btn-outline-secondary {
+        border: 2px solid #6c757d;
+        border-radius: 8px;
+        color: #6c757d;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-secondary:hover {
+            background: #6c757d;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    .table-container {
+        max-height: 700px;
+        overflow-y: auto;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        background: white;
+    }
+
+    .table {
+        margin-bottom: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+        .table thead th {
+            background: linear-gradient(135deg, #212120 0%, #2c2c2c 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border: none;
+            padding: 15px 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+        }
+
+        .table tbody td {
+            padding: 12px;
+            vertical-align: middle;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 0.9rem;
+        }
+
+        .table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+            .table tbody tr:hover {
+                background-color: rgba(243, 207, 45, 0.1);
+                transform: translateY(-1px);
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+
+    /* BOTONES DE ACCIONES MEJORADOS - COLORES ESPECÍFICOS */
+    .action-buttons {
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-action {
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-size: 0.8rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-action::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-action:hover::before {
+            left: 100%;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+    /* VIEW: Fondo negro, logo blanco */
+    .btn-details {
+        background: linear-gradient(135deg, #212120 0%, #000000 100%);
+        color: white;
+        border: 1px solid #333;
+    }
+
+        .btn-details:hover {
+            background: linear-gradient(135deg, #000000 0%, #212120 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            color: white;
+        }
+
+    /* EDIT: Fondo amarillo, logo negro */
+    .btn-edit {
+        background: linear-gradient(135deg, #f3cf2d 0%, #e6c229 100%);
+        color: #212120;
+        border: 1px solid #d4b820;
+    }
+
+        .btn-edit:hover {
+            background: linear-gradient(135deg, #e6c229 0%, #d4b820 100%);
+            box-shadow: 0 4px 12px rgba(243, 207, 45, 0.4);
+            color: #212120;
+        }
+
+    /* DELETE: Fondo rojo, logo negro */
+    .btn-delete {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        color: #212120;
+        border: 1px solid #bd2130;
+    }
+
+        .btn-delete:hover {
+            background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+            color: #212120;
+        }
+
+    /* Tooltips para los botones */
+    .btn-action {
+        position: relative;
+    }
+
+        .btn-action::after {
+            content: attr(title);
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .btn-action:hover::after {
+            opacity: 1;
+            visibility: visible;
+            bottom: -30px;
+        }
+
+    /* Badges mejorados */
+    .badge {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+
+    .stock-badge {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+        border-radius: 8px;
+    }
+
+    .stock-high {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    }
+
+    .stock-medium {
+        background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+    }
+
+    .stock-low {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    }
+
+    .alert-info {
+        background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+        border: 2px solid #17a2b8;
+        border-radius: 10px;
+        color: #0c5460;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: #6c757d;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+
+        .empty-state h5 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .empty-state p {
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+    .stats-card {
+        background: linear-gradient(135deg, #f3cf2d 0%, #e6c229 100%);
+        border-radius: 12px;
+        padding: 20px;
+        color: #212120;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .stats-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .stats-label {
+        font-size: 1rem;
+        font-weight: 600;
+        opacity: 0.9;
+    }
+
+    .form-control {
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 10px 15px;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #f3cf2d;
+            box-shadow: 0 0 0 0.2rem rgba(243, 207, 45, 0.25);
+        }
+
+    .price-text {
+        font-weight: 600;
+        color: #28a745;
+    }
+
+    .text-muted-small {
+        font-size: 0.8rem;
+        color: #6c757d;
+    }
+
+    /* Media queries */
+    @@media (max-width: 1200px) {
+        .table-container {
+            max-height: 600px;
+        }
+
+        .table thead th,
+        .table tbody td {
+            padding: 10px 8px;
+            font-size: 0.8rem;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .productos-content {
+            padding: 25px;
+            margin: 15px;
+        }
+
+        .search-section {
+            padding: 20px;
+        }
+
+        .action-buttons {
+            gap: 4px;
+        }
+
+        .btn-action {
+            width: 30px;
+            height: 30px;
+            font-size: 0.7rem;
+        }
+
+            .btn-action::after {
+                font-size: 0.6rem;
+                padding: 3px 6px;
+            }
+    }
+
+    @@media (max-width: 576px) {
+        .action-buttons {
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .btn-action {
+            width: 28px;
+            height: 28px;
+        }
+
+        .stats-card {
+            padding: 15px;
+        }
+
+        .stats-number {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<div class="productos-container">
+    <div class="productos-content">
+        <!-- Encabezado -->
+        <div class="page-header">
+            <h1><i class="fas fa-boxes me-3"></i>Gestión de Productos</h1>
+            <div class="subtitle">Administre los productos disponibles en el inventario</div>
+        </div>
+
+        <!-- Tarjeta de estadísticas -->
+        <div class="stats-card">
+            <div class="stats-number">@Model.Count()</div>
+            <div class="stats-label">Productos Registrados</div>
+        </div>
+
+        <!-- Sección de búsqueda -->
+        <div class="search-section">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <form asp-action="Index" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="searchString"
+                                   value="@ViewData["CurrentFilter"]"
+                                   placeholder="Buscar producto por nombre, marca o categoría...">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search me-2"></i>Buscar
+                            </button>
+                            @if (!string.IsNullOrEmpty(ViewData["CurrentFilter"] as string))
+                            {
+                                <a asp-action="Index" class="btn btn-outline-secondary">
+                                    <i class="fas fa-times me-2"></i>Limpiar
+                                </a>
+                            }
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4 text-end">
+                    <a asp-action="Create" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Nuevo Producto
                     </a>
-                }
+                </div>
             </div>
-        </form>
-    </div>
-    <div class="col-md-6 text-end">
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="fa fa-plus"></i> Crear Nuevo
-        </a>
-    </div>
-</div>
+        </div>
 
-@if (!string.IsNullOrEmpty(ViewData["CurrentFilter"] as string))
-{
-    <div class="alert alert-info mb-3">
-        <i class="fa fa-info-circle"></i> Mostrando resultados para: <strong>"@ViewData["CurrentFilter"]"</strong>
-        <a asp-action="Index" class="float-end">Ver todos los productos</a>
-    </div>
-}
+        <!-- Alerta de búsqueda -->
+        @if (!string.IsNullOrEmpty(ViewData["CurrentFilter"] as string))
+        {
+            <div class="alert alert-info mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fas fa-info-circle me-2"></i>
+                        Mostrando resultados para: <strong>"@ViewData["CurrentFilter"]"</strong>
+                    </div>
+                    <a asp-action="Index" class="btn btn-sm btn-outline-info">
+                        <i class="fas fa-list me-1"></i>Ver todos los productos
+                    </a>
+                </div>
+            </div>
+        }
 
-<div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
-    <table class="table table-striped table-bordered table-hover">
-        <thead class="table-dark position-sticky top-0">
-            <tr>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th>Cantidad Medida</th>
-                <th>Fecha Vencimiento</th>
-                <th>Marca</th>
-                <th>Categoría</th>
-                <th>Usuario Registro</th>
-                <th>Fecha Registro</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model.Any())
-            {
-                @foreach (var item in Model)
-                {
+        <!-- Tabla de productos -->
+        <div class="table-container">
+            <table class="table table-striped table-hover">
+                <thead>
                     <tr>
-                        <td>@item.Nombre</td>
-                        <td>@item.Precio</td>
-                        <td>@item.Stock</td>
-                        <td>@item.CantidadMedida</td>
-                        <td>@item.FechaVencimiento?.ToString("dd/MM/yyyy")</td>
-                        <td>@item.IdMarcaNavigation?.Nombre</td>
-                        <td>@item.IdCategoriaNavigation?.Nombre</td>
-                        <td>@item.UsuarioRegistro</td>
-                        <td>@item.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</td>
-                        <td>
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info" title="Ver detalles">
-                                <i class="fa fa-eye"></i>
-                            </a>
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning" title="Editar">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger" title="Eliminar">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                        </td>
+                        <th width="15%">Producto</th>
+                        <th width="8%">Precio</th>
+                        <th width="8%">Stock</th>
+                        <th width="10%">Medida</th>
+                        <th width="10%">Vencimiento</th>
+                        <th width="10%">Marca</th>
+                        <th width="12%">Categoría</th>
+                        <th width="10%">Usuario</th>
+                        <th width="12%">Registro</th>
+                        <th width="5%" class="text-center">Acciones</th>
                     </tr>
-                }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="10" class="text-center text-muted py-4">
-                        @if (!string.IsNullOrEmpty(ViewData["CurrentFilter"] as string))
+                </thead>
+                <tbody>
+                    @if (Model.Any())
+                    {
+                        @foreach (var item in Model)
                         {
-                            <i class="fa fa-search fa-2x mb-3"></i>
-                            <br>
-                            <span>No se encontraron productos con el nombre "<strong>@ViewData["CurrentFilter"]</strong>"</span>
-                            <br>
-                            <a asp-action="Index" class="btn btn-outline-primary btn-sm mt-2">Ver todos los productos</a>
+                            <tr>
+                                <td>
+                                    <strong class="d-block">@item.Nombre</strong>
+                                    <small class="text-muted-small">@item.Id</small>
+                                </td>
+                                <td>
+                                    <span class="price-text">Bs. @item.Precio.ToString("N2")</span>
+                                </td>
+                                <td>
+                                    @{
+                                        var stockClass = item.Stock > 20 ? "stock-high" :
+                                        item.Stock > 5 ? "stock-medium" : "stock-low";
+                                        var stockText = item.Stock > 20 ? "Alto" :
+                                        item.Stock > 5 ? "Medio" : "Bajo";
+                                    }
+                                    <span class="badge stock-badge @stockClass" title="@item.Stock unidades">
+                                        @item.Stock
+                                    </span>
+                                </td>
+                                <td>
+                                    <small class="text-muted-small">@item.CantidadMedida</small>
+                                </td>
+                                <td>
+                                    @if (item.FechaVencimiento.HasValue)
+                                    {
+                                        <small>@item.FechaVencimiento.Value.ToString("dd/MM/yyyy")</small>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">N/A</span>
+                                    }
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary">@item.IdMarcaNavigation?.Nombre</span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-info">@item.IdCategoriaNavigation?.Nombre</span>
+                                </td>
+                                <td>
+                                    <small class="text-muted-small">@item.UsuarioRegistro</small>
+                                </td>
+                                <td>
+                                    <small class="text-muted-small">@item.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</small>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a asp-action="Details" asp-route-id="@item.Id"
+                                           class="btn-action btn-details"
+                                           title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id"
+                                           class="btn-action btn-edit"
+                                           title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id"
+                                           class="btn-action btn-delete"
+                                           title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
                         }
-                        else
-                        {
-                            <i class="fa fa-box fa-2x mb-3"></i>
-                            <br>
-                            <span>No hay productos registrados</span>
-                            <br>
-                            <a asp-action="Create" class="btn btn-primary btn-sm mt-2">
-                                <i class="fa fa-plus"></i> Agregar primer producto
-                            </a>
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="10" class="text-center">
+                                <div class="empty-state">
+                                    @if (!string.IsNullOrEmpty(ViewData["CurrentFilter"] as string))
+                                    {
+                                        <i class="fas fa-search fa-3x mb-3"></i>
+                                        <h5>No se encontraron productos</h5>
+                                        <p>No hay resultados para "<strong>@ViewData["CurrentFilter"]</strong>"</p>
+                                        <a asp-action="Index" class="btn btn-primary">
+                                            <i class="fas fa-list me-2"></i>Ver todos los productos
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-box fa-3x mb-3"></i>
+                                        <h5>No hay productos registrados</h5>
+                                        <p>Comience agregando el primer producto al sistema</p>
+                                        <a asp-action="Create" class="btn btn-primary">
+                                            <i class="fas fa-plus me-2"></i>Agregar primer producto
+                                        </a>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Información del pie -->
+        @if (Model.Any())
+        {
+            <div class="mt-3 text-muted">
+                <small>
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Total de productos: <strong>@Model.Count()</strong>
+                    @if (!string.IsNullOrEmpty(ViewData["CurrentFilter"] as string))
+                    {
+                        <span class="ms-2">| Búsqueda: "@ViewData["CurrentFilter"]"</span>
+                    }
+                </small>
+            </div>
+        }
+    </div>
 </div>

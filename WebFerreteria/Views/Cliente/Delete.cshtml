@@ -2,47 +2,281 @@
 
 @{
     ViewData["Title"] = "Eliminar Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Eliminar Cliente</h2>
-<hr />
+<!-- Estilos específicos para la página de eliminación -->
+<style>
+    .delete-container {
+        background: url('/images/banner1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: calc(100vh - 140px);
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-<div class="alert alert-warning">
-    <h5>¿Está seguro que desea eliminar este cliente?</h5>
-    <p class="mb-0">Esta acción no se puede deshacer.</p>
-</div>
+    .delete-content {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
+        width: 100%;
+        max-width: 600px;
+        margin: 20px;
+    }
 
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Información del Cliente</h5>
+    .delete-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #dc3545;
+    }
 
-        <dl class="row">
-            <dt class="col-sm-3">Nombre:</dt>
-            <dd class="col-sm-9">@Model.Nombre</dd>
+        .delete-header h2 {
+            color: #dc3545;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-            <dt class="col-sm-3">Teléfono:</dt>
-            <dd class="col-sm-9">@(Model.Telefono ?? "No especificado")</dd>
+    .warning-alert {
+        background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+        border: 2px solid #dc3545;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
 
-            <dt class="col-sm-3">Dirección:</dt>
-            <dd class="col-sm-9">@(Model.Direccion ?? "No especificada")</dd>
+        .warning-alert i {
+            font-size: 3rem;
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
 
-            <dt class="col-sm-3">Fecha Registro:</dt>
-            <dd class="col-sm-9">@Model.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</dd>
+        .warning-alert h3 {
+            color: #721c24;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
 
-            <dt class="col-sm-3">Usuario Registro:</dt>
-            <dd class="col-sm-9">@Model.UsuarioRegistro</dd>
-        </dl>
+        .warning-alert p {
+            color: #721c24;
+            margin: 0;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+    .info-card {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-left: 4px solid #dc3545;
+    }
+
+    .info-item {
+        margin-bottom: 15px;
+    }
+
+    .info-label {
+        font-weight: 600;
+        color: #212120;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .info-value {
+        font-size: 1.2rem;
+        color: #333;
+        font-weight: 500;
+        padding: 8px 0;
+    }
+
+    .actions-section {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .btn-delete {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 30px;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-right: 15px;
+    }
+
+        .btn-delete:hover {
+            background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+        }
+
+    .btn-cancel {
+        background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 25px;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .btn-cancel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+    .consequences-warning {
+        background: #fff3cd;
+        border: 2px solid #ffc107;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+        .consequences-warning h6 {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .consequences-warning ul {
+            color: #856404;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .consequences-warning li {
+            margin-bottom: 5px;
+        }
+
+    @@media (max-width: 768px) {
+        .delete-content {
+            padding: 25px;
+            margin: 15px;
+        }
+
+        .actions-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-delete, .btn-cancel {
+            width: 100%;
+            justify-content: center;
+            margin-right: 0;
+        }
+    }
+</style>
+
+<div class="delete-container">
+    <div class="delete-content">
+        <!-- Encabezado -->
+        <div class="delete-header">
+            <h2><i class="fas fa-trash-alt me-2"></i>Eliminar Cliente</h2>
+        </div>
+
+        <!-- Alerta de advertencia -->
+        <div class="warning-alert">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>¡Advertencia: Acción irreversible!</h3>
+            <p>Está a punto de eliminar permanentemente este cliente del sistema.</p>
+        </div>
+
+        <!-- Información del Cliente -->
+        <div class="info-card">
+            <h5 class="mb-3" style="color: #dc3545;">
+                <i class="fas fa-user-circle me-2"></i>Cliente a Eliminar
+            </h5>
+            <div class="info-item">
+                <div class="info-label">Nombre del Cliente</div>
+                <div class="info-value">@Model.Nombre</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Teléfono</div>
+                <div class="info-value">@(Model.Telefono ?? "No especificado")</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Dirección</div>
+                <div class="info-value">@(Model.Direccion ?? "No especificada")</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Fecha de Registro</div>
+                <div class="info-value">@Model.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Registrado por</div>
+                <div class="info-value">@Model.UsuarioRegistro</div>
+            </div>
+        </div>
+
+        <!-- Advertencia de Consecuencias -->
+        <div class="consequences-warning">
+            <h6><i class="fas fa-exclamation-circle me-2"></i>Consecuencias de esta acción:</h6>
+            <ul>
+                <li>El cliente será eliminado permanentemente de la base de datos</li>
+                <li>No podrá recuperar la información del cliente</li>
+                <li>El historial de compras asociado podría verse afectado</li>
+                <li>Esta acción no se puede deshacer</li>
+            </ul>
+        </div>
+
+        <!-- Formulario de Eliminación -->
+        <form asp-action="Delete" method="post" id="deleteForm">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Botones de Acción -->
+            <div class="actions-section">
+                <button type="submit" class="btn-delete" onclick="return confirmDelete()">
+                    <i class="fas fa-trash-alt"></i> Confirmar Eliminación
+                </button>
+                <a asp-action="Index" class="btn-cancel">
+                    <i class="fas fa-times"></i> Cancelar
+                </a>
+            </div>
+        </form>
     </div>
 </div>
 
-<form asp-action="Delete" method="post" class="mt-3">
-    @Html.AntiForgeryToken()
-    <input type="hidden" asp-for="Id" />
+@section Scripts {
+    <script>
+        function confirmDelete() {
+            const clienteName = '@Model.Nombre';
+            return confirm(`¿ESTÁ ABSOLUTAMENTE SEGURO que desea eliminar al cliente "${clienteName}"?\n\n Esta acción es permanente y no se puede deshacer.`);
+        }
 
-    <button type="submit" class="btn btn-danger">
-        <i class="fa fa-trash"></i> Confirmar Eliminación
-    </button>
-    <a asp-action="Index" class="btn btn-secondary">
-        <i class="fa fa-arrow-left"></i> Cancelar
-    </a>
-</form>
+        document.getElementById('deleteForm').addEventListener('submit', function(e) {
+            const clienteName = '@Model.Nombre';
+            if (!confirm(`¿CONFIRMA LA ELIMINACIÓN del cliente "${clienteName}"?`)) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+            }
+        });
+    </script>
+}

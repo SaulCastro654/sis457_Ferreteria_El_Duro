@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\WebFerreteria.csproj": {}
+    "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\WebFerreteria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\WebFerreteria.csproj": {
+    "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\WebFerreteria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\WebFerreteria.csproj",
+        "projectUniqueName": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\WebFerreteria.csproj",
         "projectName": "WebFerreteria",
-        "projectPath": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\WebFerreteria.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\ADMI\\Informatica 4\\SIS 457\\el duro 27-11\\sis457_Ferreteria_El_Duro\\WebFerreteria\\obj\\",
+        "projectPath": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\WebFerreteria.csproj",
+        "packagesPath": "C:\\Users\\HP CELERON\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP CELERON\\Desktop\\sis457_Ferreteria_El_Duro\\WebFerreteria\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP CELERON\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

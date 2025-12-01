@@ -1,12 +1,206 @@
 ﻿@model WebFerreteria.Models.Marca
 
-<h2>Detalles de Marca</h2>
+@{
+    ViewData["Title"] = "Detalles de Marca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<div class="card p-3">
-    <p><strong>Nombre:</strong> @Model.Nombre</p>
-    <p><strong>Fecha Registro:</strong> @Model.FechaRegistro</p>
-    <p><strong>Usuario Registro:</strong> @Model.UsuarioRegistro</p>
+<!-- Estilos específicos para la página de detalles -->
+<style>
+    .details-container {
+        background: url('/images/banner1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: calc(100vh - 140px);
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .details-content {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
+        width: 100%;
+        max-width: 600px;
+        margin: 20px;
+    }
+
+    .details-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f3cf2d;
+    }
+
+        .details-header h2 {
+            color: #212120;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .details-header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+    .info-card {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 25px;
+        border-left: 4px solid #f3cf2d;
+    }
+
+    .info-item {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+    .info-label {
+        font-weight: 600;
+        color: #212120;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .info-value {
+        font-size: 1.2rem;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .actions-section {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .btn-edit {
+        background: linear-gradient(135deg, #212120 0%, #2c2c2c 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 30px;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-right: 15px;
+    }
+
+        .btn-edit:hover {
+            background: linear-gradient(135deg, #f3cf2d 0%, #e6c229 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(243, 207, 45, 0.3);
+            color: #212120;
+        }
+
+    .btn-back {
+        background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 25px;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+    .marca-icon {
+        font-size: 4rem;
+        color: #f3cf2d;
+        margin-bottom: 20px;
+    }
+
+    @@media (max-width: 768px) {
+        .details-content {
+            padding: 25px;
+            margin: 15px;
+        }
+
+        .actions-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-edit, .btn-back {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
+
+<div class="details-container">
+    <div class="details-content">
+        <!-- Encabezado -->
+        <div class="details-header">
+            <div class="marca-icon">
+                <i class="fas fa-tag"></i>
+            </div>
+            <h2>Detalles de Marca</h2>
+            <div class="subtitle">Información completa de la marca</div>
+        </div>
+
+        <!-- Información de la Marca -->
+        <div class="info-card">
+            <div class="info-item">
+                <div class="info-label">
+                    <i class="fas fa-font me-2"></i>Nombre de la Marca
+                </div>
+                <div class="info-value">@Model.Nombre</div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">
+                    <i class="fas fa-calendar me-2"></i>Fecha de Registro
+                </div>
+                <div class="info-value">@Model.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">
+                    <i class="fas fa-user me-2"></i>Usuario Registro
+                </div>
+                <div class="info-value">
+                    <span class="badge bg-secondary">@Model.UsuarioRegistro</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="actions-section">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-edit">
+                <i class="fas fa-edit"></i> Editar Marca
+            </a>
+            <a asp-action="Index" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Volver al Listado
+            </a>
+        </div>
+    </div>
 </div>
-
-<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning mt-3">Editar</a>
-<a asp-action="Index" class="btn btn-secondary mt-3">Volver</a>

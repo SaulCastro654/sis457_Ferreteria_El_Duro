@@ -1,36 +1,326 @@
 ﻿@model WebFerreteria.Models.Marca
 
-<h2>Nueva Marca</h2>
-
-<!-- Mostrar todos los errores temporalmente -->
-@if (ViewBag.Errors != null)
-{
-    <div class="alert alert-danger">
-        <h5>Errores de validación:</h5>
-        <ul>
-            @foreach (var error in ViewBag.Errors)
-            {
-                <li>@error</li>
-            }
-        </ul>
-    </div>
+@{
+    ViewData["Title"] = "Nueva Marca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form asp-action="Create" method="post">
-    @Html.AntiForgeryToken()
+<!-- Estilos específicos para el formulario de creación -->
+<style>
+    .create-container {
+        background: url('/images/banner1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: calc(100vh - 140px);
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-    <div asp-validation-summary="All" class="text-danger"></div>
+    .create-content {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
+        width: 100%;
+        max-width: 500px;
+        margin: 20px;
+    }
 
-    <div class="form-group mb-3">
-        <label asp-for="Nombre" class="form-label"></label>
-        <input asp-for="Nombre" class="form-control" />
-        <span asp-validation-for="Nombre" class="text-danger"></span>
+    .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f3cf2d;
+    }
+
+        .form-header h2 {
+            color: #212120;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #212120;
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+
+    .form-control {
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 12px 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #fff;
+    }
+
+        .form-control:focus {
+            border-color: #f3cf2d;
+            box-shadow: 0 0 0 0.2rem rgba(243, 207, 45, 0.25);
+            background: #fff;
+        }
+
+    .btn-success {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+    .btn-secondary {
+        background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+    .validation-summary {
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+
+        .validation-summary ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+    .field-validation-error {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 5px;
+        display: block;
+        font-weight: 500;
+    }
+
+    .alert-danger {
+        background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+        border: 2px solid #dc3545;
+        border-radius: 10px;
+        color: #721c24;
+    }
+
+        .alert-danger h5 {
+            color: #721c24;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+    .info-box {
+        background: #e9ecef;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-left: 4px solid #f3cf2d;
+    }
+
+        .info-box p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #495057;
+            text-align: center;
+        }
+
+    .back-link {
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+        .back-link a {
+            color: #212120;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .back-link a:hover {
+                color: #f3cf2d;
+                transform: translateX(-5px);
+            }
+
+    /* Animación de focus mejorada */
+    .form-control:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 15px rgba(243, 207, 45, 0.2);
+    }
+
+    /* Efecto de carga en el botón */
+    .btn-loading {
+        position: relative;
+        pointer-events: none;
+    }
+
+        .btn-loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+    @@keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<div class="create-container">
+    <div class="create-content">
+        <!-- Encabezado del formulario -->
+        <div class="form-header">
+            <h2><i class="fas fa-tag me-2"></i>Nueva Marca</h2>
+            <div class="subtitle">Registre una nueva marca en el sistema</div>
+        </div>
+
+        <!-- Información de ayuda -->
+        <div class="info-box">
+            <p><i class="fas fa-info-circle me-2"></i>Las marcas ayudan a organizar y categorizar los productos</p>
+        </div>
+
+        <!-- Mostrar todos los errores temporalmente -->
+        @if (ViewBag.Errors != null)
+        {
+            <div class="alert alert-danger">
+                <h5><i class="fas fa-exclamation-triangle me-2"></i>Errores de validación:</h5>
+                <ul>
+                    @foreach (var error in ViewBag.Errors)
+                    {
+                        <li>@error</li>
+                    }
+                </ul>
+            </div>
+        }
+
+        <form asp-action="Create" method="post" id="marcaForm">
+            @Html.AntiForgeryToken()
+
+            <!-- Resumen de validación -->
+            <div asp-validation-summary="All" class="validation-summary"></div>
+
+            <!-- Campo Nombre -->
+            <div class="form-group">
+                <label asp-for="Nombre" class="form-label">
+                    <i class="fas fa-font me-2"></i>Nombre de la Marca
+                </label>
+                <input asp-for="Nombre" class="form-control"
+                       placeholder="Ingrese el nombre de la marca (ej: Stanley, Bosch, Truper)"
+                       maxlength="100" />
+                <span asp-validation-for="Nombre" class="field-validation-error"></span>
+                <small class="form-text text-muted mt-1">
+                    <i class="fas fa-lightbulb me-1"></i>El nombre debe ser único y descriptivo
+                </small>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" id="btnGuardar">
+                    <i class="fas fa-save me-2"></i>Guardar Marca
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-times me-2"></i>Cancelar
+                </a>
+            </div>
+        </form>
+
+        <!-- Enlace volver -->
+        <div class="back-link">
+            <a asp-action="Index">
+                <i class="fas fa-arrow-left me-2"></i> Volver al listado de marcas
+            </a>
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-success">Guardar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-</form>
+</div>
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        $(document).ready(function() {
+            // Efecto de carga en el botón
+            $('#marcaForm').submit(function() {
+                $('#btnGuardar').addClass('btn-loading').html('Guardando...');
+            });
+
+            // Validación en tiempo real del nombre
+            $('#Nombre').on('input', function() {
+                var nombre = $(this).val().trim();
+                var feedback = $(this).next('.field-validation-error');
+
+                if (nombre.length === 0) {
+                    feedback.html('<i class="fas fa-exclamation-circle me-1"></i>El nombre es requerido');
+                } else if (nombre.length < 2) {
+                    feedback.html('<i class="fas fa-exclamation-circle me-1"></i>El nombre debe tener al menos 2 caracteres');
+                } else if (nombre.length > 100) {
+                    feedback.html('<i class="fas fa-exclamation-circle me-1"></i>El nombre no puede exceder 100 caracteres');
+                } else {
+                    feedback.html('');
+                }
+            });
+
+            // Prevenir envío con Enter fuera del formulario
+            $(document).keydown(function(e) {
+                if (e.key === 'Enter' && !$(e.target).is('input, textarea, select')) {
+                    e.preventDefault();
+                }
+            });
+
+            // Foco automático en el campo nombre
+            $('#Nombre').focus();
+
+            // Efecto de limpieza al hacer clic en cancelar
+            $('.btn-secondary').click(function(e) {
+                if (!confirm('¿Está seguro de que desea cancelar? Los datos no guardados se perderán.')) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 }

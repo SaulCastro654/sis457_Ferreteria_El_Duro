@@ -1,99 +1,142 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="~/logo.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="~/images/logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="~/images/logo-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="~/images/logo-16x16.png">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebFerreteria</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- FAVICON CORREGIDO - Rutas correctas -->
+    <link rel="icon" type="image/x-icon" href="@Url.Content("~/logo.ico")">
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/logo.ico")">
 
-    <!-- Bootstrap 5 (PRINCIPAL) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
-    <!-- Estilos del tema (secundarios) -->
+    <!-- Estilos del tema -->
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/responsive.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/jquery.mCustomScrollbar.min.css" asp-append-version="true" />
-
-    <!-- Estilos de terceros -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-    <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
 
     <!-- Estilos de la aplicación -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WebFerreteria.styles.css" asp-append-version="true" />
+
+    <!-- Estructura flexbox para footer -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container-fluid {
+            flex: 1 0 auto;
+        }
+
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
 
     @RenderSection("Styles", required: false)
 </head>
 <body>
     <header class="full_bg">
-        <!-- Navbar Principal -->
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+        <!-- Navbar Mejorado -->
+        <nav class="navbar navbar-expand-lg navbar-improved">
+            <div class="container">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                    <img src="~/images/NLogo.png" alt="Ferretería El Duro" width="100" height="100" class="d-inline-block align-text-top me-2">
+                    <img src="~/images/NLogo.png" alt="Ferretería El Duro" width="110" height="110">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+                <button class="navbar-toggler navbar-toggler-improved" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Inicio</a>
+                            <a class="nav-link nav-link-improved @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")"
+                               asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-2"></i>Inicio
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Nosotros</a>
+                            <a class="nav-link nav-link-improved @(ViewContext.RouteData.Values["Action"]?.ToString() == "Privacy" ? "active" : "")"
+                               asp-controller="Home" asp-action="Privacy">
+                                <i class="fas fa-users me-2"></i>Nosotros
+                            </a>
                         </li>
 
                         @if (User.Identity?.IsAuthenticated == false)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Iniciar Sesión</a>
+                                <a class="nav-link nav-link-improved @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Account" ? "active" : "")"
+                                   asp-controller="Account" asp-action="Login">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+                                </a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Productos" asp-action="Index">Productos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Marca" asp-action="Index">Marcas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Cliente" asp-action="Index">Clientes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Venta" asp-action="Index">Ventas</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                    Hola @User.Identity?.Name
+                                <a class="nav-link nav-link-improved @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Productos" ? "active" : "")"
+                                   asp-controller="Productos" asp-action="Index">
+                                    <i class="fas fa-boxes me-2"></i>Productos
                                 </a>
-                                <ul class="dropdown-menu">
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-improved @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Marca" ? "active" : "")"
+                                   asp-controller="Marca" asp-action="Index">
+                                    <i class="fas fa-tags me-2"></i>Marcas
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-improved @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Cliente" ? "active" : "")"
+                                   asp-controller="Cliente" asp-action="Index">
+                                    <i class="fas fa-users me-2"></i>Clientes
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-improved @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Venta" ? "active" : "")"
+                                   asp-controller="Venta" asp-action="Index">
+                                    <i class="fas fa-shopping-cart me-2"></i>Ventas
+                                </a>
+                            </li>
+                        }
+                    </ul>
+
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link nav-link-improved user-welcome dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user-circle me-2"></i>@User.Identity?.Name
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-improved dropdown-menu-end">
                                     <li>
-                                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline w-100">
                                             @Html.AntiForgeryToken()
-                                            <button type="submit" class="dropdown-item">
-                                                <i class="fa fa-sign-out-alt"></i> Cerrar Sesión
+                                            <button type="submit" class="dropdown-item dropdown-item-improved logout-btn">
+                                                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
                                             </button>
                                         </form>
                                     </li>
                                 </ul>
                             </li>
-                        }
-                    </ul>
+                        </ul>
+                    }
                 </div>
             </div>
         </nav>
 
-        <!-- Banner Solo para Home -->
+        <!-- Banner Solo para Home - CORREGIDO -->
         @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
         {
             <section class="banner_main">
@@ -114,13 +157,11 @@
                                                 <p>En <strong>Ferretería El Duro</strong> nos especializamos en proveer herramientas de calidad, materiales de construcción y todo lo necesario para sus proyectos. Contamos con asesoramiento técnico profesional y un amplio stock permanente para satisfacer todas sus necesidades.</p>
                                                 @if (User.Identity?.IsAuthenticated == true)
                                                 {
-                                                    <!-- Usuario autenticado - enlaces normales -->
                                                     <a class="read_more conatct_btn" asp-controller="Venta" asp-action="Index" role="button">VER VENTAS</a>
                                                     <a class="read_more conatct_btn" asp-controller="Productos" asp-action="Index" role="button">VER PRODUCTOS</a>
                                                 }
                                                 else
                                                 {
-                                                    <!-- Usuario NO autenticado - enlaces que redirigen al login -->
                                                     <a class="read_more conatct_btn" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Url.Action("Index", "Venta")" role="button">VER VENTAS</a>
                                                     <a class="read_more conatct_btn" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Url.Action("Index", "Productos")" role="button">VER PRODUCTOS</a>
                                                 }
@@ -167,49 +208,10 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS EN ORDEN CORRECTO -->
-    <!-- 1. jQuery (SOLO UNA VERSIÓN) -->
+    <!-- SCRIPTS -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-
-    <!-- 2. Bootstrap 5 (PRINCIPAL) -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- 3. Scripts del tema (secundarios) -->
-    <script src="~/js/jquery.mCustomScrollbar.concat.min.js" asp-append-version="true"></script>
-    <script src="~/js/custom.js" asp-append-version="true"></script>
-
-    <!-- 4. Scripts de terceros -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-
-    <!-- 5. Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- 6. Scripts de la aplicación -->
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <!-- 7. Scripts específicos de cada vista -->
     @await RenderSectionAsync("Scripts", required: false)
-
-    <!-- Script para prevenir conflictos -->
-    <script>
-        // Prevenir conflictos entre jQuery versions
-        if (typeof jQuery === 'undefined') {
-            console.warn('jQuery no está cargado correctamente');
-        } else {
-            console.log('jQuery cargado:', jQuery.fn.jquery);
-        }
-
-        // Verificar que Bootstrap 5 esté funcionando
-        $(document).ready(function() {
-            console.log('Documento listo - Bootstrap 5 funcionando');
-
-            // Forzar la inicialización de componentes Bootstrap si es necesario
-            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
-            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-                return new bootstrap.Dropdown(dropdownToggleEl)
-            });
-        });
-    </script>
 </body>
 </html>

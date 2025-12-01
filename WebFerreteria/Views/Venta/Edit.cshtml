@@ -2,186 +2,609 @@
 
 @{
     ViewData["Title"] = "Editar Venta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Editar Venta</h2>
-<hr />
+<!-- Estilos específicos para el formulario de edición -->
+<style>
+    .edit-container {
+        background: url('/images/banner1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: calc(100vh - 140px);
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-<form asp-action="Edit" method="post" id="ventaForm">
-    @Html.AntiForgeryToken()
-    <input type="hidden" asp-for="Id" />
+    .edit-content {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
+        width: 100%;
+        max-width: 1200px;
+        margin: 20px;
+    }
 
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f3cf2d;
+    }
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group mb-3">
-                <label asp-for="IdCliente" class="form-label">Cliente *</label>
-                <div class="input-group">
-                    <select asp-for="IdCliente" class="form-control" id="selectCliente" required>
-                        <option value="">-- Seleccionar Cliente --</option>
-                        @foreach (var cliente in ViewBag.IdCliente as SelectList)
-                        {
-                            <option value="@cliente.Value">@cliente.Text</option>
-                        }
-                    </select>
-                    <input type="text" class="form-control" id="buscadorCliente" placeholder="Buscar cliente...">
+        .form-header h2 {
+            color: #212120;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #212120;
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+
+    .form-control {
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 12px 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #fff;
+    }
+
+        .form-control:focus {
+            border-color: #f3cf2d;
+            box-shadow: 0 0 0 0.2rem rgba(243, 207, 45, 0.25);
+            background: #fff;
+            transform: translateY(-1px);
+        }
+
+    textarea.form-control {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .btn-warning {
+        background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #e0a800 0%, #d39e00 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+        }
+
+    .btn-cancel {
+        background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 25px;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+        .btn-cancel:hover {
+            background: linear-gradient(135deg, #5a6268 0%, #545b62 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+    .btn-info {
+        background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 25px;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+        .btn-info:hover {
+            background: linear-gradient(135deg, #138496 0%, #117a8b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3);
+            color: white;
+        }
+
+    .btn-success {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 25px;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+    .btn-outline-secondary {
+        border: 2px solid #6c757d;
+        border-radius: 8px;
+        color: #6c757d;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-secondary:hover {
+            background: #6c757d;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    .validation-summary {
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+
+        .validation-summary ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+    .field-validation-error {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 5px;
+        display: block;
+        font-weight: 500;
+    }
+
+    .info-box {
+        background: #e9ecef;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-left: 4px solid #f3cf2d;
+    }
+
+        .info-box p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+
+    .back-link {
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+        .back-link a {
+            color: #212120;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .back-link a:hover {
+                color: #f3cf2d;
+                transform: translateX(-5px);
+            }
+
+    /* Tarjetas mejoradas */
+    .card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        margin-bottom: 25px;
+        border-left: 4px solid #f3cf2d;
+    }
+
+    .card-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-bottom: 2px solid #f3cf2d;
+        border-radius: 15px 15px 0 0 !important;
+        padding: 20px;
+    }
+
+        .card-header h5 {
+            color: #212120;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+    .card-body {
+        padding: 25px;
+    }
+
+    /* Tablas mejoradas */
+    .table {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+        .table thead th {
+            background: linear-gradient(135deg, #212120 0%, #2c2c2c 100%);
+            color: white;
+            border: none;
+            padding: 15px 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+        }
+
+        .table tbody td {
+            padding: 12px;
+            vertical-align: middle;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+            .table tbody tr:hover {
+                background-color: rgba(243, 207, 45, 0.1);
+            }
+
+    /* Badges mejorados */
+    .badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.75rem;
+    }
+
+    .bg-success {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+    }
+
+    .bg-warning {
+        background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%) !important;
+    }
+
+    .bg-danger {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+    }
+
+    .bg-info {
+        background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+    }
+
+    /* Modal mejorado */
+    .modal-content {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+    }
+
+    .modal-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-bottom: 2px solid #f3cf2d;
+        border-radius: 15px 15px 0 0;
+        padding: 20px;
+    }
+
+        .modal-header h5 {
+            color: #212120;
+            font-weight: 600;
+            margin: 0;
+        }
+
+    .modal-body {
+        padding: 25px;
+    }
+
+    .modal-footer {
+        border-top: 1px solid #e0e0e0;
+        border-radius: 0 0 15px 15px;
+        padding: 20px;
+    }
+
+    /* Input group mejorado */
+    .input-group .form-control:focus {
+        transform: none;
+    }
+
+    .input-group-text {
+        background: #f8f9fa;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .edit-content {
+            padding: 25px;
+            margin: 15px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .table-responsive {
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+<div class="edit-container">
+    <div class="edit-content">
+        <!-- Encabezado del formulario -->
+        <div class="form-header">
+            <h2><i class="fas fa-edit me-2"></i>Editar Venta</h2>
+            <div class="subtitle">Modifique los datos de la venta existente</div>
+        </div>
+
+        <!-- Información de registro -->
+        <div class="info-box">
+            <p><strong><i class="fas fa-user me-2"></i>Registrado por:</strong> @Model.UsuarioRegistro</p>
+            <p><strong><i class="fas fa-calendar me-2"></i>Fecha de registro:</strong> @Model.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</p>
+        </div>
+
+        <form asp-action="Edit" method="post" id="ventaForm">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Resumen de validación -->
+            <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+            <!-- Información del cliente -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-user me-2"></i>Información del Cliente
+                    </h5>
                 </div>
-                <div id="resultadosCliente" class="dropdown-menu" style="display: none; width: 100%; max-height: 200px; overflow-y: auto;"></div>
-                <span asp-validation-for="IdCliente" class="text-danger"></span>
-            </div>
-        </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="IdCliente" class="form-label">
+                                    <i class="fas fa-users me-2"></i>Cliente *
+                                </label>
+                                <div class="input-group">
+                                    <select asp-for="IdCliente" class="form-control" id="selectCliente" required>
+                                        <option value="">-- Seleccionar Cliente --</option>
+                                        @foreach (var cliente in ViewBag.IdCliente as SelectList)
+                                        {
+                                            <option value="@cliente.Value">@cliente.Text</option>
+                                        }
+                                    </select>
+                                    <input type="text" class="form-control" id="buscadorCliente" placeholder="Buscar cliente...">
+                                </div>
+                                <div id="resultadosCliente" class="dropdown-menu" style="display: none; width: 100%; max-height: 200px; overflow-y: auto;"></div>
+                                <span asp-validation-for="IdCliente" class="field-validation-error"></span>
+                            </div>
+                        </div>
 
-        <div class="col-md-6" style="display: none;">
-            <div class="form-group mb-3">
-                <label asp-for="IdUsuario" class="form-label">Usuario</label>
-                <select asp-for="IdUsuario" class="form-control">
-                    <option value="1">Usuario por defecto</option>
-                    @foreach (var usuario in ViewBag.IdUsuario as SelectList)
-                    {
-                        <option value="@usuario.Value">@usuario.Text</option>
-                    }
-                </select>
-                <span asp-validation-for="IdUsuario" class="text-danger"></span>
-            </div>
-        </div>
-    </div>
+                        <div class="col-md-6" style="display: none;">
+                            <div class="form-group">
+                                <label asp-for="IdUsuario" class="form-label">
+                                    <i class="fas fa-user-tag me-2"></i>Usuario
+                                </label>
+                                <select asp-for="IdUsuario" class="form-control">
+                                    <option value="1">Usuario por defecto</option>
+                                    @foreach (var usuario in ViewBag.IdUsuario as SelectList)
+                                    {
+                                        <option value="@usuario.Value">@usuario.Text</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="IdUsuario" class="field-validation-error"></span>
+                            </div>
+                        </div>
+                    </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group mb-3">
-                <label asp-for="TipoEntrega" class="form-label">Tipo de Entrega</label>
-                <select asp-for="TipoEntrega" class="form-control" id="tipoEntrega">
-                    <option value="Recoger en tienda">Recoger en tienda</option>
-                    <option value="A domicilio">A domicilio</option>
-                </select>
-                <span asp-validation-for="TipoEntrega" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group mb-3" id="botonDatosContainer">
-                <label class="form-label">&nbsp;</label>
-                <button type="button" class="btn btn-outline-secondary w-100" id="btnDatosCliente" data-bs-toggle="modal" data-bs-target="#datosClienteModal" disabled>
-                    <i class="fa fa-address-card"></i> Llenar Datos de Contacto
-                </button>
-                <small class="form-text text-muted">
-                    <span id="mensajeTipoEntrega">Seleccione "A domicilio" y un cliente para habilitar</span>
-                </small>
-            </div>
-        </div>
-    </div>
-
-    <div class="card mb-4">
-        <div class="card-header">
-            <h5 class="card-title mb-0">
-                <i class="fa fa-boxes"></i> Lista de Productos Disponibles
-            </h5>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group mb-3">
-                        <label class="form-label">Buscar Producto</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="buscadorProducto" placeholder="Escriba el nombre del producto para filtrar...">
-                            <button class="btn btn-outline-secondary" type="button" id="btnLimpiarBusqueda">
-                                <i class="fa fa-times"></i> Limpiar
-                            </button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="TipoEntrega" class="form-label">
+                                    <i class="fas fa-truck me-2"></i>Tipo de Entrega
+                                </label>
+                                <select asp-for="TipoEntrega" class="form-control" id="tipoEntrega">
+                                    <option value="Recoger en tienda">Recoger en tienda</option>
+                                    <option value="A domicilio">A domicilio</option>
+                                </select>
+                                <span asp-validation-for="TipoEntrega" class="field-validation-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" id="botonDatosContainer">
+                                <label class="form-label">&nbsp;</label>
+                                <button type="button" class="btn btn-info w-100" id="btnDatosCliente" data-bs-toggle="modal" data-bs-target="#datosClienteModal" disabled>
+                                    <i class="fas fa-address-card me-2"></i> Llenar Datos de Contacto
+                                </button>
+                                <small class="form-text text-muted mt-1">
+                                    <i class="fas fa-lightbulb me-1"></i>
+                                    <span id="mensajeTipoEntrega">Seleccione "A domicilio" y un cliente para habilitar</span>
+                                </small>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-3">
-                <div class="table-responsive">
-                    <table class="table table-sm table-hover">
-                        <thead>
-                            <tr>
-                                <th>Producto</th>
-                                <th>Precio</th>
-                                <th>Stock</th>
-                                <th>Cantidad</th>
-                                <th>Subtotal</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody id="cuerpoProductos">
-                            <tr>
-                                <td colspan="6" class="text-center text-muted py-4">
-                                    <i class="fa fa-spinner fa-spin"></i> Cargando productos...
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <!-- Productos disponibles -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-boxes me-2"></i> Lista de Productos Disponibles
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-search me-2"></i>Buscar Producto
+                                </label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="buscadorProducto" placeholder="Escriba el nombre del producto para filtrar...">
+                                    <button class="btn btn-outline-secondary" type="button" id="btnLimpiarBusqueda">
+                                        <i class="fas fa-times me-2"></i> Limpiar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Precio</th>
+                                        <th>Stock</th>
+                                        <th>Cantidad</th>
+                                        <th>Subtotal</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpoProductos">
+                                    <tr>
+                                        <td colspan="6" class="text-center text-muted py-4">
+                                            <i class="fas fa-spinner fa-spin me-2"></i> Cargando productos...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="card mb-4">
-        <div class="card-header">
-            <h5 class="card-title mb-0">
-                <i class="fa fa-shopping-cart"></i> Carrito de Compras
-            </h5>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Producto</th>
-                            <th width="100">Precio Unit.</th>
-                            <th width="120">Cantidad</th>
-                            <th width="120">Subtotal</th>
-                            <th width="80">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cuerpoCarrito">
-                        <tr id="carritoVacio">
-                            <td colspan="5" class="text-center text-muted py-4">
-                                <i class="fa fa-shopping-cart fa-2x mb-2"></i>
-                                <br>El carrito está vacío
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tfoot class="table-primary">
-                        <tr>
-                            <td colspan="3" class="text-end"><strong>Total General:</strong></td>
-                            <td colspan="2">
-                                <strong id="totalVenta">00.00 Bs.</strong>
-                                <input type="hidden" asp-for="Total" id="inputTotal" value="0" />
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
+            <!-- Carrito de compras -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-shopping-cart me-2"></i> Carrito de Compras
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Producto</th>
+                                    <th width="100">Precio Unit.</th>
+                                    <th width="120">Cantidad</th>
+                                    <th width="120">Subtotal</th>
+                                    <th width="80">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpoCarrito">
+                                <tr id="carritoVacio">
+                                    <td colspan="5" class="text-center text-muted py-4">
+                                        <i class="fas fa-shopping-cart fa-2x mb-2"></i>
+                                        <br>El carrito está vacío
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="table-primary">
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Total General:</strong></td>
+                                    <td colspan="2">
+                                        <strong id="totalVenta">00.00 Bs.</strong>
+                                        <input type="hidden" asp-for="Total" id="inputTotal" value="0" />
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
             </div>
+
+            <!-- Botones de acción -->
+            <div class="form-group">
+                <div class="buttons-container">
+                    <button type="submit" class="btn-warning" id="btnGuardarVenta">
+                        <i class="fas fa-save me-2"></i>Actualizar Venta
+                    </button>
+                    <a asp-action="Index" class="btn-cancel">
+                        <i class="fas fa-times me-2"></i>Cancelar
+                    </a>
+                </div>
+            </div>
+        </form>
+
+        <!-- Enlace volver -->
+        <div class="back-link">
+            <a asp-action="Index">
+                <i class="fas fa-arrow-left me-2"></i> Volver al listado de ventas
+            </a>
         </div>
     </div>
+</div>
 
-    <button type="submit" class="btn btn-success" id="btnGuardarVenta">
-        <i class="fa fa-save"></i> Actualizar Venta
-    </button>
-    <a asp-action="Index" class="btn btn-secondary">
-        <i class="fa fa-arrow-left"></i> Cancelar
-    </a>
-</form>
-
+<!-- Modal de datos de contacto -->
 <div class="modal fade" id="datosClienteModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Datos de Contacto para Entrega a Domicilio</h5>
+                <h5 class="modal-title">
+                    <i class="fas fa-address-card me-2"></i>Datos de Contacto para Entrega a Domicilio
+                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <div class="alert alert-info">
-                    <i class="fa fa-info-circle"></i> Complete los datos de contacto para la entrega a domicilio
+                    <i class="fas fa-info-circle me-2"></i> Complete los datos de contacto para la entrega a domicilio
                 </div>
 
                 <div id="clienteInfo" class="mb-3">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">Cliente Seleccionado</h6>
+                            <h6 class="card-title">
+                                <i class="fas fa-user me-2"></i>Cliente Seleccionado
+                            </h6>
                             <p class="mb-1" id="nombreClienteModal">-</p>
                             <p class="mb-1"><small class="text-muted" id="infoClienteActual">Sin datos de contacto actuales</small></p>
                         </div>
@@ -190,12 +613,16 @@
 
                 <form id="formDatosContacto">
                     <div class="form-group mb-3">
-                        <label class="form-label">Teléfono de Contacto *</label>
+                        <label class="form-label">
+                            <i class="fas fa-phone me-2"></i>Teléfono de Contacto *
+                        </label>
                         <input type="text" class="form-control" id="telefonoModal" placeholder="Ingrese teléfono de contacto" required maxlength="20" />
                         <div class="invalid-feedback">Por favor ingrese un teléfono de contacto</div>
                     </div>
                     <div class="form-group mb-3">
-                        <label class="form-label">Dirección de Entrega *</label>
+                        <label class="form-label">
+                            <i class="fas fa-map-marker-alt me-2"></i>Dirección de Entrega *
+                        </label>
                         <textarea class="form-control" id="direccionModal" rows="3" placeholder="Ingrese la dirección completa para la entrega" required maxlength="200"></textarea>
                         <div class="invalid-feedback">Por favor ingrese una dirección de entrega</div>
                     </div>
@@ -203,9 +630,11 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-2"></i>Cancelar
+                </button>
                 <button type="button" class="btn btn-primary" id="btnGuardarDatosContacto">
-                    <i class="fa fa-save"></i> Guardar Datos
+                    <i class="fas fa-save me-2"></i> Guardar Datos
                 </button>
             </div>
         </div>
@@ -213,11 +642,10 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 
     <script>
+        // Mantener todo el JavaScript original sin cambios
         let carrito = [];
         let timeoutBusqueda;
         let todosLosProductos = [];
@@ -253,7 +681,7 @@
                                 // Si ya tiene teléfono y dirección, marcar como completado
                                 if (ventaData.cliente.telefono && ventaData.cliente.direccion) {
                                     datosContactoGuardados = true;
-                                    $('#btnDatosCliente').html('<i class="fa fa-check"></i> Datos Completados');
+                                    $('#btnDatosCliente').html('<i class="fas fa-check me-2"></i> Datos Completados');
                                     $('#btnDatosCliente').removeClass('btn-info').addClass('btn-success');
                                 }
                             }
@@ -397,7 +825,7 @@
         }
 
         function resetBotonDatos() {
-            $('#btnDatosCliente').html('<i class="fa fa-address-card"></i> Llenar Datos de Contacto');
+            $('#btnDatosCliente').html('<i class="fas fa-address-card me-2"></i> Llenar Datos de Contacto');
             $('#btnDatosCliente').removeClass('btn-success').addClass('btn-info');
         }
 
@@ -496,7 +924,7 @@
         }
 
         function mostrarConfirmacionDatos() {
-            $('#btnDatosCliente').html('<i class="fa fa-check"></i> Datos Completados');
+            $('#btnDatosCliente').html('<i class="fas fa-check me-2"></i> Datos Completados');
             $('#btnDatosCliente').removeClass('btn-info').addClass('btn-success');
             alert('Datos de contacto guardados correctamente');
         }
@@ -580,7 +1008,7 @@
                                         data-nombre="${producto.nombre}"
                                         data-precio="${producto.precio}"
                                         data-stock="${producto.stock}">
-                                    <i class="fa fa-cart-plus"></i> Agregar
+                                    <i class="fas fa-cart-plus me-1"></i> Agregar
                                 </button>
                             </td>
                         </tr>
@@ -732,7 +1160,7 @@
                             <td class="subtotal-item">${subtotal.toFixed(2)} Bs.</td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-danger" onclick="eliminarDelCarrito(${index})">
-                                    <i class="fa fa-trash"></i>
+                                    <i class="fas fa-trash"></i>
                                 </button>
                             </td>
                         </tr>

@@ -2,62 +2,346 @@
 
 @{
     ViewData["Title"] = "Eliminar Venta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Eliminar Venta</h2>
-<hr />
+<!-- Estilos específicos para la página de eliminación -->
+<style>
+    .delete-container {
+        background: url('/images/banner1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: calc(100vh - 140px);
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-<div class="alert alert-warning">
-    <h5>¿Está seguro que desea eliminar esta venta?</h5>
-    <p class="mb-0">Esta acción no se puede deshacer. Se realizará una eliminación lógica.</p>
-</div>
+    .delete-content {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
+        width: 100%;
+        max-width: 800px;
+        margin: 20px;
+    }
 
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Información de la Venta</h5>
+    .delete-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #dc3545;
+    }
 
-        <dl class="row">
-            <dt class="col-sm-3">Cliente:</dt>
-            <dd class="col-sm-9">@Model.IdClienteNavigation?.Nombre</dd>
+        .delete-header h2 {
+            color: #dc3545;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-            <dt class="col-sm-3">Usuario:</dt>
-            <dd class="col-sm-9">@Model.IdUsuarioNavigation?.Nombre</dd>
+    .warning-alert {
+        background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+        border: 2px solid #dc3545;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
 
-            <dt class="col-sm-3">Total:</dt>
-            <dd class="col-sm-9">@Model.Total.ToString("Bs")</dd>
+        .warning-alert i {
+            font-size: 3rem;
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
 
-            <dt class="col-sm-3">Tipo de Entrega:</dt>
-            <dd class="col-sm-9">@Model.TipoEntrega</dd>
+        .warning-alert h3 {
+            color: #721c24;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
 
-            <dt class="col-sm-3">Fecha Registro:</dt>
-            <dd class="col-sm-9">@Model.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</dd>
+        .warning-alert p {
+            color: #721c24;
+            margin: 0;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
 
-            <dt class="col-sm-3">Usuario Registro:</dt>
-            <dd class="col-sm-9">@Model.UsuarioRegistro</dd>
+    .info-card {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-left: 4px solid #dc3545;
+    }
 
-            <dt class="col-sm-3">Estado:</dt>
-            <dd class="col-sm-9">
-                @if (Model.Estado == 1)
-                {
-                    <span class="badge bg-success">Activo</span>
-                }
-                else
-                {
-                    <span class="badge bg-danger">Inactivo</span>
-                }
-            </dd>
-        </dl>
+    .info-item {
+        margin-bottom: 15px;
+    }
+
+    .info-label {
+        font-weight: 600;
+        color: #212120;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .info-value {
+        font-size: 1.2rem;
+        color: #333;
+        font-weight: 500;
+        padding: 8px 0;
+    }
+
+    .badge {
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+    }
+
+    .bg-success {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+    }
+
+    .bg-danger {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+    }
+
+    .bg-warning {
+        background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%) !important;
+    }
+
+    .bg-info {
+        background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+    }
+
+    .actions-section {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .btn-delete {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 30px;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-right: 15px;
+    }
+
+        .btn-delete:hover {
+            background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+        }
+
+    .btn-cancel {
+        background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 25px;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .btn-cancel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+    .consequences-warning {
+        background: #fff3cd;
+        border: 2px solid #ffc107;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+        .consequences-warning h6 {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .consequences-warning ul {
+            color: #856404;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .consequences-warning li {
+            margin-bottom: 5px;
+        }
+
+    .total-amount {
+        color: #dc3545;
+        font-weight: 600;
+        font-size: 1.3rem;
+    }
+
+    @@media (max-width: 768px) {
+        .delete-content {
+            padding: 25px;
+            margin: 15px;
+        }
+
+        .actions-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-delete, .btn-cancel {
+            width: 100%;
+            justify-content: center;
+            margin-right: 0;
+        }
+    }
+</style>
+
+<div class="delete-container">
+    <div class="delete-content">
+        <!-- Encabezado -->
+        <div class="delete-header">
+            <h2><i class="fas fa-trash-alt me-2"></i>Eliminar Venta</h2>
+        </div>
+
+        <!-- Alerta de advertencia -->
+        <div class="warning-alert">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>¡Advertencia: Acción irreversible!</h3>
+            <p>Está a punto de eliminar permanentemente esta venta del sistema.</p>
+        </div>
+
+        <!-- Información de la Venta -->
+        <div class="info-card">
+            <h5 class="mb-3" style="color: #dc3545;">
+                <i class="fas fa-shopping-cart me-2"></i>Venta a Eliminar
+            </h5>
+            <div class="info-item">
+                <div class="info-label">Cliente</div>
+                <div class="info-value">@Model.IdClienteNavigation?.Nombre</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Vendedor</div>
+                <div class="info-value">@Model.IdUsuarioNavigation?.Nombre</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Total de Venta</div>
+                <div class="info-value total-amount">@Model.Total.ToString("N2") Bs.</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Tipo de Entrega</div>
+                <div class="info-value">
+                    @if (Model.TipoEntrega == "A domicilio")
+                    {
+                        <span class="badge bg-warning">
+                            <i class="fas fa-truck me-1"></i>@Model.TipoEntrega
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-info">
+                            <i class="fas fa-store me-1"></i>@Model.TipoEntrega
+                        </span>
+                    }
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Fecha de Registro</div>
+                <div class="info-value">@Model.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Registrado por</div>
+                <div class="info-value">@Model.UsuarioRegistro</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Estado Actual</div>
+                <div class="info-value">
+                    @if (Model.Estado == 1)
+                    {
+                        <span class="badge bg-success">
+                            <i class="fas fa-check-circle me-1"></i>Activo
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">
+                            <i class="fas fa-times-circle me-1"></i>Inactivo
+                        </span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Advertencia de Consecuencias -->
+        <div class="consequences-warning">
+            <h6><i class="fas fa-exclamation-circle me-2"></i>Consecuencias de esta acción:</h6>
+            <ul>
+                <li>La venta será marcada como inactiva en el sistema</li>
+                <li>No podrá recuperar la información de la venta</li>
+                <li>El historial de ventas se verá afectado</li>
+                <li>Los reportes y estadísticas podrían cambiar</li>
+                <li>Esta acción no se puede deshacer</li>
+            </ul>
+        </div>
+
+        <!-- Formulario de Eliminación -->
+        <form asp-action="Delete" method="post" id="deleteForm">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Botones de Acción -->
+            <div class="actions-section">
+                <button type="submit" class="btn-delete" onclick="return confirmDelete()">
+                    <i class="fas fa-trash-alt"></i> Confirmar Eliminación
+                </button>
+                <a asp-action="Index" class="btn-cancel">
+                    <i class="fas fa-times"></i> Cancelar
+                </a>
+            </div>
+        </form>
     </div>
 </div>
 
-<form asp-action="Delete" method="post" class="mt-3">
-    @Html.AntiForgeryToken()
-    <input type="hidden" asp-for="Id" />
+@section Scripts {
+    <script>
+        function confirmDelete() {
+            const clienteName = '@Model.IdClienteNavigation?.Nombre';
+            const totalVenta = '@Model.Total.ToString("N2")';
+            return confirm(`¿ESTÁ ABSOLUTAMENTE SEGURO que desea eliminar la venta del cliente "${clienteName}" por un total de ${totalVenta} Bs.?\n\n Esta acción es permanente y no se puede deshacer.`);
+        }
 
-    <button type="submit" class="btn btn-danger">
-        <i class="fa fa-trash"></i> Confirmar Eliminación
-    </button>
-    <a asp-action="Index" class="btn btn-secondary">
-        <i class="fa fa-arrow-left"></i> Cancelar
-    </a>
-</form>
+        document.getElementById('deleteForm').addEventListener('submit', function(e) {
+            const clienteName = '@Model.IdClienteNavigation?.Nombre';
+            if (!confirm(`¿CONFIRMA LA ELIMINACIÓN de la venta del cliente "${clienteName}"?`)) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+            }
+        });
+    </script>
+}
